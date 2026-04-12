@@ -1,0 +1,18 @@
+# Notion token / secrets
+.env
+
+# Obsidian workspace state (per-device, not shareable)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Go build cache (binary is intentionally committed)
+.forge/tools/forge-sync/forge-sync
+.forge/tools/forge-sync/forge-sync.exe
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+.idea
+.vscode
