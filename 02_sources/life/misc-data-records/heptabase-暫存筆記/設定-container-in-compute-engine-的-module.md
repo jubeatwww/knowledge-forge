@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2921cb737bce802286c3d70f638facfe
-source_url: 'https://www.notion.so/Container-in-Compute-Engine-module-2921cb737bce802286c3d70f638facfe'
+source_url: 'https://app.notion.com/p/Container-in-Compute-Engine-module-2921cb737bce802286c3d70f638facfe'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `misc-data-records`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Container-in-Compute-Engine-module-2921cb737bce802286c3d70f638facfe`
+- Source URL: `https://app.notion.com/p/Container-in-Compute-Engine-module-2921cb737bce802286c3d70f638facfe`
 - Parent: [heptabase-暫存筆記](../heptabase-暫存筆記.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/life/misc-data-records/heptabase-暫存筆記/設定-container-in-compute-engine-的-module.md`
+- `..\..\..\..\90_cache\notion\life\misc-data-records\heptabase-暫存筆記\設定-container-in-compute-engine-的-module.md`
 <!-- forge-sync:end -->

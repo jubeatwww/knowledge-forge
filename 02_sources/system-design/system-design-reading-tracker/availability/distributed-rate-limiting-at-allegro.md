@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: eb5fadd63d214c00b0167725f0a2104a
-source_url: 'https://www.notion.so/Distributed-Rate-Limiting-at-Allegro-eb5fadd63d214c00b0167725f0a2104a'
+source_url: 'https://app.notion.com/p/Distributed-Rate-Limiting-at-Allegro-eb5fadd63d214c00b0167725f0a2104a'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Distributed-Rate-Limiting-at-Allegro-eb5fadd63d214c00b0167725f0a2104a`
+- Source URL: `https://app.notion.com/p/Distributed-Rate-Limiting-at-Allegro-eb5fadd63d214c00b0167725f0a2104a`
 - Parent: [availability](../availability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/availability/distributed-rate-limiting-at-allegro.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\availability\distributed-rate-limiting-at-allegro.md`
 <!-- forge-sync:end -->

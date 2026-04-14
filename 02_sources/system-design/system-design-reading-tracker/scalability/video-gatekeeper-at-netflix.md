@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: e0d8d3fba82f437a87fd31ad505533ba
-source_url: 'https://app.notion.com/p/Video-Gatekeeper-at-Netflix-e0d8d3fba82f437a87fd31ad505533ba'
+source_url: 'https://www.notion.so/Video-Gatekeeper-at-Netflix-e0d8d3fba82f437a87fd31ad505533ba'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Video-Gatekeeper-at-Netflix-e0d8d3fba82f437a87fd31ad505533ba`
+- Source URL: `https://www.notion.so/Video-Gatekeeper-at-Netflix-e0d8d3fba82f437a87fd31ad505533ba`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/video-gatekeeper-at-netflix.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\video-gatekeeper-at-netflix.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: caa1ce81f07d4564b8ca359eea2af5d4
-source_url: 'https://app.notion.com/p/Tracing-Distributed-Systems-at-Showmax-caa1ce81f07d4564b8ca359eea2af5d4'
+source_url: 'https://www.notion.so/Tracing-Distributed-Systems-at-Showmax-caa1ce81f07d4564b8ca359eea2af5d4'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Tracing-Distributed-Systems-at-Showmax-caa1ce81f07d4564b8ca359eea2af5d4`
+- Source URL: `https://www.notion.so/Tracing-Distributed-Systems-at-Showmax-caa1ce81f07d4564b8ca359eea2af5d4`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/tracing-distributed-systems-at-showmax.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\tracing-distributed-systems-at-showmax.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2921cb737bce8093b16cf6837228f89d
-source_url: 'https://www.notion.so/GO-2921cb737bce8093b16cf6837228f89d'
+source_url: 'https://app.notion.com/p/GO-2921cb737bce8093b16cf6837228f89d'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `misc-data-records`
 - Source type: `page`
-- Source URL: `https://www.notion.so/GO-2921cb737bce8093b16cf6837228f89d`
+- Source URL: `https://app.notion.com/p/GO-2921cb737bce8093b16cf6837228f89d`
 - Parent: [heptabase-暫存筆記](../heptabase-暫存筆記.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/life/misc-data-records/heptabase-暫存筆記/go的字串複製.md`
+- `..\..\..\..\90_cache\notion\life\misc-data-records\heptabase-暫存筆記\go的字串複製.md`
 <!-- forge-sync:end -->

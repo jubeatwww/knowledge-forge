@@ -5,7 +5,6 @@ tags:
   - home
   - hub
 ---
-
 # Knowledge Forge
 
 這個 vault 是本地知識層，不是原始資料層。
@@ -30,6 +29,7 @@ tags:
 6. `90_cache/`
 
 ## Domains
+- [[_now]]
 - [[system-design]]
 - [[frontend]]
 - [[english]]
@@ -55,7 +55,8 @@ tags:
 - 真正要長期維護的內容放在 `03_notes/` 和 `04_playbooks/`
 
 ## Current Focus
-- backend interview + system design
-- english speaking
-- trading discipline
-- daily life playbooks
+- early job onboarding
+- life management and stable execution
+- health management baseline
+- psychological state management
+- domain ramp-up

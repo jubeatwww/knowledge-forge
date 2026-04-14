@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/在-rabbitmq-和-kafka-之間-哪一個更適合與大數據-流計算生態-如-flink-整合-為什麼.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\在-rabbitmq-和-kafka-之間-哪一個更適合與大數據-流計算生態-如-flink-整合-為什麼.md`
 <!-- forge-sync:end -->

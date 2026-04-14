@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/什麼是-無狀態-stateless-應用程式-為什麼在設計可擴展的系統時-保持無狀態是如此重要.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\什麼是-無狀態-stateless-應用程式-為什麼在設計可擴展的系統時-保持無狀態是如此重要.md`
 <!-- forge-sync:end -->

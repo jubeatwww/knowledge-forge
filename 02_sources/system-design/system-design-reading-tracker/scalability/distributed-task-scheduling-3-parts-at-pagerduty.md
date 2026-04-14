@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 21afc912d94f401783ce62faf1609ae2
-source_url: 'https://app.notion.com/p/Distributed-Task-Scheduling-3-parts-at-PagerDuty-21afc912d94f401783ce62faf1609ae2'
+source_url: 'https://www.notion.so/Distributed-Task-Scheduling-3-parts-at-PagerDuty-21afc912d94f401783ce62faf1609ae2'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Distributed-Task-Scheduling-3-parts-at-PagerDuty-21afc912d94f401783ce62faf1609ae2`
+- Source URL: `https://www.notion.so/Distributed-Task-Scheduling-3-parts-at-PagerDuty-21afc912d94f401783ce62faf1609ae2`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/distributed-task-scheduling-3-parts-at-pagerduty.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\distributed-task-scheduling-3-parts-at-pagerduty.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: b55f04c907c543ae88355ad7d114febd
-source_url: 'https://app.notion.com/p/Edge-Authentication-and-Token-Agnostic-Identity-Propagation-at-Netflix-b55f04c907c543ae88355ad7d114febd'
+source_url: 'https://www.notion.so/Edge-Authentication-and-Token-Agnostic-Identity-Propagation-at-Netflix-b55f04c907c543ae88355ad7d114febd'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Edge-Authentication-and-Token-Agnostic-Identity-Propagation-at-Netflix-b55f04c907c543ae88355ad7d114febd`
+- Source URL: `https://www.notion.so/Edge-Authentication-and-Token-Agnostic-Identity-Propagation-at-Netflix-b55f04c907c543ae88355ad7d114febd`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/edge-authentication-and-token-agnostic-identity-propagation-at-netflix.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\edge-authentication-and-token-agnostic-identity-propagation-at-netflix.md`
 <!-- forge-sync:end -->

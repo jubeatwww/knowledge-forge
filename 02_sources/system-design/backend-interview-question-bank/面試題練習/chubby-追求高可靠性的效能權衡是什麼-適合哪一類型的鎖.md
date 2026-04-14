@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/chubby-追求高可靠性的效能權衡是什麼-適合哪一類型的鎖.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\chubby-追求高可靠性的效能權衡是什麼-適合哪一類型的鎖.md`
 <!-- forge-sync:end -->

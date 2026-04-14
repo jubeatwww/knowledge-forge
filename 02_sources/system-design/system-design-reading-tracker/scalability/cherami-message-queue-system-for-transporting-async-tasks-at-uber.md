@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 7f46ac75e44f42749388334205187bec
-source_url: 'https://app.notion.com/p/Cherami-Message-Queue-System-for-Transporting-Async-Tasks-at-Uber-7f46ac75e44f42749388334205187bec'
+source_url: 'https://www.notion.so/Cherami-Message-Queue-System-for-Transporting-Async-Tasks-at-Uber-7f46ac75e44f42749388334205187bec'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Cherami-Message-Queue-System-for-Transporting-Async-Tasks-at-Uber-7f46ac75e44f42749388334205187bec`
+- Source URL: `https://www.notion.so/Cherami-Message-Queue-System-for-Transporting-Async-Tasks-at-Uber-7f46ac75e44f42749388334205187bec`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/cherami-message-queue-system-for-transporting-async-tasks-at-uber.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\cherami-message-queue-system-for-transporting-async-tasks-at-uber.md`
 <!-- forge-sync:end -->

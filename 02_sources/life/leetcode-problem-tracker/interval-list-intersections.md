@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2701cb737bce81c7b4fcf291b85de922
-source_url: 'https://www.notion.so/Interval-List-Intersections-2701cb737bce81c7b4fcf291b85de922'
+source_url: 'https://app.notion.com/p/Interval-List-Intersections-2701cb737bce81c7b4fcf291b85de922'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Interval-List-Intersections-2701cb737bce81c7b4fcf291b85de922`
+- Source URL: `https://app.notion.com/p/Interval-List-Intersections-2701cb737bce81c7b4fcf291b85de922`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/interval-list-intersections.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\interval-list-intersections.md`
 <!-- forge-sync:end -->

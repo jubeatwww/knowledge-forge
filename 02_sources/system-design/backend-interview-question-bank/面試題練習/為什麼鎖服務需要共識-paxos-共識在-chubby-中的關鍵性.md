@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/為什麼鎖服務需要共識-paxos-共識在-chubby-中的關鍵性.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\為什麼鎖服務需要共識-paxos-共識在-chubby-中的關鍵性.md`
 <!-- forge-sync:end -->

@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/image-recovery-at-scale-using-s3-versioning-at-trivago.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\image-recovery-at-scale-using-s3-versioning-at-trivago.md`
 <!-- forge-sync:end -->

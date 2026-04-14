@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/為何強一致場景-金融支付-可能選-cassandra-來做鎖.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\為何強一致場景-金融支付-可能選-cassandra-來做鎖.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2921cb737bce8081b2f0cb5212769de2
-source_url: 'https://www.notion.so/Kubernetes-Service-ClusterIP-2921cb737bce8081b2f0cb5212769de2'
+source_url: 'https://app.notion.com/p/Kubernetes-Service-ClusterIP-2921cb737bce8081b2f0cb5212769de2'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `misc-data-records`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Kubernetes-Service-ClusterIP-2921cb737bce8081b2f0cb5212769de2`
+- Source URL: `https://app.notion.com/p/Kubernetes-Service-ClusterIP-2921cb737bce8081b2f0cb5212769de2`
 - Parent: [heptabase-暫存筆記](../heptabase-暫存筆記.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/life/misc-data-records/heptabase-暫存筆記/kubernetes-service-clusterip.md`
+- `..\..\..\..\90_cache\notion\life\misc-data-records\heptabase-暫存筆記\kubernetes-service-clusterip.md`
 <!-- forge-sync:end -->

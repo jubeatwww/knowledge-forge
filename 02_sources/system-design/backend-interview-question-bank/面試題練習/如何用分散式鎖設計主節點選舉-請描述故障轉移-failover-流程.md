@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/如何用分散式鎖設計主節點選舉-請描述故障轉移-failover-流程.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\如何用分散式鎖設計主節點選舉-請描述故障轉移-failover-流程.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 231ee3b393db4a1598d8a6fe01f57bde
-source_url: 'https://app.notion.com/p/Cross-Cluster-Traffic-Mirroring-with-Istio-at-Trivago-231ee3b393db4a1598d8a6fe01f57bde'
+source_url: 'https://www.notion.so/Cross-Cluster-Traffic-Mirroring-with-Istio-at-Trivago-231ee3b393db4a1598d8a6fe01f57bde'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Cross-Cluster-Traffic-Mirroring-with-Istio-at-Trivago-231ee3b393db4a1598d8a6fe01f57bde`
+- Source URL: `https://www.notion.so/Cross-Cluster-Traffic-Mirroring-with-Istio-at-Trivago-231ee3b393db4a1598d8a6fe01f57bde`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/cross-cluster-traffic-mirroring-with-istio-at-trivago.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\cross-cluster-traffic-mirroring-with-istio-at-trivago.md`
 <!-- forge-sync:end -->

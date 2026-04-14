@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/ddia-reading-tracker/chapter-3-storage-and-retrieval.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\ddia-reading-tracker\chapter-3-storage-and-retrieval.md`
 <!-- forge-sync:end -->

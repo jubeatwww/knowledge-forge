@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/life/personal-task-center/技術部落格管理/golang-的排序和透過函數自訂排序.md`
+- `..\..\..\..\90_cache\notion\life\personal-task-center\技術部落格管理\golang-的排序和透過函數自訂排序.md`
 <!-- forge-sync:end -->

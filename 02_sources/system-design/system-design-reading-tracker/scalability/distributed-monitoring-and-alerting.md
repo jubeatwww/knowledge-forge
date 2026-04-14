@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: efcaa95e2ce543379424c7cae367852b
-source_url: 'https://app.notion.com/p/Distributed-Monitoring-and-Alerting-efcaa95e2ce543379424c7cae367852b'
+source_url: 'https://www.notion.so/Distributed-Monitoring-and-Alerting-efcaa95e2ce543379424c7cae367852b'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Distributed-Monitoring-and-Alerting-efcaa95e2ce543379424c7cae367852b`
+- Source URL: `https://www.notion.so/Distributed-Monitoring-and-Alerting-efcaa95e2ce543379424c7cae367852b`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/distributed-monitoring-and-alerting.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\distributed-monitoring-and-alerting.md`
 <!-- forge-sync:end -->

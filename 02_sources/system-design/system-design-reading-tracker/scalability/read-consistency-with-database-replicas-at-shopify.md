@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/read-consistency-with-database-replicas-at-shopify.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\read-consistency-with-database-replicas-at-shopify.md`
 <!-- forge-sync:end -->

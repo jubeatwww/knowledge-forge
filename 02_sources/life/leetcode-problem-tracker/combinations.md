@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2541cb737bce8121b05bc1e5be496e8d
-source_url: 'https://app.notion.com/p/Combinations-2541cb737bce8121b05bc1e5be496e8d'
+source_url: 'https://www.notion.so/Combinations-2541cb737bce8121b05bc1e5be496e8d'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Combinations-2541cb737bce8121b05bc1e5be496e8d`
+- Source URL: `https://www.notion.so/Combinations-2541cb737bce8121b05bc1e5be496e8d`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/combinations.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\combinations.md`
 <!-- forge-sync:end -->

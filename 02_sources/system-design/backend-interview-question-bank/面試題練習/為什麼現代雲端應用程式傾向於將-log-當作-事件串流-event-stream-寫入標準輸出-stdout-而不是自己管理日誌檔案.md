@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/為什麼現代雲端應用程式傾向於將-log-當作-事件串流-event-stream-寫入標準輸出-stdout-而不是自己管理日誌檔案.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\為什麼現代雲端應用程式傾向於將-log-當作-事件串流-event-stream-寫入標準輸出-stdout-而不是自己管理日誌檔案.md`
 <!-- forge-sync:end -->

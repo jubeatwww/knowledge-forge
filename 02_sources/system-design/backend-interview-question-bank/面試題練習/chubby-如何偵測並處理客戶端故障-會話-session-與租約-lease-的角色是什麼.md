@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/chubby-如何偵測並處理客戶端故障-會話-session-與租約-lease-的角色是什麼.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\chubby-如何偵測並處理客戶端故障-會話-session-與租約-lease-的角色是什麼.md`
 <!-- forge-sync:end -->

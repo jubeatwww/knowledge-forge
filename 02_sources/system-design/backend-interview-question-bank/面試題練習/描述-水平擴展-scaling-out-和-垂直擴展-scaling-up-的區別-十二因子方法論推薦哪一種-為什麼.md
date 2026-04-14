@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/描述-水平擴展-scaling-out-和-垂直擴展-scaling-up-的區別-十二因子方法論推薦哪一種-為什麼.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\描述-水平擴展-scaling-out-和-垂直擴展-scaling-up-的區別-十二因子方法論推薦哪一種-為什麼.md`
 <!-- forge-sync:end -->

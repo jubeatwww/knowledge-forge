@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 4fd504e04e4a468f9cf729b293754f1d
-source_url: 'https://app.notion.com/p/Prefetch-Caching-of-Items-at-eBay-4fd504e04e4a468f9cf729b293754f1d'
+source_url: 'https://www.notion.so/Prefetch-Caching-of-Items-at-eBay-4fd504e04e4a468f9cf729b293754f1d'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Prefetch-Caching-of-Items-at-eBay-4fd504e04e4a468f9cf729b293754f1d`
+- Source URL: `https://www.notion.so/Prefetch-Caching-of-Items-at-eBay-4fd504e04e4a468f9cf729b293754f1d`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/prefetch-caching-of-items-at-ebay.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\prefetch-caching-of-items-at-ebay.md`
 <!-- forge-sync:end -->

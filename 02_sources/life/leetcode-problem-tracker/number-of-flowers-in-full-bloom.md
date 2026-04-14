@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2461cb737bce810f8193c75e36aa3afc
-source_url: 'https://app.notion.com/p/Number-of-Flowers-in-Full-Bloom-2461cb737bce810f8193c75e36aa3afc'
+source_url: 'https://www.notion.so/Number-of-Flowers-in-Full-Bloom-2461cb737bce810f8193c75e36aa3afc'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Number-of-Flowers-in-Full-Bloom-2461cb737bce810f8193c75e36aa3afc`
+- Source URL: `https://www.notion.so/Number-of-Flowers-in-Full-Bloom-2461cb737bce810f8193c75e36aa3afc`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/number-of-flowers-in-full-bloom.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\number-of-flowers-in-full-bloom.md`
 <!-- forge-sync:end -->

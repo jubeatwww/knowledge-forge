@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/second-minimum-time-to-reach-destination.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\second-minimum-time-to-reach-destination.md`
 <!-- forge-sync:end -->

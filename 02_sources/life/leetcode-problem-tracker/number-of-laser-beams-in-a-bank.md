@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 26f1cb737bce818dbb9ae84e4c4316dd
-source_url: 'https://www.notion.so/Number-of-Laser-Beams-in-a-Bank-26f1cb737bce818dbb9ae84e4c4316dd'
+source_url: 'https://app.notion.com/p/Number-of-Laser-Beams-in-a-Bank-26f1cb737bce818dbb9ae84e4c4316dd'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Number-of-Laser-Beams-in-a-Bank-26f1cb737bce818dbb9ae84e4c4316dd`
+- Source URL: `https://app.notion.com/p/Number-of-Laser-Beams-in-a-Bank-26f1cb737bce818dbb9ae84e4c4316dd`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/number-of-laser-beams-in-a-bank.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\number-of-laser-beams-in-a-bank.md`
 <!-- forge-sync:end -->

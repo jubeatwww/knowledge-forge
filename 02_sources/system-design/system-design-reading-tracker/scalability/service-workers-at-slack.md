@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 1154da57c225419ba9eae49c0c621d89
-source_url: 'https://app.notion.com/p/Service-Workers-at-Slack-1154da57c225419ba9eae49c0c621d89'
+source_url: 'https://www.notion.so/Service-Workers-at-Slack-1154da57c225419ba9eae49c0c621d89'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Service-Workers-at-Slack-1154da57c225419ba9eae49c0c621d89`
+- Source URL: `https://www.notion.so/Service-Workers-at-Slack-1154da57c225419ba9eae49c0c621d89`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/service-workers-at-slack.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\service-workers-at-slack.md`
 <!-- forge-sync:end -->

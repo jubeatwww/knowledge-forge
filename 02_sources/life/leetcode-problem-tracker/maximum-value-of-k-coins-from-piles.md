@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/maximum-value-of-k-coins-from-piles.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\maximum-value-of-k-coins-from-piles.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: e3f3b12ce60945109f5c0419c7503ac5
-source_url: 'https://www.notion.so/Autoscaling-Bigtable-Clusters-based-on-CPU-Load-at-Spotify-e3f3b12ce60945109f5c0419c7503ac5'
+source_url: 'https://app.notion.com/p/Autoscaling-Bigtable-Clusters-based-on-CPU-Load-at-Spotify-e3f3b12ce60945109f5c0419c7503ac5'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Autoscaling-Bigtable-Clusters-based-on-CPU-Load-at-Spotify-e3f3b12ce60945109f5c0419c7503ac5`
+- Source URL: `https://app.notion.com/p/Autoscaling-Bigtable-Clusters-based-on-CPU-Load-at-Spotify-e3f3b12ce60945109f5c0419c7503ac5`
 - Parent: [availability](../availability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/availability/autoscaling-bigtable-clusters-based-on-cpu-load-at-spotify.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\availability\autoscaling-bigtable-clusters-based-on-cpu-load-at-spotify.md`
 <!-- forge-sync:end -->

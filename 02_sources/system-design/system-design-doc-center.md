@@ -7,7 +7,7 @@ source_type: page
 notion_id: 2af1cb737bce8074ae83ca8a0bdf7852
 source_url: 'https://app.notion.com/p/2af1cb737bce8074ae83ca8a0bdf7852'
 sync_policy: on-demand
-cache_status: missing
+cache_status: cached
 tags:
   - source
   - notion
@@ -18,6 +18,7 @@ generated_by: forge-sync
 discovery_rule: system-design-doc-center
 discovery_state: active
 last_discovered: 2026-04-14
+last_synced: 2026-04-14
 ---
 
 # System Design Doc Center
@@ -69,5 +70,5 @@ last_discovered: 2026-04-14
   - [Projects](system-design-doc-center/projects.md) (`database`)
 
 ## Cache
-- `../../90_cache/notion/system-design/system-design-doc-center.md`
+- `..\..\90_cache\notion\system-design\system-design-doc-center.md`
 <!-- forge-sync:end -->

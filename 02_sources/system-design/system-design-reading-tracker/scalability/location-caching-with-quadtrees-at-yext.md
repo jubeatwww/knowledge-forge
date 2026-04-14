@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 61c091a4ec9645659a5ae86e7284c6f0
-source_url: 'https://app.notion.com/p/Location-Caching-with-Quadtrees-at-Yext-61c091a4ec9645659a5ae86e7284c6f0'
+source_url: 'https://www.notion.so/Location-Caching-with-Quadtrees-at-Yext-61c091a4ec9645659a5ae86e7284c6f0'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Location-Caching-with-Quadtrees-at-Yext-61c091a4ec9645659a5ae86e7284c6f0`
+- Source URL: `https://www.notion.so/Location-Caching-with-Quadtrees-at-Yext-61c091a4ec9645659a5ae86e7284c6f0`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/location-caching-with-quadtrees-at-yext.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\location-caching-with-quadtrees-at-yext.md`
 <!-- forge-sync:end -->

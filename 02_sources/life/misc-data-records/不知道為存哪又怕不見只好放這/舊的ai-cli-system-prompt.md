@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/life/misc-data-records/不知道為存哪又怕不見只好放這/舊的ai-cli-system-prompt.md`
+- `..\..\..\..\90_cache\notion\life\misc-data-records\不知道為存哪又怕不見只好放這\舊的ai-cli-system-prompt.md`
 <!-- forge-sync:end -->

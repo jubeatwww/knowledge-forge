@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/為何在雲端系統中-p-分割容忍度-通常必須.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\為何在雲端系統中-p-分割容忍度-通常必須.md`
 <!-- forge-sync:end -->

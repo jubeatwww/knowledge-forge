@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: f30ca7a8c8fa4cee9c04a0f38442a690
-source_url: 'https://www.notion.so/High-Availability-at-Netflix-f30ca7a8c8fa4cee9c04a0f38442a690'
+source_url: 'https://app.notion.com/p/High-Availability-at-Netflix-f30ca7a8c8fa4cee9c04a0f38442a690'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/High-Availability-at-Netflix-f30ca7a8c8fa4cee9c04a0f38442a690`
+- Source URL: `https://app.notion.com/p/High-Availability-at-Netflix-f30ca7a8c8fa4cee9c04a0f38442a690`
 - Parent: [availability](../availability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/availability/high-availability-at-netflix.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\availability\high-availability-at-netflix.md`
 <!-- forge-sync:end -->

@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/你認為使用-aof-模式的-redis-是否就足以保證分散式鎖的絕對可靠性-請說明你的觀點.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\你認為使用-aof-模式的-redis-是否就足以保證分散式鎖的絕對可靠性-請說明你的觀點.md`
 <!-- forge-sync:end -->

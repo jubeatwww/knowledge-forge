@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/相較輪詢-polling-chubby-提供了什麼更有效率的通知機制.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\相較輪詢-polling-chubby-提供了什麼更有效率的通知機制.md`
 <!-- forge-sync:end -->

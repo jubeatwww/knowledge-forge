@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 9bd04ebd1d5e4a599955a009583b537d
-source_url: 'https://app.notion.com/p/Distributed-Tracking-Tracing-and-Measuring-9bd04ebd1d5e4a599955a009583b537d'
+source_url: 'https://www.notion.so/Distributed-Tracking-Tracing-and-Measuring-9bd04ebd1d5e4a599955a009583b537d'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Distributed-Tracking-Tracing-and-Measuring-9bd04ebd1d5e4a599955a009583b537d`
+- Source URL: `https://www.notion.so/Distributed-Tracking-Tracing-and-Measuring-9bd04ebd1d5e4a599955a009583b537d`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/distributed-tracking-tracing-and-measuring.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\distributed-tracking-tracing-and-measuring.md`
 <!-- forge-sync:end -->

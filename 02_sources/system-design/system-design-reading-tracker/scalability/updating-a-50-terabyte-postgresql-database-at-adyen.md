@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/updating-a-50-terabyte-postgresql-database-at-adyen.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\updating-a-50-terabyte-postgresql-database-at-adyen.md`
 <!-- forge-sync:end -->

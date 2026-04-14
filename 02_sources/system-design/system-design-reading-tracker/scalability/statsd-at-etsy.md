@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: a5797016b2f34ccbbe7146174292c534
-source_url: 'https://app.notion.com/p/StatsD-at-Etsy-a5797016b2f34ccbbe7146174292c534'
+source_url: 'https://www.notion.so/StatsD-at-Etsy-a5797016b2f34ccbbe7146174292c534'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/StatsD-at-Etsy-a5797016b2f34ccbbe7146174292c534`
+- Source URL: `https://www.notion.so/StatsD-at-Etsy-a5797016b2f34ccbbe7146174292c534`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/statsd-at-etsy.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\statsd-at-etsy.md`
 <!-- forge-sync:end -->

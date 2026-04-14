@@ -42,5 +42,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
   - [Chapter 12: The Future of Data Systems](ddia-reading-tracker/chapter-12-the-future-of-data-systems.md) (`page`)
 
 ## Cache
-- `../../../90_cache/notion/system-design/system-design-reading-tracker/ddia-reading-tracker.md`
+- `..\..\..\90_cache\notion\system-design\system-design-reading-tracker\ddia-reading-tracker.md`
 <!-- forge-sync:end -->

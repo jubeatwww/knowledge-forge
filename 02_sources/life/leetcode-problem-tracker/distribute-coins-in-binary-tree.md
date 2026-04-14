@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2481cb737bce8194913bf56f671e55a9
-source_url: 'https://app.notion.com/p/Distribute-Coins-in-Binary-Tree-2481cb737bce8194913bf56f671e55a9'
+source_url: 'https://www.notion.so/Distribute-Coins-in-Binary-Tree-2481cb737bce8194913bf56f671e55a9'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Distribute-Coins-in-Binary-Tree-2481cb737bce8194913bf56f671e55a9`
+- Source URL: `https://www.notion.so/Distribute-Coins-in-Binary-Tree-2481cb737bce8194913bf56f671e55a9`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/distribute-coins-in-binary-tree.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\distribute-coins-in-binary-tree.md`
 <!-- forge-sync:end -->

@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/在分散式系統中鎖-lock-的目的是什麼.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\在分散式系統中鎖-lock-的目的是什麼.md`
 <!-- forge-sync:end -->

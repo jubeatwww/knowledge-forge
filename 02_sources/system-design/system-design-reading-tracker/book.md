@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](book/INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/system-design/system-design-reading-tracker/book.md`
+- `..\..\..\90_cache\notion\system-design\system-design-reading-tracker\book.md`
 <!-- forge-sync:end -->

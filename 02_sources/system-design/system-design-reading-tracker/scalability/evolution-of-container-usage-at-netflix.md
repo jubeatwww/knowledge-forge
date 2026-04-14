@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 260138d17b4540f2b0e155f6efbdcbdd
-source_url: 'https://app.notion.com/p/Evolution-of-Container-Usage-at-Netflix-260138d17b4540f2b0e155f6efbdcbdd'
+source_url: 'https://www.notion.so/Evolution-of-Container-Usage-at-Netflix-260138d17b4540f2b0e155f6efbdcbdd'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Evolution-of-Container-Usage-at-Netflix-260138d17b4540f2b0e155f6efbdcbdd`
+- Source URL: `https://www.notion.so/Evolution-of-Container-Usage-at-Netflix-260138d17b4540f2b0e155f6efbdcbdd`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/evolution-of-container-usage-at-netflix.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\evolution-of-container-usage-at-netflix.md`
 <!-- forge-sync:end -->

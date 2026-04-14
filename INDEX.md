@@ -1,6 +1,7 @@
 # INDEX
 
 ## Domains
+- [[01_hubs/_now]]
 - [[01_hubs/system-design]]
 - [[01_hubs/frontend]]
 - [[01_hubs/english]]
@@ -17,7 +18,8 @@
 - [[90_cache]]
 
 ## Current Focus
-- Backend interview + System design
-- English speaking
-- Trading discipline
-- Daily life playbooks
+- Early job onboarding
+- Life management and stable execution
+- Health management baseline
+- Psychological state management
+- Domain ramp-up

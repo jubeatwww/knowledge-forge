@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2541cb737bce81768f1bf076d485e0c7
-source_url: 'https://app.notion.com/p/Combination-Sum-2541cb737bce81768f1bf076d485e0c7'
+source_url: 'https://www.notion.so/Combination-Sum-2541cb737bce81768f1bf076d485e0c7'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Combination-Sum-2541cb737bce81768f1bf076d485e0c7`
+- Source URL: `https://www.notion.so/Combination-Sum-2541cb737bce81768f1bf076d485e0c7`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/combination-sum.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\combination-sum.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: trading
 source: notion
 source_type: database
 notion_id: a64952ad531944db8717ded7780420d4
-source_url: 'https://www.notion.so/a64952ad531944db8717ded7780420d4'
+source_url: 'https://app.notion.com/p/a64952ad531944db8717ded7780420d4'
 sync_policy: index-only
 cache_status: optional
 tags:
@@ -57,10 +57,10 @@ last_discovered: 2026-04-14
 - Managed by `forge-sync sync-sources`
 - Rule: `trading-journal`
 - Source type: `database`
-- Source URL: `https://www.notion.so/a64952ad531944db8717ded7780420d4`
+- Source URL: `https://app.notion.com/p/a64952ad531944db8717ded7780420d4`
 - Folder index: [INDEX](trading-journal/INDEX.md)
 - Discovered children: 99 item(s); see folder index for full list
 
 ## Cache
-- `../../90_cache/notion/trading/trading-journal.md`
+- `..\..\90_cache\notion\trading\trading-journal.md`
 <!-- forge-sync:end -->

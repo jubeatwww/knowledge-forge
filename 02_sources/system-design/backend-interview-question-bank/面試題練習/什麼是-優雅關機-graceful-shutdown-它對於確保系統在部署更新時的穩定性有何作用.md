@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/什麼是-優雅關機-graceful-shutdown-它對於確保系統在部署更新時的穩定性有何作用.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\什麼是-優雅關機-graceful-shutdown-它對於確保系統在部署更新時的穩定性有何作用.md`
 <!-- forge-sync:end -->

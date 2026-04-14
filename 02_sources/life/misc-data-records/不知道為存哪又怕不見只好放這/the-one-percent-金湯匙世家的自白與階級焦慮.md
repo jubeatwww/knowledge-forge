@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/life/misc-data-records/不知道為存哪又怕不見只好放這/the-one-percent-金湯匙世家的自白與階級焦慮.md`
+- `..\..\..\..\90_cache\notion\life\misc-data-records\不知道為存哪又怕不見只好放這\the-one-percent-金湯匙世家的自白與階級焦慮.md`
 <!-- forge-sync:end -->

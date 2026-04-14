@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2da1cb737bce80c790b7ffdfe5d4d295
-source_url: 'https://www.notion.so/Privilege-2da1cb737bce80c790b7ffdfe5d4d295'
+source_url: 'https://app.notion.com/p/Privilege-2da1cb737bce80c790b7ffdfe5d4d295'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `personal-task-center`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Privilege-2da1cb737bce80c790b7ffdfe5d4d295`
+- Source URL: `https://app.notion.com/p/Privilege-2da1cb737bce80c790b7ffdfe5d4d295`
 - Parent: [專題文章](../專題文章.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/life/personal-task-center/專題文章/privilege.md`
+- `..\..\..\..\90_cache\notion\life\personal-task-center\專題文章\privilege.md`
 <!-- forge-sync:end -->

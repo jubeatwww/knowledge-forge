@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: f6c412f485da468e8943a4a9c9ead7fd
-source_url: 'https://www.notion.so/Cloud-Jewels-Estimating-kWh-in-the-Cloud-at-Etsy-f6c412f485da468e8943a4a9c9ead7fd'
+source_url: 'https://app.notion.com/p/Cloud-Jewels-Estimating-kWh-in-the-Cloud-at-Etsy-f6c412f485da468e8943a4a9c9ead7fd'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Cloud-Jewels-Estimating-kWh-in-the-Cloud-at-Etsy-f6c412f485da468e8943a4a9c9ead7fd`
+- Source URL: `https://app.notion.com/p/Cloud-Jewels-Estimating-kWh-in-the-Cloud-at-Etsy-f6c412f485da468e8943a4a9c9ead7fd`
 - Parent: [performance](../performance.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/performance/cloud-jewels-estimating-kwh-in-the-cloud-at-etsy.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\performance\cloud-jewels-estimating-kwh-in-the-cloud-at-etsy.md`
 <!-- forge-sync:end -->

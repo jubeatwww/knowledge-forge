@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 0eb876f17157476c844a3446e82b1c40
-source_url: 'https://app.notion.com/p/Airflow-at-Pandora-0eb876f17157476c844a3446e82b1c40'
+source_url: 'https://www.notion.so/Airflow-at-Pandora-0eb876f17157476c844a3446e82b1c40'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Airflow-at-Pandora-0eb876f17157476c844a3446e82b1c40`
+- Source URL: `https://www.notion.so/Airflow-at-Pandora-0eb876f17157476c844a3446e82b1c40`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/airflow-at-pandora.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\airflow-at-pandora.md`
 <!-- forge-sync:end -->

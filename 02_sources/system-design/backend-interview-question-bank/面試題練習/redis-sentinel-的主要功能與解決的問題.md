@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/redis-sentinel-的主要功能與解決的問題.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\redis-sentinel-的主要功能與解決的問題.md`
 <!-- forge-sync:end -->

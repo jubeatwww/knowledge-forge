@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: b74347b69ba54c44a0b62ca369bc1d20
-source_url: 'https://www.notion.so/UDP-Load-Balancing-at-500-pixel-b74347b69ba54c44a0b62ca369bc1d20'
+source_url: 'https://app.notion.com/p/UDP-Load-Balancing-at-500-pixel-b74347b69ba54c44a0b62ca369bc1d20'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/UDP-Load-Balancing-at-500-pixel-b74347b69ba54c44a0b62ca369bc1d20`
+- Source URL: `https://app.notion.com/p/UDP-Load-Balancing-at-500-pixel-b74347b69ba54c44a0b62ca369bc1d20`
 - Parent: [availability](../availability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/availability/udp-load-balancing-at-500-pixel.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\availability\udp-load-balancing-at-500-pixel.md`
 <!-- forge-sync:end -->

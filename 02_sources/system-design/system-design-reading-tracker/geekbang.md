@@ -32,5 +32,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
   - [高并发系统设计40问](geekbang/高并发系统设计40问.md) (`page`)
 
 ## Cache
-- `../../../90_cache/notion/system-design/system-design-reading-tracker/geekbang.md`
+- `..\..\..\90_cache\notion\system-design\system-design-reading-tracker\geekbang.md`
 <!-- forge-sync:end -->

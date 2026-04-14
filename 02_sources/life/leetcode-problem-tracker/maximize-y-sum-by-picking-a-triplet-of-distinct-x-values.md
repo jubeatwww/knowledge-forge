@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 26a1cb737bce81e0befcc0ea15d124b3
-source_url: 'https://www.notion.so/Maximize-Y-Sum-by-Picking-a-Triplet-of-Distinct-X-Values-26a1cb737bce81e0befcc0ea15d124b3'
+source_url: 'https://app.notion.com/p/Maximize-Y-Sum-by-Picking-a-Triplet-of-Distinct-X-Values-26a1cb737bce81e0befcc0ea15d124b3'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Maximize-Y-Sum-by-Picking-a-Triplet-of-Distinct-X-Values-26a1cb737bce81e0befcc0ea15d124b3`
+- Source URL: `https://app.notion.com/p/Maximize-Y-Sum-by-Picking-a-Triplet-of-Distinct-X-Values-26a1cb737bce81e0befcc0ea15d124b3`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/maximize-y-sum-by-picking-a-triplet-of-distinct-x-values.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\maximize-y-sum-by-picking-a-triplet-of-distinct-x-values.md`
 <!-- forge-sync:end -->

@@ -30,5 +30,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Discovered children: 81 item(s); see folder index for full list
 
 ## Cache
-- `../../../90_cache/notion/life/misc-data-records/heptabase-暫存筆記.md`
+- `..\..\..\90_cache\notion\life\misc-data-records\heptabase-暫存筆記.md`
 <!-- forge-sync:end -->

@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/new-21-game.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\new-21-game.md`
 <!-- forge-sync:end -->

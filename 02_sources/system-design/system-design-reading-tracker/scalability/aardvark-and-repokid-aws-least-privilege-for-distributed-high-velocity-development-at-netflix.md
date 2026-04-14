@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: b252bf57dbdc4dc1b13b3cb6be49e984
-source_url: 'https://app.notion.com/p/Aardvark-and-Repokid-AWS-Least-Privilege-for-Distributed-High-Velocity-Development-at-Netflix-b252bf57dbdc4dc1b13b3cb6be49e984'
+source_url: 'https://www.notion.so/Aardvark-and-Repokid-AWS-Least-Privilege-for-Distributed-High-Velocity-Development-at-Netflix-b252bf57dbdc4dc1b13b3cb6be49e984'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Aardvark-and-Repokid-AWS-Least-Privilege-for-Distributed-High-Velocity-Development-at-Netflix-b252bf57dbdc4dc1b13b3cb6be49e984`
+- Source URL: `https://www.notion.so/Aardvark-and-Repokid-AWS-Least-Privilege-for-Distributed-High-Velocity-Development-at-Netflix-b252bf57dbdc4dc1b13b3cb6be49e984`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/aardvark-and-repokid-aws-least-privilege-for-distributed-high-velocity-development-at-netflix.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\aardvark-and-repokid-aws-least-privilege-for-distributed-high-velocity-development-at-netflix.md`
 <!-- forge-sync:end -->

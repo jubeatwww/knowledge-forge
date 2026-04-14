@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: d6bf843e38a04c499447298cf700eb5e
-source_url: 'https://www.notion.so/Profiling-C-Part-1-Optimization-Part-2-Measurement-and-Analysis-at-Riot-Games-d6bf843e38a04c499447298cf700eb5e'
+source_url: 'https://app.notion.com/p/Profiling-C-Part-1-Optimization-Part-2-Measurement-and-Analysis-at-Riot-Games-d6bf843e38a04c499447298cf700eb5e'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Profiling-C-Part-1-Optimization-Part-2-Measurement-and-Analysis-at-Riot-Games-d6bf843e38a04c499447298cf700eb5e`
+- Source URL: `https://app.notion.com/p/Profiling-C-Part-1-Optimization-Part-2-Measurement-and-Analysis-at-Riot-Games-d6bf843e38a04c499447298cf700eb5e`
 - Parent: [performance](../performance.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/performance/profiling-c-part-1-optimization-part-2-measurement-and-analysis-at-riot-games.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\performance\profiling-c-part-1-optimization-part-2-measurement-and-analysis-at-riot-games.md`
 <!-- forge-sync:end -->

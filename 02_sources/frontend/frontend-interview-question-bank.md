@@ -5,9 +5,9 @@ topic: frontend
 source: notion
 source_type: page
 notion_id: 2911cb737bce80a89b3bc7832ca9329e
-source_url: 'https://app.notion.com/p/2911cb737bce80a89b3bc7832ca9329e'
+source_url: 'https://www.notion.so/2911cb737bce80a89b3bc7832ca9329e'
 sync_policy: on-demand
-cache_status: missing
+cache_status: cached
 tags:
   - source
   - notion
@@ -18,6 +18,7 @@ generated_by: forge-sync
 discovery_rule: frontend-interview-question-bank
 discovery_state: active
 last_discovered: 2026-04-14
+last_synced: 2026-04-14
 ---
 
 # Frontend Interview Question Bank
@@ -64,8 +65,8 @@ last_discovered: 2026-04-14
 - Managed by `forge-sync sync-sources`
 - Rule: `frontend-interview-question-bank`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/2911cb737bce80a89b3bc7832ca9329e`
+- Source URL: `https://www.notion.so/2911cb737bce80a89b3bc7832ca9329e`
 
 ## Cache
-- `../../90_cache/notion/frontend/frontend-interview-question-bank.md`
+- `..\..\90_cache\notion\frontend\frontend-interview-question-bank.md`
 <!-- forge-sync:end -->

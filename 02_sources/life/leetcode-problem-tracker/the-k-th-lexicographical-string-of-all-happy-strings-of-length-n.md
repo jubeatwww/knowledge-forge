@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2551cb737bce81239846d889e20e7ced
-source_url: 'https://app.notion.com/p/The-k-th-Lexicographical-String-of-All-Happy-Strings-of-Length-n-2551cb737bce81239846d889e20e7ced'
+source_url: 'https://www.notion.so/The-k-th-Lexicographical-String-of-All-Happy-Strings-of-Length-n-2551cb737bce81239846d889e20e7ced'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/The-k-th-Lexicographical-String-of-All-Happy-Strings-of-Length-n-2551cb737bce81239846d889e20e7ced`
+- Source URL: `https://www.notion.so/The-k-th-Lexicographical-String-of-All-Happy-Strings-of-Length-n-2551cb737bce81239846d889e20e7ced`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\the-k-th-lexicographical-string-of-all-happy-strings-of-length-n.md`
 <!-- forge-sync:end -->

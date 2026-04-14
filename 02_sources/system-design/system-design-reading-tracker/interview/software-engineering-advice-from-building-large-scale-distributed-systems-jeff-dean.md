@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/interview/software-engineering-advice-from-building-large-scale-distributed-systems-jeff-dean.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\interview\software-engineering-advice-from-building-large-scale-distributed-systems-jeff-dean.md`
 <!-- forge-sync:end -->

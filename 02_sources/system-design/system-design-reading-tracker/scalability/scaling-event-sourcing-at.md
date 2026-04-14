@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 6d72571f22d0420ab0ab272074f9d00d
-source_url: 'https://app.notion.com/p/Scaling-Event-Sourcing-at-Jet-com-6d72571f22d0420ab0ab272074f9d00d'
+source_url: 'https://www.notion.so/Scaling-Event-Sourcing-at-Jet-com-6d72571f22d0420ab0ab272074f9d00d'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Scaling-Event-Sourcing-at-Jet-com-6d72571f22d0420ab0ab272074f9d00d`
+- Source URL: `https://www.notion.so/Scaling-Event-Sourcing-at-Jet-com-6d72571f22d0420ab0ab272074f9d00d`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/scaling-event-sourcing-at.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\scaling-event-sourcing-at.md`
 <!-- forge-sync:end -->

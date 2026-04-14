@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/search-federation-architecture-at-linkedin-2018.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\search-federation-architecture-at-linkedin-2018.md`
 <!-- forge-sync:end -->

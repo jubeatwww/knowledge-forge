@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 68ce6026694441e9b6d571e92b946967
-source_url: 'https://app.notion.com/p/Distributed-Cache-for-S3-at-ClickHouse-68ce6026694441e9b6d571e92b946967'
+source_url: 'https://www.notion.so/Distributed-Cache-for-S3-at-ClickHouse-68ce6026694441e9b6d571e92b946967'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Distributed-Cache-for-S3-at-ClickHouse-68ce6026694441e9b6d571e92b946967`
+- Source URL: `https://www.notion.so/Distributed-Cache-for-S3-at-ClickHouse-68ce6026694441e9b6d571e92b946967`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/distributed-cache-for-s3-at-clickhouse.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\distributed-cache-for-s3-at-clickhouse.md`
 <!-- forge-sync:end -->

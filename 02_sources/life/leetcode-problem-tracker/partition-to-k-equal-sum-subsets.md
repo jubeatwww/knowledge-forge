@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2551cb737bce81c3b0abffac0a362c45
-source_url: 'https://app.notion.com/p/Partition-to-K-Equal-Sum-Subsets-2551cb737bce81c3b0abffac0a362c45'
+source_url: 'https://www.notion.so/Partition-to-K-Equal-Sum-Subsets-2551cb737bce81c3b0abffac0a362c45'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Partition-to-K-Equal-Sum-Subsets-2551cb737bce81c3b0abffac0a362c45`
+- Source URL: `https://www.notion.so/Partition-to-K-Equal-Sum-Subsets-2551cb737bce81c3b0abffac0a362c45`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/partition-to-k-equal-sum-subsets.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\partition-to-k-equal-sum-subsets.md`
 <!-- forge-sync:end -->

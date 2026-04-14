@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/principle/database-isolation-levels-and-effects-on-performance-and-scalability.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\principle\database-isolation-levels-and-effects-on-performance-and-scalability.md`
 <!-- forge-sync:end -->

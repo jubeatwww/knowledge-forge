@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: dfaffeeddedc460fb9be6fa50b69b024
-source_url: 'https://www.notion.so/Traffic-Steering-using-Rum-DNS-at-LinkedIn-dfaffeeddedc460fb9be6fa50b69b024'
+source_url: 'https://app.notion.com/p/Traffic-Steering-using-Rum-DNS-at-LinkedIn-dfaffeeddedc460fb9be6fa50b69b024'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Traffic-Steering-using-Rum-DNS-at-LinkedIn-dfaffeeddedc460fb9be6fa50b69b024`
+- Source URL: `https://app.notion.com/p/Traffic-Steering-using-Rum-DNS-at-LinkedIn-dfaffeeddedc460fb9be6fa50b69b024`
 - Parent: [availability](../availability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/availability/traffic-steering-using-rum-dns-at-linkedin.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\availability\traffic-steering-using-rum-dns-at-linkedin.md`
 <!-- forge-sync:end -->

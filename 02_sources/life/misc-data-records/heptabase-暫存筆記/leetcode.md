@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2921cb737bce80f58449fd6e9dead541
-source_url: 'https://www.notion.so/Leetcode-2921cb737bce80f58449fd6e9dead541'
+source_url: 'https://app.notion.com/p/Leetcode-2921cb737bce80f58449fd6e9dead541'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `misc-data-records`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Leetcode-2921cb737bce80f58449fd6e9dead541`
+- Source URL: `https://app.notion.com/p/Leetcode-2921cb737bce80f58449fd6e9dead541`
 - Parent: [heptabase-暫存筆記](../heptabase-暫存筆記.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/life/misc-data-records/heptabase-暫存筆記/leetcode.md`
+- `..\..\..\..\90_cache\notion\life\misc-data-records\heptabase-暫存筆記\leetcode.md`
 <!-- forge-sync:end -->

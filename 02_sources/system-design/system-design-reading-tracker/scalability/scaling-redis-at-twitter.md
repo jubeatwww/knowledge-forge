@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: ed95717cbc734274988ba2bad5c3e84f
-source_url: 'https://app.notion.com/p/Scaling-Redis-at-Twitter-ed95717cbc734274988ba2bad5c3e84f'
+source_url: 'https://www.notion.so/Scaling-Redis-at-Twitter-ed95717cbc734274988ba2bad5c3e84f'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Scaling-Redis-at-Twitter-ed95717cbc734274988ba2bad5c3e84f`
+- Source URL: `https://www.notion.so/Scaling-Redis-at-Twitter-ed95717cbc734274988ba2bad5c3e84f`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/scaling-redis-at-twitter.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\scaling-redis-at-twitter.md`
 <!-- forge-sync:end -->

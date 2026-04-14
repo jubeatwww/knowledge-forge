@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 59f778eb7f424b58a202f4fb95fd71ee
-source_url: 'https://app.notion.com/p/Distributed-Locks-using-Redis-at-GoSquared-59f778eb7f424b58a202f4fb95fd71ee'
+source_url: 'https://www.notion.so/Distributed-Locks-using-Redis-at-GoSquared-59f778eb7f424b58a202f4fb95fd71ee'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Distributed-Locks-using-Redis-at-GoSquared-59f778eb7f424b58a202f4fb95fd71ee`
+- Source URL: `https://www.notion.so/Distributed-Locks-using-Redis-at-GoSquared-59f778eb7f424b58a202f4fb95fd71ee`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/distributed-locks-using-redis-at-gosquared.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\distributed-locks-using-redis-at-gosquared.md`
 <!-- forge-sync:end -->

@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/organization/lessons-learned-from-scaling-a-product-team-at-intercom.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\organization\lessons-learned-from-scaling-a-product-team-at-intercom.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 27cb4a3a9fd94d20a90415d4b3623ac6
-source_url: 'https://app.notion.com/p/Airflow-at-Grab-27cb4a3a9fd94d20a90415d4b3623ac6'
+source_url: 'https://www.notion.so/Airflow-at-Grab-27cb4a3a9fd94d20a90415d4b3623ac6'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Airflow-at-Grab-27cb4a3a9fd94d20a90415d4b3623ac6`
+- Source URL: `https://www.notion.so/Airflow-at-Grab-27cb4a3a9fd94d20a90415d4b3623ac6`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/airflow-at-grab.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\airflow-at-grab.md`
 <!-- forge-sync:end -->

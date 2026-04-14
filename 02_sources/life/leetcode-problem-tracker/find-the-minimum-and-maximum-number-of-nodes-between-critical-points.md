@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/find-the-minimum-and-maximum-number-of-nodes-between-critical-points.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\find-the-minimum-and-maximum-number-of-nodes-between-critical-points.md`
 <!-- forge-sync:end -->

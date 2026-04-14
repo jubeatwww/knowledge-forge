@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 11ff149e0fe943eda729a1aef29aa6c7
-source_url: 'https://www.notion.so/Analyzing-V8-Garbage-Collection-Logs-at-Alibaba-11ff149e0fe943eda729a1aef29aa6c7'
+source_url: 'https://app.notion.com/p/Analyzing-V8-Garbage-Collection-Logs-at-Alibaba-11ff149e0fe943eda729a1aef29aa6c7'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Analyzing-V8-Garbage-Collection-Logs-at-Alibaba-11ff149e0fe943eda729a1aef29aa6c7`
+- Source URL: `https://app.notion.com/p/Analyzing-V8-Garbage-Collection-Logs-at-Alibaba-11ff149e0fe943eda729a1aef29aa6c7`
 - Parent: [performance](../performance.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/performance/analyzing-v8-garbage-collection-logs-at-alibaba.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\performance\analyzing-v8-garbage-collection-logs-at-alibaba.md`
 <!-- forge-sync:end -->

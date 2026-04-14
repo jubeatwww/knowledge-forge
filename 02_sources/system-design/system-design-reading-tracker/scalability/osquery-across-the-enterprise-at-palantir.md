@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 669ff5958e1d4354ab406347c5d42d72
-source_url: 'https://app.notion.com/p/osquery-Across-the-Enterprise-at-Palantir-669ff5958e1d4354ab406347c5d42d72'
+source_url: 'https://www.notion.so/osquery-Across-the-Enterprise-at-Palantir-669ff5958e1d4354ab406347c5d42d72'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/osquery-Across-the-Enterprise-at-Palantir-669ff5958e1d4354ab406347c5d42d72`
+- Source URL: `https://www.notion.so/osquery-Across-the-Enterprise-at-Palantir-669ff5958e1d4354ab406347c5d42d72`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/osquery-across-the-enterprise-at-palantir.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\osquery-across-the-enterprise-at-palantir.md`
 <!-- forge-sync:end -->

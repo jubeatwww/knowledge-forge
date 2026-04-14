@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/rabbitmq-的核心設計哲學是什麼-它最適合用在什麼樣的場景.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\rabbitmq-的核心設計哲學是什麼-它最適合用在什麼樣的場景.md`
 <!-- forge-sync:end -->

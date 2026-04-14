@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: a7ec2a330a494045979471ff88ac6fee
-source_url: 'https://app.notion.com/p/Detecting-Credential-Compromise-in-AWS-at-Netflix-a7ec2a330a494045979471ff88ac6fee'
+source_url: 'https://www.notion.so/Detecting-Credential-Compromise-in-AWS-at-Netflix-a7ec2a330a494045979471ff88ac6fee'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Detecting-Credential-Compromise-in-AWS-at-Netflix-a7ec2a330a494045979471ff88ac6fee`
+- Source URL: `https://www.notion.so/Detecting-Credential-Compromise-in-AWS-at-Netflix-a7ec2a330a494045979471ff88ac6fee`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/detecting-credential-compromise-in-aws-at-netflix.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\detecting-credential-compromise-in-aws-at-netflix.md`
 <!-- forge-sync:end -->

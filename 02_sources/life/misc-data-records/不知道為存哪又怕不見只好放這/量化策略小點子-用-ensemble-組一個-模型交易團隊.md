@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/life/misc-data-records/不知道為存哪又怕不見只好放這/量化策略小點子-用-ensemble-組一個-模型交易團隊.md`
+- `..\..\..\..\90_cache\notion\life\misc-data-records\不知道為存哪又怕不見只好放這\量化策略小點子-用-ensemble-組一個-模型交易團隊.md`
 <!-- forge-sync:end -->

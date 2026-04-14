@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/請解釋-ci-cd-流程中的-建構-build-發行-release-和-執行-run-三個階段有何不同-為什麼嚴格區分它們很重要.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\請解釋-ci-cd-流程中的-建構-build-發行-release-和-執行-run-三個階段有何不同-為什麼嚴格區分它們很重要.md`
 <!-- forge-sync:end -->

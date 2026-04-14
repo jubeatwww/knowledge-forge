@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/在分散式系統中-為什麼需要像-chubby-這樣的鎖服務-它解決了什麼根本性問題.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\在分散式系統中-為什麼需要像-chubby-這樣的鎖服務-它解決了什麼根本性問題.md`
 <!-- forge-sync:end -->

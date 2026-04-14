@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/interview/my-scaling-hero-jeff-atwood-a-dose-of-endorphins-before-your-interview-jk.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\interview\my-scaling-hero-jeff-atwood-a-dose-of-endorphins-before-your-interview-jk.md`
 <!-- forge-sync:end -->

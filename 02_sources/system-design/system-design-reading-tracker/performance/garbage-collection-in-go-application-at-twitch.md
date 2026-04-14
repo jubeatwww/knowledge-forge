@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 8a31c5acec2b4a0a96dbe2ebf9d45e2c
-source_url: 'https://www.notion.so/Garbage-Collection-in-Go-Application-at-Twitch-8a31c5acec2b4a0a96dbe2ebf9d45e2c'
+source_url: 'https://app.notion.com/p/Garbage-Collection-in-Go-Application-at-Twitch-8a31c5acec2b4a0a96dbe2ebf9d45e2c'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Garbage-Collection-in-Go-Application-at-Twitch-8a31c5acec2b4a0a96dbe2ebf9d45e2c`
+- Source URL: `https://app.notion.com/p/Garbage-Collection-in-Go-Application-at-Twitch-8a31c5acec2b4a0a96dbe2ebf9d45e2c`
 - Parent: [performance](../performance.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/performance/garbage-collection-in-go-application-at-twitch.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\performance\garbage-collection-in-go-application-at-twitch.md`
 <!-- forge-sync:end -->

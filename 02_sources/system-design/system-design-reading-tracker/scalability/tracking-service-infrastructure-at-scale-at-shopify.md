@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 79c5c92ede5a493bb340f79d6ee274a5
-source_url: 'https://app.notion.com/p/Tracking-Service-Infrastructure-at-Scale-at-Shopify-79c5c92ede5a493bb340f79d6ee274a5'
+source_url: 'https://www.notion.so/Tracking-Service-Infrastructure-at-Scale-at-Shopify-79c5c92ede5a493bb340f79d6ee274a5'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Tracking-Service-Infrastructure-at-Scale-at-Shopify-79c5c92ede5a493bb340f79d6ee274a5`
+- Source URL: `https://www.notion.so/Tracking-Service-Infrastructure-at-Scale-at-Shopify-79c5c92ede5a493bb340f79d6ee274a5`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/tracking-service-infrastructure-at-scale-at-shopify.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\tracking-service-infrastructure-at-scale-at-shopify.md`
 <!-- forge-sync:end -->

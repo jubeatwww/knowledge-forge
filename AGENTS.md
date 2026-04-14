@@ -34,3 +34,12 @@ When answering questions or building context, prefer reading in this order:
 - Some source files only contain metadata and source links.
 - Full content may exist only in `90_cache/` or upstream Notion.
 - When context is insufficient, identify the related source file first, then hydrate or sync on demand.
+
+## Automated Agents
+Agent prompts live in `.forge/agents/`. They are platform-agnostic instruction files.
+
+- `daily-sync.md` — Notion → cache sync with changelog
+- `daily-check-in.md` — vault state scan, produces reminders and questions
+- `weekly-refine.md` — cache → notes/playbooks knowledge refinement
+
+Logs go to `00_inbox/`. Refined knowledge writes directly to `03_notes/` and `04_playbooks/`.

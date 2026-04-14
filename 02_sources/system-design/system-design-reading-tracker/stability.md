@@ -49,5 +49,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
   - [Circuit Breaker at Zendesk](stability/circuit-breaker-at-zendesk.md) (`page`)
 
 ## Cache
-- `../../../90_cache/notion/system-design/system-design-reading-tracker/stability.md`
+- `..\..\..\90_cache\notion\system-design\system-design-reading-tracker\stability.md`
 <!-- forge-sync:end -->

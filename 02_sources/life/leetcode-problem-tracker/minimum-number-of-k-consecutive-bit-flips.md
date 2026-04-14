@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/minimum-number-of-k-consecutive-bit-flips.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\minimum-number-of-k-consecutive-bit-flips.md`
 <!-- forge-sync:end -->

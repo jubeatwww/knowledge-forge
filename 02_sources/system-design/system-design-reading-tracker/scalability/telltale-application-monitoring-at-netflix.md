@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 176e6e91aa5e4d92ba8b15aa5c0e26ea
-source_url: 'https://app.notion.com/p/Telltale-Application-Monitoring-at-Netflix-176e6e91aa5e4d92ba8b15aa5c0e26ea'
+source_url: 'https://www.notion.so/Telltale-Application-Monitoring-at-Netflix-176e6e91aa5e4d92ba8b15aa5c0e26ea'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Telltale-Application-Monitoring-at-Netflix-176e6e91aa5e4d92ba8b15aa5c0e26ea`
+- Source URL: `https://www.notion.so/Telltale-Application-Monitoring-at-Netflix-176e6e91aa5e4d92ba8b15aa5c0e26ea`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/telltale-application-monitoring-at-netflix.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\telltale-application-monitoring-at-netflix.md`
 <!-- forge-sync:end -->

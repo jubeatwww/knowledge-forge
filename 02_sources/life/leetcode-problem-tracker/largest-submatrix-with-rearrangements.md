@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2761cb737bce815a9975f278c33437cd
-source_url: 'https://www.notion.so/Largest-Submatrix-With-Rearrangements-2761cb737bce815a9975f278c33437cd'
+source_url: 'https://app.notion.com/p/Largest-Submatrix-With-Rearrangements-2761cb737bce815a9975f278c33437cd'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Largest-Submatrix-With-Rearrangements-2761cb737bce815a9975f278c33437cd`
+- Source URL: `https://app.notion.com/p/Largest-Submatrix-With-Rearrangements-2761cb737bce815a9975f278c33437cd`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/largest-submatrix-with-rearrangements.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\largest-submatrix-with-rearrangements.md`
 <!-- forge-sync:end -->

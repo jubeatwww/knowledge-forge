@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/principle/the-benefits-of-server-side-rendering-over-client-side-rendering.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\principle\the-benefits-of-server-side-rendering-over-client-side-rendering.md`
 <!-- forge-sync:end -->

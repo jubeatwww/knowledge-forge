@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 18d69358d9964b8a9b3511b4c2a48121
-source_url: 'https://app.notion.com/p/From-bare-metal-to-Kubernetes-at-Betabrand-18d69358d9964b8a9b3511b4c2a48121'
+source_url: 'https://www.notion.so/From-bare-metal-to-Kubernetes-at-Betabrand-18d69358d9964b8a9b3511b4c2a48121'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/From-bare-metal-to-Kubernetes-at-Betabrand-18d69358d9964b8a9b3511b4c2a48121`
+- Source URL: `https://www.notion.so/From-bare-metal-to-Kubernetes-at-Betabrand-18d69358d9964b8a9b3511b4c2a48121`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/from-bare-metal-to-kubernetes-at-betabrand.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\from-bare-metal-to-kubernetes-at-betabrand.md`
 <!-- forge-sync:end -->

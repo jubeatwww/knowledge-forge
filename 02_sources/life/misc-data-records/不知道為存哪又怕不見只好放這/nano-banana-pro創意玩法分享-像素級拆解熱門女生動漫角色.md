@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/life/misc-data-records/不知道為存哪又怕不見只好放這/nano-banana-pro創意玩法分享-像素級拆解熱門女生動漫角色.md`
+- `..\..\..\..\90_cache\notion\life\misc-data-records\不知道為存哪又怕不見只好放這\nano-banana-pro創意玩法分享-像素級拆解熱門女生動漫角色.md`
 <!-- forge-sync:end -->

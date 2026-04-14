@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: a400c38fdd1a4bf6b9bfa02920071154
-source_url: 'https://app.notion.com/p/M3-Metrics-and-Monitoring-Platform-at-Uber-a400c38fdd1a4bf6b9bfa02920071154'
+source_url: 'https://www.notion.so/M3-Metrics-and-Monitoring-Platform-at-Uber-a400c38fdd1a4bf6b9bfa02920071154'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/M3-Metrics-and-Monitoring-Platform-at-Uber-a400c38fdd1a4bf6b9bfa02920071154`
+- Source URL: `https://www.notion.so/M3-Metrics-and-Monitoring-Platform-at-Uber-a400c38fdd1a4bf6b9bfa02920071154`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/m3-metrics-and-monitoring-platform-at-uber.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\m3-metrics-and-monitoring-platform-at-uber.md`
 <!-- forge-sync:end -->

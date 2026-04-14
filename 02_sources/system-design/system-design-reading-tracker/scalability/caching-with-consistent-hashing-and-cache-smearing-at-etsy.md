@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: ac83babb7c904fdcae18abfaaeee6f1b
-source_url: 'https://app.notion.com/p/Caching-with-Consistent-Hashing-and-Cache-Smearing-at-Etsy-ac83babb7c904fdcae18abfaaeee6f1b'
+source_url: 'https://www.notion.so/Caching-with-Consistent-Hashing-and-Cache-Smearing-at-Etsy-ac83babb7c904fdcae18abfaaeee6f1b'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Caching-with-Consistent-Hashing-and-Cache-Smearing-at-Etsy-ac83babb7c904fdcae18abfaaeee6f1b`
+- Source URL: `https://www.notion.so/Caching-with-Consistent-Hashing-and-Cache-Smearing-at-Etsy-ac83babb7c904fdcae18abfaaeee6f1b`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/caching-with-consistent-hashing-and-cache-smearing-at-etsy.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\caching-with-consistent-hashing-and-cache-smearing-at-etsy.md`
 <!-- forge-sync:end -->

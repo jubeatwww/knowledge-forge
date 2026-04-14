@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/在微服務架構中-為什麼應該將資料庫或快取系統這類-後端服務-backing-services-視為可隨時替換的-附加資源.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\在微服務架構中-為什麼應該將資料庫或快取系統這類-後端服務-backing-services-視為可隨時替換的-附加資源.md`
 <!-- forge-sync:end -->

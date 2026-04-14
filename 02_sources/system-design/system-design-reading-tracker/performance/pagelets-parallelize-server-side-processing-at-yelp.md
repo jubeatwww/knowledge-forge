@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: f5fd5b00388b45018b3a9e46a789dbb5
-source_url: 'https://www.notion.so/Pagelets-Parallelize-Server-side-Processing-at-Yelp-f5fd5b00388b45018b3a9e46a789dbb5'
+source_url: 'https://app.notion.com/p/Pagelets-Parallelize-Server-side-Processing-at-Yelp-f5fd5b00388b45018b3a9e46a789dbb5'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Pagelets-Parallelize-Server-side-Processing-at-Yelp-f5fd5b00388b45018b3a9e46a789dbb5`
+- Source URL: `https://app.notion.com/p/Pagelets-Parallelize-Server-side-Processing-at-Yelp-f5fd5b00388b45018b3a9e46a789dbb5`
 - Parent: [performance](../performance.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/performance/pagelets-parallelize-server-side-processing-at-yelp.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\performance\pagelets-parallelize-server-side-processing-at-yelp.md`
 <!-- forge-sync:end -->

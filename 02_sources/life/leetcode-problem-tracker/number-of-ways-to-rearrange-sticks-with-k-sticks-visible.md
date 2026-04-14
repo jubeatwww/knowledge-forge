@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/number-of-ways-to-rearrange-sticks-with-k-sticks-visible.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\number-of-ways-to-rearrange-sticks-with-k-sticks-visible.md`
 <!-- forge-sync:end -->

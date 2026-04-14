@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: a76845d2b9cc475a826edc33a4696563
-source_url: 'https://www.notion.so/Garbage-Collection-in-High-Throughput-Low-Latency-Machine-Learning-Services-at-Adobe-a76845d2b9cc475a826edc33a4696563'
+source_url: 'https://app.notion.com/p/Garbage-Collection-in-High-Throughput-Low-Latency-Machine-Learning-Services-at-Adobe-a76845d2b9cc475a826edc33a4696563'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Garbage-Collection-in-High-Throughput-Low-Latency-Machine-Learning-Services-at-Adobe-a76845d2b9cc475a826edc33a4696563`
+- Source URL: `https://app.notion.com/p/Garbage-Collection-in-High-Throughput-Low-Latency-Machine-Learning-Services-at-Adobe-a76845d2b9cc475a826edc33a4696563`
 - Parent: [performance](../performance.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/performance/garbage-collection-in-high-throughput-low-latency-machine-learning-services-at-adobe.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\performance\garbage-collection-in-high-throughput-low-latency-machine-learning-services-at-adobe.md`
 <!-- forge-sync:end -->

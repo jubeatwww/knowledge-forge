@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 4515d44ddb754c91a4c8cd4b6d81f482
-source_url: 'https://app.notion.com/p/Canopy-Scalable-Distributed-Tracing-Analysis-at-Facebook-4515d44ddb754c91a4c8cd4b6d81f482'
+source_url: 'https://www.notion.so/Canopy-Scalable-Distributed-Tracing-Analysis-at-Facebook-4515d44ddb754c91a4c8cd4b6d81f482'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Canopy-Scalable-Distributed-Tracing-Analysis-at-Facebook-4515d44ddb754c91a4c8cd4b6d81f482`
+- Source URL: `https://www.notion.so/Canopy-Scalable-Distributed-Tracing-Analysis-at-Facebook-4515d44ddb754c91a4c8cd4b6d81f482`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/canopy-scalable-distributed-tracing-analysis-at-facebook.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\canopy-scalable-distributed-tracing-analysis-at-facebook.md`
 <!-- forge-sync:end -->

@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/life/personal-task-center/技術部落格管理/js-執行順序exercise.md`
+- `..\..\..\..\90_cache\notion\life\personal-task-center\技術部落格管理\js-執行順序exercise.md`
 <!-- forge-sync:end -->

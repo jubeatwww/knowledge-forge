@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/organization/mistakes-to-avoid-while-creating-an-internal-product-at-skyscanner.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\organization\mistakes-to-avoid-while-creating-an-internal-product-at-skyscanner.md`
 <!-- forge-sync:end -->

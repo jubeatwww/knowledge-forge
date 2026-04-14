@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 754ecfdd737f444ba332b71ea9259556
-source_url: 'https://www.notion.so/Go-at-Trivago-754ecfdd737f444ba332b71ea9259556'
+source_url: 'https://app.notion.com/p/Go-at-Trivago-754ecfdd737f444ba332b71ea9259556'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Go-at-Trivago-754ecfdd737f444ba332b71ea9259556`
+- Source URL: `https://app.notion.com/p/Go-at-Trivago-754ecfdd737f444ba332b71ea9259556`
 - Parent: [performance](../performance.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/performance/go-at-trivago.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\performance\go-at-trivago.md`
 <!-- forge-sync:end -->

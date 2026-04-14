@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 3b008d8c61da4b28b2c3d1262ed4ecd4
-source_url: 'https://app.notion.com/p/Scalable-User-Privacy-at-Spotify-3b008d8c61da4b28b2c3d1262ed4ecd4'
+source_url: 'https://www.notion.so/Scalable-User-Privacy-at-Spotify-3b008d8c61da4b28b2c3d1262ed4ecd4'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Scalable-User-Privacy-at-Spotify-3b008d8c61da4b28b2c3d1262ed4ecd4`
+- Source URL: `https://www.notion.so/Scalable-User-Privacy-at-Spotify-3b008d8c61da4b28b2c3d1262ed4ecd4`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/scalable-user-privacy-at-spotify.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\scalable-user-privacy-at-spotify.md`
 <!-- forge-sync:end -->

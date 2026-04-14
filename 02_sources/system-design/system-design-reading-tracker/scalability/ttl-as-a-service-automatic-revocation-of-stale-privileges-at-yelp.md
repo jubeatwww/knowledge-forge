@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 40e544757a5e427ea0ff40b7655b7ca9
-source_url: 'https://app.notion.com/p/TTL-as-a-Service-Automatic-Revocation-of-Stale-Privileges-at-Yelp-40e544757a5e427ea0ff40b7655b7ca9'
+source_url: 'https://www.notion.so/TTL-as-a-Service-Automatic-Revocation-of-Stale-Privileges-at-Yelp-40e544757a5e427ea0ff40b7655b7ca9'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/TTL-as-a-Service-Automatic-Revocation-of-Stale-Privileges-at-Yelp-40e544757a5e427ea0ff40b7655b7ca9`
+- Source URL: `https://www.notion.so/TTL-as-a-Service-Automatic-Revocation-of-Stale-Privileges-at-Yelp-40e544757a5e427ea0ff40b7655b7ca9`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/ttl-as-a-service-automatic-revocation-of-stale-privileges-at-yelp.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\ttl-as-a-service-automatic-revocation-of-stale-privileges-at-yelp.md`
 <!-- forge-sync:end -->

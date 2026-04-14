@@ -70,5 +70,5 @@ last_discovered: 2026-04-14
   - [專題文章](personal-task-center/專題文章.md) (`database`)
 
 ## Cache
-- `../../90_cache/notion/life/personal-task-center.md`
+- `..\..\90_cache\notion\life\personal-task-center.md`
 <!-- forge-sync:end -->

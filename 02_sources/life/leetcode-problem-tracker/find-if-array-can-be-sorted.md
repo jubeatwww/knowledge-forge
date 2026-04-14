@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2781cb737bce81e58d78ccb013158d8d
-source_url: 'https://www.notion.so/Find-if-Array-Can-Be-Sorted-2781cb737bce81e58d78ccb013158d8d'
+source_url: 'https://app.notion.com/p/Find-if-Array-Can-Be-Sorted-2781cb737bce81e58d78ccb013158d8d'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Find-if-Array-Can-Be-Sorted-2781cb737bce81e58d78ccb013158d8d`
+- Source URL: `https://app.notion.com/p/Find-if-Array-Can-Be-Sorted-2781cb737bce81e58d78ccb013158d8d`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/find-if-array-can-be-sorted.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\find-if-array-can-be-sorted.md`
 <!-- forge-sync:end -->

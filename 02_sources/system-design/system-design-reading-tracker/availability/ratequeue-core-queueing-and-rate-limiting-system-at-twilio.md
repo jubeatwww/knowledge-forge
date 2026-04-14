@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: ddf7a54f7559481ba0041f1a3dc3835c
-source_url: 'https://www.notion.so/Ratequeue-Core-Queueing-And-Rate-Limiting-System-at-Twilio-ddf7a54f7559481ba0041f1a3dc3835c'
+source_url: 'https://app.notion.com/p/Ratequeue-Core-Queueing-And-Rate-Limiting-System-at-Twilio-ddf7a54f7559481ba0041f1a3dc3835c'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Ratequeue-Core-Queueing-And-Rate-Limiting-System-at-Twilio-ddf7a54f7559481ba0041f1a3dc3835c`
+- Source URL: `https://app.notion.com/p/Ratequeue-Core-Queueing-And-Rate-Limiting-System-at-Twilio-ddf7a54f7559481ba0041f1a3dc3835c`
 - Parent: [availability](../availability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/availability/ratequeue-core-queueing-and-rate-limiting-system-at-twilio.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\availability\ratequeue-core-queueing-and-rate-limiting-system-at-twilio.md`
 <!-- forge-sync:end -->

@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/rocketmq-主要針對哪一類的業務場景進行了優化-其最顯著的優點是什麼.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\rocketmq-主要針對哪一類的業務場景進行了優化-其最顯著的優點是什麼.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2721cb737bce81a59b98ffa1a85eceba
-source_url: 'https://www.notion.so/Integer-to-Roman-2721cb737bce81a59b98ffa1a85eceba'
+source_url: 'https://app.notion.com/p/Integer-to-Roman-2721cb737bce81a59b98ffa1a85eceba'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Integer-to-Roman-2721cb737bce81a59b98ffa1a85eceba`
+- Source URL: `https://app.notion.com/p/Integer-to-Roman-2721cb737bce81a59b98ffa1a85eceba`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/integer-to-roman.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\integer-to-roman.md`
 <!-- forge-sync:end -->

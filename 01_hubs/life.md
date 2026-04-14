@@ -21,9 +21,14 @@ tags:
 - health / food / travel / home playbooks
 
 ## Start Here
+- [[../06_skills/habit-game/INDEX]] — 遊戲化日常的意圖 / 行為 / agent 協定
+- [[../05_projects/habit-game/INDEX]] — 每日 sessions 與 weekly snapshot
 - [[../02_sources/life/personal-task-center]]
-- [[../02_sources/life/habit-tracker-game]]
 - [[../02_sources/life/misc-data-records]]
+- [[../04_playbooks/weekly-alignment-review]]
+- [[../04_playbooks/low-state-protocol]]
+- [[../04_playbooks/health-baseline-reset]]
+- [[../04_playbooks/daily-life-admin-reset]]
 - [[../06_skills/life/index]]
 
 ## Preferred Reading Path
@@ -51,10 +56,13 @@ tags:
 - `english-speaking-drill`
 - `trading-pre-entry-checklist`
 - `morning-reset`
+- `weekly-alignment-review`
+- `low-state-protocol`
+- `health-baseline-reset`
+- `daily-life-admin-reset`
 
 ## Sources
 - [[../02_sources/life/personal-task-center]]
-- [[../02_sources/life/habit-tracker-game]]
 - [[../02_sources/life/misc-data-records]]
 
 ## Related

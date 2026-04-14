@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 502ce334952d4f5b9e519e22643d5a20
-source_url: 'https://app.notion.com/p/Real-User-Monitoring-at-Dailymotion-502ce334952d4f5b9e519e22643d5a20'
+source_url: 'https://www.notion.so/Real-User-Monitoring-at-Dailymotion-502ce334952d4f5b9e519e22643d5a20'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Real-User-Monitoring-at-Dailymotion-502ce334952d4f5b9e519e22643d5a20`
+- Source URL: `https://www.notion.so/Real-User-Monitoring-at-Dailymotion-502ce334952d4f5b9e519e22643d5a20`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/real-user-monitoring-at-dailymotion.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\real-user-monitoring-at-dailymotion.md`
 <!-- forge-sync:end -->

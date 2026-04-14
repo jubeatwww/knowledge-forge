@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/如果團隊需要為非核心系統快速引入-mq-且團隊對-mq-不太熟悉-你會推薦哪一款-理由是什麼.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\如果團隊需要為非核心系統快速引入-mq-且團隊對-mq-不太熟悉-你會推薦哪一款-理由是什麼.md`
 <!-- forge-sync:end -->

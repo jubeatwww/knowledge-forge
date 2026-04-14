@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Discovered children: 449 item(s); see folder index for full list
 
 ## Cache
-- `../../90_cache/notion/life/leetcode-problem-tracker.md`
+- `..\..\90_cache\notion\life\leetcode-problem-tracker.md`
 <!-- forge-sync:end -->

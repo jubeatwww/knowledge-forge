@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/rabbitmq-在處理哪種特定情況時-性能會急遽下降.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\rabbitmq-在處理哪種特定情況時-性能會急遽下降.md`
 <!-- forge-sync:end -->

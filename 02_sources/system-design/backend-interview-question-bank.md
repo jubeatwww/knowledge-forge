@@ -7,7 +7,7 @@ source_type: page
 notion_id: 2911cb737bce8023998dfb7cd6563732
 source_url: 'https://www.notion.so/2911cb737bce8023998dfb7cd6563732'
 sync_policy: on-demand
-cache_status: missing
+cache_status: cached
 tags:
   - source
   - notion
@@ -18,6 +18,7 @@ generated_by: forge-sync
 discovery_rule: backend-interview-question-bank
 discovery_state: active
 last_discovered: 2026-04-14
+last_synced: 2026-04-14
 ---
 
 # Backend Interview Question Bank
@@ -70,5 +71,5 @@ last_discovered: 2026-04-14
   - [面試題練習](backend-interview-question-bank/面試題練習.md) (`database`)
 
 ## Cache
-- `../../90_cache/notion/system-design/backend-interview-question-bank.md`
+- `..\..\90_cache\notion\system-design\backend-interview-question-bank.md`
 <!-- forge-sync:end -->

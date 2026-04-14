@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/life/misc-data-records/不知道為存哪又怕不見只好放這/怒噴兩個小時c-結果被當成最佳教學影片.md`
+- `..\..\..\..\90_cache\notion\life\misc-data-records\不知道為存哪又怕不見只好放這\怒噴兩個小時c-結果被當成最佳教學影片.md`
 <!-- forge-sync:end -->

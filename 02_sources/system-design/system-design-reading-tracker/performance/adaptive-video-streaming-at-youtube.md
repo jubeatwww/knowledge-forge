@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 6b30d60960714ba18dd5c2a1c1310519
-source_url: 'https://www.notion.so/Adaptive-Video-Streaming-at-YouTube-6b30d60960714ba18dd5c2a1c1310519'
+source_url: 'https://app.notion.com/p/Adaptive-Video-Streaming-at-YouTube-6b30d60960714ba18dd5c2a1c1310519'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Adaptive-Video-Streaming-at-YouTube-6b30d60960714ba18dd5c2a1c1310519`
+- Source URL: `https://app.notion.com/p/Adaptive-Video-Streaming-at-YouTube-6b30d60960714ba18dd5c2a1c1310519`
 - Parent: [performance](../performance.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/performance/adaptive-video-streaming-at-youtube.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\performance\adaptive-video-streaming-at-youtube.md`
 <!-- forge-sync:end -->

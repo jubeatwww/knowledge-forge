@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: c5eec7599d77451686aa1c5ea9064f3b
-source_url: 'https://www.notion.so/Performance-Optimization-by-Tuning-Garbage-Collection-c5eec7599d77451686aa1c5ea9064f3b'
+source_url: 'https://app.notion.com/p/Performance-Optimization-by-Tuning-Garbage-Collection-c5eec7599d77451686aa1c5ea9064f3b'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Performance-Optimization-by-Tuning-Garbage-Collection-c5eec7599d77451686aa1c5ea9064f3b`
+- Source URL: `https://app.notion.com/p/Performance-Optimization-by-Tuning-Garbage-Collection-c5eec7599d77451686aa1c5ea9064f3b`
 - Parent: [performance](../performance.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/performance/performance-optimization-by-tuning-garbage-collection.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\performance\performance-optimization-by-tuning-garbage-collection.md`
 <!-- forge-sync:end -->

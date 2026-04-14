@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/organization/four-pillars-of-leading-people-empathy-inspiration-trust-honesty-at-zalando.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\organization\four-pillars-of-leading-people-empathy-inspiration-trust-honesty-at-zalando.md`
 <!-- forge-sync:end -->

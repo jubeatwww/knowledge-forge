@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: db52b760320c457a937a1ede15bd8681
-source_url: 'https://app.notion.com/p/Security-Development-Lifecycle-at-Slack-db52b760320c457a937a1ede15bd8681'
+source_url: 'https://www.notion.so/Security-Development-Lifecycle-at-Slack-db52b760320c457a937a1ede15bd8681'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Security-Development-Lifecycle-at-Slack-db52b760320c457a937a1ede15bd8681`
+- Source URL: `https://www.notion.so/Security-Development-Lifecycle-at-Slack-db52b760320c457a937a1ede15bd8681`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/security-development-lifecycle-at-slack.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\security-development-lifecycle-at-slack.md`
 <!-- forge-sync:end -->

@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/需要極低延遲與高頻鎖操作時-是否推薦-chubby-替代方案考量.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\需要極低延遲與高頻鎖操作時-是否推薦-chubby-替代方案考量.md`
 <!-- forge-sync:end -->

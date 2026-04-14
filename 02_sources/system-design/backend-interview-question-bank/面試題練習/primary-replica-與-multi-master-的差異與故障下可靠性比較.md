@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/primary-replica-與-multi-master-的差異與故障下可靠性比較.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\primary-replica-與-multi-master-的差異與故障下可靠性比較.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 31632774e6a24cd5bce8bb2597b7b949
-source_url: 'https://app.notion.com/p/HAProxy-with-Kubernetes-for-User-facing-Traffic-at-SoundCloud-31632774e6a24cd5bce8bb2597b7b949'
+source_url: 'https://www.notion.so/HAProxy-with-Kubernetes-for-User-facing-Traffic-at-SoundCloud-31632774e6a24cd5bce8bb2597b7b949'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/HAProxy-with-Kubernetes-for-User-facing-Traffic-at-SoundCloud-31632774e6a24cd5bce8bb2597b7b949`
+- Source URL: `https://www.notion.so/HAProxy-with-Kubernetes-for-User-facing-Traffic-at-SoundCloud-31632774e6a24cd5bce8bb2597b7b949`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/haproxy-with-kubernetes-for-user-facing-traffic-at-soundcloud.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\haproxy-with-kubernetes-for-user-facing-traffic-at-soundcloud.md`
 <!-- forge-sync:end -->

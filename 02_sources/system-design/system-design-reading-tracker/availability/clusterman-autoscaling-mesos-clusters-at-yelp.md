@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 2c7fe7dba93c401dab71d835a32b351d
-source_url: 'https://www.notion.so/Clusterman-Autoscaling-Mesos-Clusters-at-Yelp-2c7fe7dba93c401dab71d835a32b351d'
+source_url: 'https://app.notion.com/p/Clusterman-Autoscaling-Mesos-Clusters-at-Yelp-2c7fe7dba93c401dab71d835a32b351d'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Clusterman-Autoscaling-Mesos-Clusters-at-Yelp-2c7fe7dba93c401dab71d835a32b351d`
+- Source URL: `https://app.notion.com/p/Clusterman-Autoscaling-Mesos-Clusters-at-Yelp-2c7fe7dba93c401dab71d835a32b351d`
 - Parent: [availability](../availability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/availability/clusterman-autoscaling-mesos-clusters-at-yelp.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\availability\clusterman-autoscaling-mesos-clusters-at-yelp.md`
 <!-- forge-sync:end -->

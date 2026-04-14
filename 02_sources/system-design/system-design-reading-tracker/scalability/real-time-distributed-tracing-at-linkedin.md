@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 607ad68a151d437988426b5f339b4154
-source_url: 'https://app.notion.com/p/Real-time-Distributed-Tracing-at-LinkedIn-607ad68a151d437988426b5f339b4154'
+source_url: 'https://www.notion.so/Real-time-Distributed-Tracing-at-LinkedIn-607ad68a151d437988426b5f339b4154'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Real-time-Distributed-Tracing-at-LinkedIn-607ad68a151d437988426b5f339b4154`
+- Source URL: `https://www.notion.so/Real-time-Distributed-Tracing-at-LinkedIn-607ad68a151d437988426b5f339b4154`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/real-time-distributed-tracing-at-linkedin.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\real-time-distributed-tracing-at-linkedin.md`
 <!-- forge-sync:end -->

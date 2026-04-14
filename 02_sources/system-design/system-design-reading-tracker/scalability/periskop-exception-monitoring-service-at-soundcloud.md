@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 2a91d2d6f64c4ace84917b14cd51e8c6
-source_url: 'https://app.notion.com/p/Periskop-Exception-Monitoring-Service-at-SoundCloud-2a91d2d6f64c4ace84917b14cd51e8c6'
+source_url: 'https://www.notion.so/Periskop-Exception-Monitoring-Service-at-SoundCloud-2a91d2d6f64c4ace84917b14cd51e8c6'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Periskop-Exception-Monitoring-Service-at-SoundCloud-2a91d2d6f64c4ace84917b14cd51e8c6`
+- Source URL: `https://www.notion.so/Periskop-Exception-Monitoring-Service-at-SoundCloud-2a91d2d6f64c4ace84917b14cd51e8c6`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/periskop-exception-monitoring-service-at-soundcloud.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\periskop-exception-monitoring-service-at-soundcloud.md`
 <!-- forge-sync:end -->

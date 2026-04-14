@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 37c2160893ce437fb5a39f0e429db9d2
-source_url: 'https://app.notion.com/p/Job-based-Forecasting-Workflow-for-Observability-Anomaly-Detection-at-Uber-37c2160893ce437fb5a39f0e429db9d2'
+source_url: 'https://www.notion.so/Job-based-Forecasting-Workflow-for-Observability-Anomaly-Detection-at-Uber-37c2160893ce437fb5a39f0e429db9d2'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Job-based-Forecasting-Workflow-for-Observability-Anomaly-Detection-at-Uber-37c2160893ce437fb5a39f0e429db9d2`
+- Source URL: `https://www.notion.so/Job-based-Forecasting-Workflow-for-Observability-Anomaly-Detection-at-Uber-37c2160893ce437fb5a39f0e429db9d2`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/job-based-forecasting-workflow-for-observability-anomaly-detection-at-uber.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\job-based-forecasting-workflow-for-observability-anomaly-detection-at-uber.md`
 <!-- forge-sync:end -->

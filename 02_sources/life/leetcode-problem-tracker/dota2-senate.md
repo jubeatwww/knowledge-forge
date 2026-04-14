@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 26a1cb737bce8144b155fcc8ba7152be
-source_url: 'https://www.notion.so/Dota2-Senate-26a1cb737bce8144b155fcc8ba7152be'
+source_url: 'https://app.notion.com/p/Dota2-Senate-26a1cb737bce8144b155fcc8ba7152be'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Dota2-Senate-26a1cb737bce8144b155fcc8ba7152be`
+- Source URL: `https://app.notion.com/p/Dota2-Senate-26a1cb737bce8144b155fcc8ba7152be`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/dota2-senate.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\dota2-senate.md`
 <!-- forge-sync:end -->

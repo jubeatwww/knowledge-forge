@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/請從吞吐量-throughput-和延遲-latency-兩個維度-比較-rabbitmq-rocketmq-和-kafka-的性能差異.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\請從吞吐量-throughput-和延遲-latency-兩個維度-比較-rabbitmq-rocketmq-和-kafka-的性能差異.md`
 <!-- forge-sync:end -->

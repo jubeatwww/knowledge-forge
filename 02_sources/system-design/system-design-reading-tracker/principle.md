@@ -30,5 +30,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Discovered children: 58 item(s); see folder index for full list
 
 ## Cache
-- `../../../90_cache/notion/system-design/system-design-reading-tracker/principle.md`
+- `..\..\..\90_cache\notion\system-design\system-design-reading-tracker\principle.md`
 <!-- forge-sync:end -->

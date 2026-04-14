@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 753ed97c058343ceb4995716a91ba7f3
-source_url: 'https://www.notion.so/Memory-Tuning-a-High-Throughput-Microservice-at-Flipkart-753ed97c058343ceb4995716a91ba7f3'
+source_url: 'https://app.notion.com/p/Memory-Tuning-a-High-Throughput-Microservice-at-Flipkart-753ed97c058343ceb4995716a91ba7f3'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Memory-Tuning-a-High-Throughput-Microservice-at-Flipkart-753ed97c058343ceb4995716a91ba7f3`
+- Source URL: `https://app.notion.com/p/Memory-Tuning-a-High-Throughput-Microservice-at-Flipkart-753ed97c058343ceb4995716a91ba7f3`
 - Parent: [performance](../performance.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/performance/memory-tuning-a-high-throughput-microservice-at-flipkart.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\performance\memory-tuning-a-high-throughput-microservice-at-flipkart.md`
 <!-- forge-sync:end -->

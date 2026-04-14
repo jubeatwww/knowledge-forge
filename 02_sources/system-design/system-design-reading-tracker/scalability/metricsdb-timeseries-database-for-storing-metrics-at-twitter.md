@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/metricsdb-timeseries-database-for-storing-metrics-at-twitter.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\metricsdb-timeseries-database-for-storing-metrics-at-twitter.md`
 <!-- forge-sync:end -->

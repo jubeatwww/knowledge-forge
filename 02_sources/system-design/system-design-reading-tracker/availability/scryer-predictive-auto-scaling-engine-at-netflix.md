@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 005f8a059a8e4d96b6944dddbe291beb
-source_url: 'https://www.notion.so/Scryer-Predictive-Auto-Scaling-Engine-at-Netflix-005f8a059a8e4d96b6944dddbe291beb'
+source_url: 'https://app.notion.com/p/Scryer-Predictive-Auto-Scaling-Engine-at-Netflix-005f8a059a8e4d96b6944dddbe291beb'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Scryer-Predictive-Auto-Scaling-Engine-at-Netflix-005f8a059a8e4d96b6944dddbe291beb`
+- Source URL: `https://app.notion.com/p/Scryer-Predictive-Auto-Scaling-Engine-at-Netflix-005f8a059a8e4d96b6944dddbe291beb`
 - Parent: [availability](../availability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/availability/scryer-predictive-auto-scaling-engine-at-netflix.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\availability\scryer-predictive-auto-scaling-engine-at-netflix.md`
 <!-- forge-sync:end -->

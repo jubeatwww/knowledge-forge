@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 44193d382b9b4f33a9b1744e3a6962bd
-source_url: 'https://app.notion.com/p/Event-Tracking-System-at-Udemy-44193d382b9b4f33a9b1744e3a6962bd'
+source_url: 'https://www.notion.so/Event-Tracking-System-at-Udemy-44193d382b9b4f33a9b1744e3a6962bd'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Event-Tracking-System-at-Udemy-44193d382b9b4f33a9b1744e3a6962bd`
+- Source URL: `https://www.notion.so/Event-Tracking-System-at-Udemy-44193d382b9b4f33a9b1744e3a6962bd`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/event-tracking-system-at-udemy.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\event-tracking-system-at-udemy.md`
 <!-- forge-sync:end -->

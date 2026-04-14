@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: b3a946d209ad4ca1b65e8b9ee19ad1f2
-source_url: 'https://app.notion.com/p/Scaling-to-100M-To-Cache-or-Not-to-Cache-b3a946d209ad4ca1b65e8b9ee19ad1f2'
+source_url: 'https://www.notion.so/Scaling-to-100M-To-Cache-or-Not-to-Cache-b3a946d209ad4ca1b65e8b9ee19ad1f2'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Scaling-to-100M-To-Cache-or-Not-to-Cache-b3a946d209ad4ca1b65e8b9ee19ad1f2`
+- Source URL: `https://www.notion.so/Scaling-to-100M-To-Cache-or-Not-to-Cache-b3a946d209ad4ca1b65e8b9ee19ad1f2`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/scaling-to-100m-to-cache-or-not-to-cache.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\scaling-to-100m-to-cache-or-not-to-cache.md`
 <!-- forge-sync:end -->

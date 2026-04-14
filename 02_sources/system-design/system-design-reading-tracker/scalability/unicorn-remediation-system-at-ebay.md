@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: e80d17e708bb4ee396dac1643d99d294
-source_url: 'https://app.notion.com/p/Unicorn-Remediation-System-at-eBay-e80d17e708bb4ee396dac1643d99d294'
+source_url: 'https://www.notion.so/Unicorn-Remediation-System-at-eBay-e80d17e708bb4ee396dac1643d99d294'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Unicorn-Remediation-System-at-eBay-e80d17e708bb4ee396dac1643d99d294`
+- Source URL: `https://www.notion.so/Unicorn-Remediation-System-at-eBay-e80d17e708bb4ee396dac1643d99d294`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/unicorn-remediation-system-at-ebay.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\unicorn-remediation-system-at-ebay.md`
 <!-- forge-sync:end -->

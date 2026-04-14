@@ -91,16 +91,6 @@
       "cache_status": "optional"
     },
     {
-      "name": "habit-tracker-game",
-      "type": "page",
-      "topic": "life",
-      "folder": "life",
-      "slug": "habit-tracker-game",
-      "notion_id": "2cd1cb73-7bce-8033-8884-fa4454423754",
-      "sync_policy": "index-only",
-      "cache_status": "optional"
-    },
-    {
       "name": "misc-data-records",
       "type": "inline_databases",
       "topic": "life",

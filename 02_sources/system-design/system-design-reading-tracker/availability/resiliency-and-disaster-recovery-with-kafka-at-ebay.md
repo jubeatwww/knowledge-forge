@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 91df1472ad624c10bc5c7ad9bf03132e
-source_url: 'https://www.notion.so/Resiliency-and-Disaster-Recovery-with-Kafka-at-eBay-91df1472ad624c10bc5c7ad9bf03132e'
+source_url: 'https://app.notion.com/p/Resiliency-and-Disaster-Recovery-with-Kafka-at-eBay-91df1472ad624c10bc5c7ad9bf03132e'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Resiliency-and-Disaster-Recovery-with-Kafka-at-eBay-91df1472ad624c10bc5c7ad9bf03132e`
+- Source URL: `https://app.notion.com/p/Resiliency-and-Disaster-Recovery-with-Kafka-at-eBay-91df1472ad624c10bc5c7ad9bf03132e`
 - Parent: [availability](../availability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/availability/resiliency-and-disaster-recovery-with-kafka-at-ebay.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\availability\resiliency-and-disaster-recovery-with-kafka-at-ebay.md`
 <!-- forge-sync:end -->

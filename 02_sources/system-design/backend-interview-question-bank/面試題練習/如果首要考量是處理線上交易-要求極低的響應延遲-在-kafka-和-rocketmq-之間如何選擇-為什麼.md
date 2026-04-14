@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/如果首要考量是處理線上交易-要求極低的響應延遲-在-kafka-和-rocketmq-之間如何選擇-為什麼.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\如果首要考量是處理線上交易-要求極低的響應延遲-在-kafka-和-rocketmq-之間如何選擇-為什麼.md`
 <!-- forge-sync:end -->

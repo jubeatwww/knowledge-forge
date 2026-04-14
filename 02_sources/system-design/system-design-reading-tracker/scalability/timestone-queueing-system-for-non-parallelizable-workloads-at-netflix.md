@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 411b499d9c6d437181de30d9ce5e761d
-source_url: 'https://app.notion.com/p/Timestone-Queueing-System-for-Non-Parallelizable-Workloads-at-Netflix-411b499d9c6d437181de30d9ce5e761d'
+source_url: 'https://www.notion.so/Timestone-Queueing-System-for-Non-Parallelizable-Workloads-at-Netflix-411b499d9c6d437181de30d9ce5e761d'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Timestone-Queueing-System-for-Non-Parallelizable-Workloads-at-Netflix-411b499d9c6d437181de30d9ce5e761d`
+- Source URL: `https://www.notion.so/Timestone-Queueing-System-for-Non-Parallelizable-Workloads-at-Netflix-411b499d9c6d437181de30d9ce5e761d`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/timestone-queueing-system-for-non-parallelizable-workloads-at-netflix.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\timestone-queueing-system-for-non-parallelizable-workloads-at-netflix.md`
 <!-- forge-sync:end -->

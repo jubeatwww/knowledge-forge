@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: a6f93415d8614ab3bfea309297dfc5dd
-source_url: 'https://app.notion.com/p/Payment-Transaction-Management-in-Microservices-at-Mercari-a6f93415d8614ab3bfea309297dfc5dd'
+source_url: 'https://www.notion.so/Payment-Transaction-Management-in-Microservices-at-Mercari-a6f93415d8614ab3bfea309297dfc5dd'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Payment-Transaction-Management-in-Microservices-at-Mercari-a6f93415d8614ab3bfea309297dfc5dd`
+- Source URL: `https://www.notion.so/Payment-Transaction-Management-in-Microservices-at-Mercari-a6f93415d8614ab3bfea309297dfc5dd`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/payment-transaction-management-in-microservices-at-mercari.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\payment-transaction-management-in-microservices-at-mercari.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: a5a38b431d2f42ceb486d33a7e2089fa
-source_url: 'https://www.notion.so/Reducing-Video-Loading-Time-at-Dailymotion-a5a38b431d2f42ceb486d33a7e2089fa'
+source_url: 'https://app.notion.com/p/Reducing-Video-Loading-Time-at-Dailymotion-a5a38b431d2f42ceb486d33a7e2089fa'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Reducing-Video-Loading-Time-at-Dailymotion-a5a38b431d2f42ceb486d33a7e2089fa`
+- Source URL: `https://app.notion.com/p/Reducing-Video-Loading-Time-at-Dailymotion-a5a38b431d2f42ceb486d33a7e2089fa`
 - Parent: [performance](../performance.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/performance/reducing-video-loading-time-at-dailymotion.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\performance\reducing-video-loading-time-at-dailymotion.md`
 <!-- forge-sync:end -->

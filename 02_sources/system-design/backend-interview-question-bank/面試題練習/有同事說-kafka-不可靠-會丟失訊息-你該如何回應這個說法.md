@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/有同事說-kafka-不可靠-會丟失訊息-你該如何回應這個說法.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\有同事說-kafka-不可靠-會丟失訊息-你該如何回應這個說法.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: fb3445f2575e4badbe346b32f4898b28
-source_url: 'https://app.notion.com/p/Pycache-In-process-Caching-at-Quora-fb3445f2575e4badbe346b32f4898b28'
+source_url: 'https://www.notion.so/Pycache-In-process-Caching-at-Quora-fb3445f2575e4badbe346b32f4898b28'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Pycache-In-process-Caching-at-Quora-fb3445f2575e4badbe346b32f4898b28`
+- Source URL: `https://www.notion.so/Pycache-In-process-Caching-at-Quora-fb3445f2575e4badbe346b32f4898b28`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/pycache-in-process-caching-at-quora.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\pycache-in-process-caching-at-quora.md`
 <!-- forge-sync:end -->

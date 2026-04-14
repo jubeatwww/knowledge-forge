@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/ebay-building-mission-critical-multi-data-center-applications-with-mongodb.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\ebay-building-mission-critical-multi-data-center-applications-with-mongodb.md`
 <!-- forge-sync:end -->

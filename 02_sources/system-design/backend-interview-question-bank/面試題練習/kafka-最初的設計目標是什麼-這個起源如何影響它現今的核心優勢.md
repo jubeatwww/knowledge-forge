@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/backend-interview-question-bank/面試題練習/kafka-最初的設計目標是什麼-這個起源如何影響它現今的核心優勢.md`
+- `..\..\..\..\90_cache\notion\system-design\backend-interview-question-bank\面試題練習\kafka-最初的設計目標是什麼-這個起源如何影響它現今的核心優勢.md`
 <!-- forge-sync:end -->

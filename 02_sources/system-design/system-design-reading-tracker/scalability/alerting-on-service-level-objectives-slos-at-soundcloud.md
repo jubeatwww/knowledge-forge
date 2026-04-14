@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 5ac007e43f004ab6810c88450597cfc1
-source_url: 'https://app.notion.com/p/Alerting-on-Service-Level-Objectives-SLOs-at-SoundCloud-5ac007e43f004ab6810c88450597cfc1'
+source_url: 'https://www.notion.so/Alerting-on-Service-Level-Objectives-SLOs-at-SoundCloud-5ac007e43f004ab6810c88450597cfc1'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Alerting-on-Service-Level-Objectives-SLOs-at-SoundCloud-5ac007e43f004ab6810c88450597cfc1`
+- Source URL: `https://www.notion.so/Alerting-on-Service-Level-Objectives-SLOs-at-SoundCloud-5ac007e43f004ab6810c88450597cfc1`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/alerting-on-service-level-objectives-slos-at-soundcloud.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\alerting-on-service-level-objectives-slos-at-soundcloud.md`
 <!-- forge-sync:end -->

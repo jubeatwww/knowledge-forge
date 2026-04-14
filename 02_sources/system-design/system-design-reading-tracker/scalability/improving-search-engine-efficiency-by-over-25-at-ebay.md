@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/improving-search-engine-efficiency-by-over-25-at-ebay.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\improving-search-engine-efficiency-by-over-25-at-ebay.md`
 <!-- forge-sync:end -->

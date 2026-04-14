@@ -7,7 +7,7 @@ source_type: page
 notion_id: 2911cb737bce8008b39ed80aa99e5d02
 source_url: 'https://app.notion.com/p/2911cb737bce8008b39ed80aa99e5d02'
 sync_policy: on-demand
-cache_status: missing
+cache_status: cached
 tags:
   - source
   - notion
@@ -18,6 +18,7 @@ generated_by: forge-sync
 discovery_rule: misc-data-records
 discovery_state: active
 last_discovered: 2026-04-14
+last_synced: 2026-04-14
 ---
 
 # Misc Data Records (零散資料紀錄)
@@ -59,5 +60,5 @@ last_discovered: 2026-04-14
   - [有趣關鍵字備忘](misc-data-records/有趣關鍵字備忘.md) (`database`)
 
 ## Cache
-- `../../90_cache/notion/life/misc-data-records.md`
+- `..\..\90_cache\notion\life\misc-data-records.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 26f1cb737bce81c49879c4797fd88c1a
-source_url: 'https://www.notion.so/Maximum-Distance-in-Arrays-26f1cb737bce81c49879c4797fd88c1a'
+source_url: 'https://app.notion.com/p/Maximum-Distance-in-Arrays-26f1cb737bce81c49879c4797fd88c1a'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `leetcode-problem-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Maximum-Distance-in-Arrays-26f1cb737bce81c49879c4797fd88c1a`
+- Source URL: `https://app.notion.com/p/Maximum-Distance-in-Arrays-26f1cb737bce81c49879c4797fd88c1a`
 - Parent: [leetcode-problem-tracker](../leetcode-problem-tracker.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/life/leetcode-problem-tracker/maximum-distance-in-arrays.md`
+- `..\..\..\90_cache\notion\life\leetcode-problem-tracker\maximum-distance-in-arrays.md`
 <!-- forge-sync:end -->

@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: f29000d9ef0d4543b9d98007cc8d4d55
-source_url: 'https://app.notion.com/p/Scalable-content-feed-using-Event-Sourcing-and-CQRS-patterns-at-Brainly-f29000d9ef0d4543b9d98007cc8d4d55'
+source_url: 'https://www.notion.so/Scalable-content-feed-using-Event-Sourcing-and-CQRS-patterns-at-Brainly-f29000d9ef0d4543b9d98007cc8d4d55'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Scalable-content-feed-using-Event-Sourcing-and-CQRS-patterns-at-Brainly-f29000d9ef0d4543b9d98007cc8d4d55`
+- Source URL: `https://www.notion.so/Scalable-content-feed-using-Event-Sourcing-and-CQRS-patterns-at-Brainly-f29000d9ef0d4543b9d98007cc8d4d55`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/scalable-content-feed-using-event-sourcing-and-cqrs-patterns-at-brainly.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\scalable-content-feed-using-event-sourcing-and-cqrs-patterns-at-brainly.md`
 <!-- forge-sync:end -->

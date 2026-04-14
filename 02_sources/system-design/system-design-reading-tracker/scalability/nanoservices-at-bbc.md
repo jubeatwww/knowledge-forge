@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 29ab160ab5d348f4b4bb67dae86b19bf
-source_url: 'https://app.notion.com/p/Nanoservices-at-BBC-29ab160ab5d348f4b4bb67dae86b19bf'
+source_url: 'https://www.notion.so/Nanoservices-at-BBC-29ab160ab5d348f4b4bb67dae86b19bf'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Nanoservices-at-BBC-29ab160ab5d348f4b4bb67dae86b19bf`
+- Source URL: `https://www.notion.so/Nanoservices-at-BBC-29ab160ab5d348f4b4bb67dae86b19bf`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/nanoservices-at-bbc.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\nanoservices-at-bbc.md`
 <!-- forge-sync:end -->

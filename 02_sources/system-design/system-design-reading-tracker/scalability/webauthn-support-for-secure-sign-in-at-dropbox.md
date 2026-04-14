@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 3ca8764ddb174cf5bfefe7b843fd20bc
-source_url: 'https://app.notion.com/p/WebAuthn-Support-for-Secure-Sign-In-at-Dropbox-3ca8764ddb174cf5bfefe7b843fd20bc'
+source_url: 'https://www.notion.so/WebAuthn-Support-for-Secure-Sign-In-at-Dropbox-3ca8764ddb174cf5bfefe7b843fd20bc'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/WebAuthn-Support-for-Secure-Sign-In-at-Dropbox-3ca8764ddb174cf5bfefe7b843fd20bc`
+- Source URL: `https://www.notion.so/WebAuthn-Support-for-Secure-Sign-In-at-Dropbox-3ca8764ddb174cf5bfefe7b843fd20bc`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/webauthn-support-for-secure-sign-in-at-dropbox.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\webauthn-support-for-secure-sign-in-at-dropbox.md`
 <!-- forge-sync:end -->

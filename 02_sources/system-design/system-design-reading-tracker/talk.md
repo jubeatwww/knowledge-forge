@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](talk/INDEX.md)
 
 ## Cache
-- `../../../90_cache/notion/system-design/system-design-reading-tracker/talk.md`
+- `..\..\..\90_cache\notion\system-design\system-design-reading-tracker\talk.md`
 <!-- forge-sync:end -->

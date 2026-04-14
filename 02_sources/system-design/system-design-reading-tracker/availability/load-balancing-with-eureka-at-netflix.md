@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: 08b987f5e8c8431d9868a236b0b257a8
-source_url: 'https://www.notion.so/Load-Balancing-with-Eureka-at-Netflix-08b987f5e8c8431d9868a236b0b257a8'
+source_url: 'https://app.notion.com/p/Load-Balancing-with-Eureka-at-Netflix-08b987f5e8c8431d9868a236b0b257a8'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://www.notion.so/Load-Balancing-with-Eureka-at-Netflix-08b987f5e8c8431d9868a236b0b257a8`
+- Source URL: `https://app.notion.com/p/Load-Balancing-with-Eureka-at-Netflix-08b987f5e8c8431d9868a236b0b257a8`
 - Parent: [availability](../availability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/availability/load-balancing-with-eureka-at-netflix.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\availability\load-balancing-with-eureka-at-netflix.md`
 <!-- forge-sync:end -->

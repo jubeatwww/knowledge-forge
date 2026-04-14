@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/moving-food-feed-from-redis-to-cassandra-at-zomato.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\moving-food-feed-from-redis-to-cassandra-at-zomato.md`
 <!-- forge-sync:end -->

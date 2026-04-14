@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: fa39eae8b2c5499aa0020790e265cfb5
-source_url: 'https://app.notion.com/p/Alerting-Framework-at-Airbnb-fa39eae8b2c5499aa0020790e265cfb5'
+source_url: 'https://www.notion.so/Alerting-Framework-at-Airbnb-fa39eae8b2c5499aa0020790e265cfb5'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Alerting-Framework-at-Airbnb-fa39eae8b2c5499aa0020790e265cfb5`
+- Source URL: `https://www.notion.so/Alerting-Framework-at-Airbnb-fa39eae8b2c5499aa0020790e265cfb5`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/alerting-framework-at-airbnb.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\alerting-framework-at-airbnb.md`
 <!-- forge-sync:end -->

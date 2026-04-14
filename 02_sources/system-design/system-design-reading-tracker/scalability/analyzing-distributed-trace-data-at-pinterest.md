@@ -5,7 +5,7 @@ topic: system-design
 source: notion
 source_type: page
 notion_id: e6217c77dde24fee92e6f760465eb17f
-source_url: 'https://app.notion.com/p/Analyzing-Distributed-Trace-Data-at-Pinterest-e6217c77dde24fee92e6f760465eb17f'
+source_url: 'https://www.notion.so/Analyzing-Distributed-Trace-Data-at-Pinterest-e6217c77dde24fee92e6f760465eb17f'
 sync_policy: index-only
 cache_status: optional
 generated_by: forge-sync
@@ -24,10 +24,10 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Managed by `forge-sync sync-sources`
 - Rule: `system-design-reading-tracker`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/Analyzing-Distributed-Trace-Data-at-Pinterest-e6217c77dde24fee92e6f760465eb17f`
+- Source URL: `https://www.notion.so/Analyzing-Distributed-Trace-Data-at-Pinterest-e6217c77dde24fee92e6f760465eb17f`
 - Parent: [scalability](../scalability.md)
 - Folder index: [INDEX](INDEX.md)
 
 ## Cache
-- `../../../../90_cache/notion/system-design/system-design-reading-tracker/scalability/analyzing-distributed-trace-data-at-pinterest.md`
+- `..\..\..\..\90_cache\notion\system-design\system-design-reading-tracker\scalability\analyzing-distributed-trace-data-at-pinterest.md`
 <!-- forge-sync:end -->
