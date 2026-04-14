@@ -18,11 +18,18 @@ type NotionClient struct {
 
 // --- API Response Types ---
 
+type DatabaseMeta struct {
+	ID          string     `json:"id"`
+	URL         string     `json:"url"`
+	Title       []RichText `json:"title"`
+	Description []RichText `json:"description,omitempty"`
+}
+
 type Page struct {
-	ID         string                 `json:"id"`
-	URL        string                 `json:"url"`
-	Properties map[string]interface{} `json:"properties"`
-	CreatedTime string               `json:"created_time"`
+	ID          string                 `json:"id"`
+	URL         string                 `json:"url"`
+	Properties  map[string]interface{} `json:"properties"`
+	CreatedTime string                 `json:"created_time"`
 }
 
 type BlockList struct {
@@ -32,26 +39,26 @@ type BlockList struct {
 }
 
 type Block struct {
-	ID        string `json:"id"`
-	Type      string `json:"type"`
-	HasChildren bool `json:"has_children"`
+	ID          string `json:"id"`
+	Type        string `json:"type"`
+	HasChildren bool   `json:"has_children"`
 
 	// Block type payloads
-	Paragraph        *TextBlock    `json:"paragraph,omitempty"`
-	Heading1         *TextBlock    `json:"heading_1,omitempty"`
-	Heading2         *TextBlock    `json:"heading_2,omitempty"`
-	Heading3         *TextBlock    `json:"heading_3,omitempty"`
-	BulletedListItem *TextBlock    `json:"bulleted_list_item,omitempty"`
-	NumberedListItem *TextBlock    `json:"numbered_list_item,omitempty"`
-	Toggle           *TextBlock    `json:"toggle,omitempty"`
-	Quote            *TextBlock    `json:"quote,omitempty"`
-	Callout          *CalloutBlock `json:"callout,omitempty"`
-	Code             *CodeBlock    `json:"code,omitempty"`
-	Divider          *struct{}     `json:"divider,omitempty"`
-	ChildDatabase    *ChildDB      `json:"child_database,omitempty"`
-	Table            *TableBlock   `json:"table,omitempty"`
+	Paragraph        *TextBlock     `json:"paragraph,omitempty"`
+	Heading1         *TextBlock     `json:"heading_1,omitempty"`
+	Heading2         *TextBlock     `json:"heading_2,omitempty"`
+	Heading3         *TextBlock     `json:"heading_3,omitempty"`
+	BulletedListItem *TextBlock     `json:"bulleted_list_item,omitempty"`
+	NumberedListItem *TextBlock     `json:"numbered_list_item,omitempty"`
+	Toggle           *TextBlock     `json:"toggle,omitempty"`
+	Quote            *TextBlock     `json:"quote,omitempty"`
+	Callout          *CalloutBlock  `json:"callout,omitempty"`
+	Code             *CodeBlock     `json:"code,omitempty"`
+	Divider          *struct{}      `json:"divider,omitempty"`
+	ChildDatabase    *ChildDB       `json:"child_database,omitempty"`
+	Table            *TableBlock    `json:"table,omitempty"`
 	TableRow         *TableRowBlock `json:"table_row,omitempty"`
-	Image            *FileBlock    `json:"image,omitempty"`
+	Image            *FileBlock     `json:"image,omitempty"`
 	Bookmark         *BookmarkBlock `json:"bookmark,omitempty"`
 }
 
@@ -90,9 +97,9 @@ type TableRowBlock struct {
 }
 
 type FileBlock struct {
-	Type     string    `json:"type"`
-	File     *FileURL  `json:"file,omitempty"`
-	External *FileURL  `json:"external,omitempty"`
+	Type     string     `json:"type"`
+	File     *FileURL   `json:"file,omitempty"`
+	External *FileURL   `json:"external,omitempty"`
 	Caption  []RichText `json:"caption,omitempty"`
 }
 
@@ -114,8 +121,8 @@ type RichText struct {
 }
 
 type TextContent struct {
-	Content string    `json:"content"`
-	Link    *LinkObj  `json:"link,omitempty"`
+	Content string   `json:"content"`
+	Link    *LinkObj `json:"link,omitempty"`
 }
 
 type LinkObj struct {
@@ -194,6 +201,19 @@ func (c *NotionClient) GetPage(pageID string) (*Page, error) {
 		return nil, err
 	}
 	return &page, nil
+}
+
+func (c *NotionClient) GetDatabase(dbID string) (*DatabaseMeta, error) {
+	dbID = strings.ReplaceAll(dbID, "-", "")
+	data, err := c.doRequest("GET", "/databases/"+dbID, nil)
+	if err != nil {
+		return nil, err
+	}
+	var db DatabaseMeta
+	if err := json.Unmarshal(data, &db); err != nil {
+		return nil, err
+	}
+	return &db, nil
 }
 
 func (c *NotionClient) GetBlockChildren(blockID string) ([]Block, error) {

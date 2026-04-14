@@ -4,8 +4,8 @@ kind: source
 topic: trading
 source: notion
 source_type: page
-notion_id: 2af1cb73-7bce-80bf-a9b9-d9a52728df09
-source_url: https://www.notion.so/2af1cb737bce80bfa9b9d9a52728df09
+notion_id: 2af1cb737bce80bfa9b9d9a52728df09
+source_url: 'https://www.notion.so/Aetherium-Trader-2af1cb737bce80bfa9b9d9a52728df09'
 sync_policy: on-demand
 cache_status: missing
 tags:
@@ -14,6 +14,10 @@ tags:
   - trading
   - side-project
   - system-design
+generated_by: forge-sync
+discovery_rule: aetherium-trader
+discovery_state: active
+last_discovered: 2026-04-14
 ---
 
 # Aetherium Trader
@@ -52,3 +56,14 @@ tags:
 
 ## Cache
 - `../../90_cache/notion/trading/aetherium-trader.md`
+
+<!-- forge-sync:begin -->
+## Generated Index
+- Managed by `forge-sync sync-sources`
+- Rule: `aetherium-trader`
+- Source type: `page`
+- Source URL: `https://www.notion.so/Aetherium-Trader-2af1cb737bce80bfa9b9d9a52728df09`
+
+## Cache
+- `../../90_cache/notion/trading/aetherium-trader.md`
+<!-- forge-sync:end -->

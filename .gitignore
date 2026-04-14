@@ -1,5 +1,7 @@
 # Notion token / secrets
 .env
+.forge/.env
+.forge/forge-sync.env
 
 # Obsidian workspace state (per-device, not shareable)
 .obsidian/workspace.json

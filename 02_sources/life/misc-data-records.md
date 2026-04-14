@@ -1,11 +1,11 @@
 ---
-title: Misc Data Records
+title: 零散資料紀錄
 kind: source
 topic: life
 source: notion
 source_type: page
-notion_id: 2911cb73-7bce-8008-b39e-d80aa99e5d02
-source_url: https://www.notion.so/2911cb737bce8008b39ed80aa99e5d02
+notion_id: 2911cb737bce8008b39ed80aa99e5d02
+source_url: 'https://app.notion.com/p/2911cb737bce8008b39ed80aa99e5d02'
 sync_policy: on-demand
 cache_status: missing
 tags:
@@ -14,6 +14,10 @@ tags:
   - life
   - misc
   - reference
+generated_by: forge-sync
+discovery_rule: misc-data-records
+discovery_state: active
+last_discovered: 2026-04-14
 ---
 
 # Misc Data Records (零散資料紀錄)
@@ -41,3 +45,19 @@ tags:
 
 ## Cache
 - `../../90_cache/notion/life/misc-data-records.md`
+
+<!-- forge-sync:begin -->
+## Generated Index
+- Managed by `forge-sync sync-sources`
+- Rule: `misc-data-records`
+- Source type: `page`
+- Source URL: `https://app.notion.com/p/2911cb737bce8008b39ed80aa99e5d02`
+- Folder index: [INDEX](misc-data-records/INDEX.md)
+- Discovered children:
+  - [Heptabase 暫存筆記](misc-data-records/heptabase-暫存筆記.md) (`database`)
+  - [不知道為存哪又怕不見只好放這](misc-data-records/不知道為存哪又怕不見只好放這.md) (`database`)
+  - [有趣關鍵字備忘](misc-data-records/有趣關鍵字備忘.md) (`database`)
+
+## Cache
+- `../../90_cache/notion/life/misc-data-records.md`
+<!-- forge-sync:end -->

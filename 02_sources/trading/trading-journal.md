@@ -1,11 +1,11 @@
 ---
-title: Trading Journal
+title: 交易日誌
 kind: source
 topic: trading
 source: notion
 source_type: database
-notion_id: a64952ad-5319-44db-8717-ded7780420d4
-source_url: https://www.notion.so/a64952ad531944db8717ded7780420d4
+notion_id: a64952ad531944db8717ded7780420d4
+source_url: 'https://www.notion.so/a64952ad531944db8717ded7780420d4'
 sync_policy: index-only
 cache_status: optional
 tags:
@@ -14,6 +14,10 @@ tags:
   - trading
   - journal
   - dashboard
+generated_by: forge-sync
+discovery_rule: trading-journal
+discovery_state: active
+last_discovered: 2026-04-14
 ---
 
 # Trading Journal
@@ -47,3 +51,16 @@ tags:
 ## Cache
 預設不抓全文。
 需要分析交易紀錄時再按需同步。
+
+<!-- forge-sync:begin -->
+## Generated Index
+- Managed by `forge-sync sync-sources`
+- Rule: `trading-journal`
+- Source type: `database`
+- Source URL: `https://www.notion.so/a64952ad531944db8717ded7780420d4`
+- Folder index: [INDEX](trading-journal/INDEX.md)
+- Discovered children: 99 item(s); see folder index for full list
+
+## Cache
+- `../../90_cache/notion/trading/trading-journal.md`
+<!-- forge-sync:end -->

@@ -1,11 +1,11 @@
 ---
-title: Personal Task Center
+title: 個人任務中心
 kind: source
 topic: life
 source: notion
 source_type: page
-notion_id: 2351cb73-7bce-80e8-9840-c7f5c5ff0aef
-source_url: https://www.notion.so/2351cb737bce80e89840c7f5c5ff0aef
+notion_id: 2351cb737bce80e89840c7f5c5ff0aef
+source_url: 'https://app.notion.com/p/2351cb737bce80e89840c7f5c5ff0aef'
 sync_policy: index-only
 cache_status: optional
 tags:
@@ -15,6 +15,10 @@ tags:
   - ops
   - mva
   - routine
+generated_by: forge-sync
+discovery_rule: personal-task-center
+discovery_state: active
+last_discovered: 2026-04-14
 ---
 
 # Personal Task Center
@@ -53,3 +57,18 @@ tags:
 ## Cache
 通常不需要全文常駐。  
 除非後續要系統化整理 routines，才補抓 cache。
+
+<!-- forge-sync:begin -->
+## Generated Index
+- Managed by `forge-sync sync-sources`
+- Rule: `personal-task-center`
+- Source type: `page`
+- Source URL: `https://app.notion.com/p/2351cb737bce80e89840c7f5c5ff0aef`
+- Folder index: [INDEX](personal-task-center/INDEX.md)
+- Discovered children:
+  - [技術部落格管理](personal-task-center/技術部落格管理.md) (`database`)
+  - [專題文章](personal-task-center/專題文章.md) (`database`)
+
+## Cache
+- `../../90_cache/notion/life/personal-task-center.md`
+<!-- forge-sync:end -->

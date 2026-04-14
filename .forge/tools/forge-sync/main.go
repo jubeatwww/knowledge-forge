@@ -12,13 +12,20 @@ const usage = `forge-sync — Notion → Obsidian cache sync tool
 Usage:
   forge-sync pull [source-stub-path...]   Pull specific sources into 90_cache/
   forge-sync pull-all                     Pull all sources with sync_policy=on-demand
+  forge-sync sync-sources                 Upsert 02_sources/ from discovery config
   forge-sync pull-page <notion-id> <out>  Pull a single Notion page to a file
   forge-sync list                         List all sources and cache status
   forge-sync index <notion-page-id>       Fetch a Notion page and print its child databases
 
 Environment:
-  NOTION_TOKEN    Notion integration token (required)
-  VAULT_ROOT      Vault root directory (default: current directory)
+  NOTION_TOKEN               Notion integration token (required)
+  VAULT_ROOT                 Vault root directory (default: current directory)
+  FORGE_SYNC_SOURCE_CONFIG   Discovery config path (default: .forge/source-discovery.json)
+
+Env files (loaded automatically if present):
+  .env
+  .forge/.env
+  .forge/forge-sync.env
 `
 
 func main() {
@@ -33,6 +40,13 @@ func main() {
 		vaultRoot, err = findVaultRoot()
 		if err != nil && os.Args[1] != "index" {
 			fmt.Fprintf(os.Stderr, "error: %v\n", err)
+			os.Exit(1)
+		}
+	}
+
+	if vaultRoot != "" {
+		if err := loadEnvFiles(vaultRoot); err != nil {
+			fmt.Fprintf(os.Stderr, "error loading env files: %v\n", err)
 			os.Exit(1)
 		}
 	}
@@ -69,6 +83,11 @@ func main() {
 		}
 	case "pull-all":
 		if err := cmdPullAll(client, vaultRoot); err != nil {
+			fmt.Fprintf(os.Stderr, "error: %v\n", err)
+			os.Exit(1)
+		}
+	case "sync-sources":
+		if err := cmdSyncSources(client, vaultRoot); err != nil {
 			fmt.Fprintf(os.Stderr, "error: %v\n", err)
 			os.Exit(1)
 		}
@@ -133,40 +152,62 @@ func cmdPull(client *NotionClient, vaultRoot, stubPath string) error {
 
 	fmt.Printf("pulling %s (notion_id: %s)...\n", stub.Title, stub.NotionID)
 
-	// Fetch the page
-	page, err := client.GetPage(stub.NotionID)
-	if err != nil {
-		return fmt.Errorf("fetch page: %w", err)
+	sourceType := stub.SourceType
+	if sourceType == "" {
+		sourceType = "page"
 	}
 
-	// Fetch child blocks
-	blocks, err := client.GetBlockChildren(stub.NotionID)
-	if err != nil {
-		return fmt.Errorf("fetch blocks: %w", err)
-	}
-
-	// Check for child databases — if present, also fetch their entries
-	var dbSections []DatabaseSection
-	for _, b := range blocks {
-		if b.Type == "child_database" {
-			dbID := b.ID
-			title := b.ChildDatabase.Title
-			fmt.Printf("  fetching database: %s...\n", title)
-			entries, err := client.QueryDatabase(dbID)
-			if err != nil {
-				fmt.Fprintf(os.Stderr, "  warning: could not query database %s: %v\n", title, err)
-				continue
-			}
-			dbSections = append(dbSections, DatabaseSection{
-				Title:   title,
-				ID:      dbID,
-				Entries: entries,
-			})
+	var md string
+	switch sourceType {
+	case "database":
+		db, err := client.GetDatabase(stub.NotionID)
+		if err != nil {
+			return fmt.Errorf("fetch database: %w", err)
 		}
-	}
+		entries, err := client.QueryDatabase(stub.NotionID)
+		if err != nil {
+			return fmt.Errorf("query database: %w", err)
+		}
+		md = RenderDatabase(db, entries)
 
-	// Convert to markdown
-	md := RenderPage(page, blocks, dbSections)
+	case "page":
+		// Fetch the page.
+		page, err := client.GetPage(stub.NotionID)
+		if err != nil {
+			return fmt.Errorf("fetch page: %w", err)
+		}
+
+		// Fetch child blocks.
+		blocks, err := client.GetBlockChildren(stub.NotionID)
+		if err != nil {
+			return fmt.Errorf("fetch blocks: %w", err)
+		}
+
+		// Check for child databases — if present, also fetch their entries.
+		var dbSections []DatabaseSection
+		for _, b := range blocks {
+			if b.Type == "child_database" {
+				dbID := b.ID
+				title := b.ChildDatabase.Title
+				fmt.Printf("  fetching database: %s...\n", title)
+				entries, err := client.QueryDatabase(dbID)
+				if err != nil {
+					fmt.Fprintf(os.Stderr, "  warning: could not query database %s: %v\n", title, err)
+					continue
+				}
+				dbSections = append(dbSections, DatabaseSection{
+					Title:   title,
+					ID:      dbID,
+					Entries: entries,
+				})
+			}
+		}
+
+		md = RenderPage(page, blocks, dbSections)
+
+	default:
+		return fmt.Errorf("unsupported source_type %q in %s", sourceType, stubPath)
+	}
 
 	// Determine cache path
 	cachePath := stubToCachePath(vaultRoot, stubPath, stub)
@@ -225,8 +266,8 @@ func cmdList(vaultRoot string) error {
 		return err
 	}
 
-	fmt.Printf("%-40s %-15s %-12s %s\n", "TITLE", "SYNC_POLICY", "CACHE", "NOTION_ID")
-	fmt.Println(strings.Repeat("-", 100))
+	fmt.Printf("%-34s %-10s %-15s %-12s %s\n", "TITLE", "TYPE", "SYNC_POLICY", "CACHE", "NOTION_ID")
+	fmt.Println(strings.Repeat("-", 112))
 
 	for _, stubPath := range stubs {
 		stub, err := ParseSourceStub(stubPath)
@@ -240,8 +281,13 @@ func cmdList(vaultRoot string) error {
 		if len(shortID) > 12 {
 			shortID = shortID[:12] + "..."
 		}
-		fmt.Printf("%-40s %-15s %-12s %s\n",
-			truncate(stub.Title, 39),
+		sourceType := stub.SourceType
+		if sourceType == "" {
+			sourceType = "page"
+		}
+		fmt.Printf("%-34s %-10s %-15s %-12s %s\n",
+			truncate(stub.Title, 33),
+			sourceType,
 			stub.SyncPolicy,
 			stub.CacheStatus,
 			shortID,

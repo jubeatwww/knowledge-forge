@@ -32,6 +32,27 @@ func RenderPage(page *Page, blocks []Block, dbSections []DatabaseSection) string
 	return sb.String()
 }
 
+// RenderDatabase converts a fetched Notion database into markdown with frontmatter.
+func RenderDatabase(db *DatabaseMeta, entries []DatabaseEntry) string {
+	var sb strings.Builder
+
+	title := extractDatabaseTitle(db)
+	sb.WriteString("---\n")
+	sb.WriteString(fmt.Sprintf("notion_id: %s\n", db.ID))
+	sb.WriteString(fmt.Sprintf("source_url: %s\n", db.URL))
+	sb.WriteString(fmt.Sprintf("fetched_at: %s\n", time.Now().Format("2006-01-02")))
+	sb.WriteString("---\n\n")
+
+	sb.WriteString("# " + title + "\n\n")
+	if desc := renderRichText(db.Description); desc != "" {
+		sb.WriteString(desc + "\n\n")
+	}
+	sb.WriteString("## Entries\n\n")
+	renderDatabaseEntries(&sb, entries)
+
+	return sb.String()
+}
+
 func renderBlocks(sb *strings.Builder, blocks []Block, indent int) {
 	prefix := strings.Repeat("\t", indent)
 	numberedIdx := 1
@@ -271,6 +292,13 @@ func extractPageTitle(page *Page) string {
 		}
 	}
 	return "Untitled"
+}
+
+func extractDatabaseTitle(db *DatabaseMeta) string {
+	if db == nil || len(db.Title) == 0 {
+		return "Untitled Database"
+	}
+	return renderRichText(db.Title)
 }
 
 func extractEntryTitle(entry DatabaseEntry) string {

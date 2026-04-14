@@ -4,8 +4,8 @@ kind: source
 topic: life
 source: notion
 source_type: page
-notion_id: 2cd1cb73-7bce-8033-8884-fa4454423754
-source_url: https://www.notion.so/2cd1cb737bce80338884fa4454423754
+notion_id: 2cd1cb737bce80338884fa4454423754
+source_url: 'https://www.notion.so/Habit-Tracker-Game-2cd1cb737bce80338884fa4454423754'
 sync_policy: index-only
 cache_status: optional
 tags:
@@ -14,6 +14,10 @@ tags:
   - life
   - habits
   - dashboard
+generated_by: forge-sync
+discovery_rule: habit-tracker-game
+discovery_state: active
+last_discovered: 2026-04-14
 ---
 
 # Habit Tracker Game
@@ -49,3 +53,14 @@ tags:
 ## Cache
 預設不抓全文。  
 需要研究 dashboard 結構時再補。
+
+<!-- forge-sync:begin -->
+## Generated Index
+- Managed by `forge-sync sync-sources`
+- Rule: `habit-tracker-game`
+- Source type: `page`
+- Source URL: `https://www.notion.so/Habit-Tracker-Game-2cd1cb737bce80338884fa4454423754`
+
+## Cache
+- `../../90_cache/notion/life/habit-tracker-game.md`
+<!-- forge-sync:end -->

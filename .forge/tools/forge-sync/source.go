@@ -5,17 +5,32 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 	"time"
 )
 
+const (
+	managedSectionBegin = "<!-- forge-sync:begin -->"
+	managedSectionEnd   = "<!-- forge-sync:end -->"
+)
+
 type SourceStub struct {
-	Title       string
-	Source      string
-	NotionID    string
-	SyncPolicy  string
-	CacheStatus string
-	FilePath    string
+	Title          string
+	Source         string
+	SourceType     string
+	NotionID       string
+	SyncPolicy     string
+	CacheStatus    string
+	FilePath       string
+	GeneratedBy    string
+	DiscoveryRule  string
+	DiscoveryState string
+}
+
+type FrontmatterField struct {
+	Key   string
+	Value string
 }
 
 // ParseSourceStub reads a markdown file and extracts YAML frontmatter fields.
@@ -53,12 +68,20 @@ func ParseSourceStub(path string) (*SourceStub, error) {
 			stub.Title = val
 		case "source":
 			stub.Source = val
+		case "source_type":
+			stub.SourceType = val
 		case "notion_id":
 			stub.NotionID = val
 		case "sync_policy":
 			stub.SyncPolicy = val
 		case "cache_status":
 			stub.CacheStatus = val
+		case "generated_by":
+			stub.GeneratedBy = val
+		case "discovery_rule":
+			stub.DiscoveryRule = val
+		case "discovery_state":
+			stub.DiscoveryState = val
 		}
 	}
 
@@ -66,16 +89,16 @@ func ParseSourceStub(path string) (*SourceStub, error) {
 }
 
 func parseFrontmatterLine(line string) (string, string) {
-	// Simple "key: value" parser, ignoring nested YAML
+	// Simple "key: value" parser, ignoring nested YAML.
 	if strings.HasPrefix(line, "  ") || strings.HasPrefix(line, "\t") {
-		return "", "" // skip nested
+		return "", ""
 	}
 	idx := strings.Index(line, ":")
 	if idx < 0 {
 		return "", ""
 	}
 	key := strings.TrimSpace(line[:idx])
-	val := strings.TrimSpace(line[idx+1:])
+	val := normalizeFrontmatterValue(strings.TrimSpace(line[idx+1:]))
 	return key, val
 }
 
@@ -91,65 +114,115 @@ func FindSourceStubs(dir string) ([]string, error) {
 		}
 		return nil
 	})
+	sort.Strings(stubs)
 	return stubs, err
 }
 
 // UpdateStubStatus updates cache_status and adds last_synced in the frontmatter.
 func UpdateStubStatus(path, status string) error {
+	now := time.Now().Format("2006-01-02")
+	return UpdateFrontmatterFields(path, []FrontmatterField{
+		{Key: "cache_status", Value: status},
+		{Key: "last_synced", Value: now},
+	})
+}
+
+func UpdateFrontmatterFields(path string, fields []FrontmatterField) error {
 	data, err := os.ReadFile(path)
 	if err != nil {
 		return err
 	}
-
-	content := string(data)
-	now := time.Now().Format("2006-01-02")
-
-	// Update cache_status
-	if strings.Contains(content, "cache_status:") {
-		lines := strings.Split(content, "\n")
-		for i, line := range lines {
-			if strings.HasPrefix(strings.TrimSpace(line), "cache_status:") {
-				lines[i] = "cache_status: " + status
-			}
-		}
-		content = strings.Join(lines, "\n")
-	}
-
-	// Add or update last_synced
-	if strings.Contains(content, "last_synced:") {
-		lines := strings.Split(content, "\n")
-		for i, line := range lines {
-			if strings.HasPrefix(strings.TrimSpace(line), "last_synced:") {
-				lines[i] = "last_synced: " + now
-			}
-		}
-		content = strings.Join(lines, "\n")
-	} else {
-		// Insert last_synced before the closing ---
-		content = insertBeforeClosingFrontmatter(content, "last_synced: "+now)
-	}
-
+	content := updateFrontmatterContent(string(data), fields)
 	return os.WriteFile(path, []byte(content), 0644)
 }
 
-func insertBeforeClosingFrontmatter(content, line string) string {
-	lines := strings.Split(content, "\n")
-	fmStart := false
-	for i, l := range lines {
-		trimmed := strings.TrimSpace(l)
-		if trimmed == "---" {
-			if !fmStart {
-				fmStart = true
-				continue
+func updateFrontmatterContent(content string, fields []FrontmatterField) string {
+	frontmatter, body, hasFrontmatter := splitFrontmatter(content)
+	if !hasFrontmatter {
+		return renderFrontmatter(fields) + body
+	}
+
+	lines := strings.Split(frontmatter, "\n")
+	seen := make(map[string]bool)
+
+	for i, line := range lines {
+		key, _ := parseFrontmatterLine(line)
+		if key == "" {
+			continue
+		}
+		for _, field := range fields {
+			if key == field.Key {
+				lines[i] = fmt.Sprintf("%s: %s", field.Key, formatFrontmatterValue(field.Value))
+				seen[field.Key] = true
+				break
 			}
-			// This is the closing ---
-			result := make([]string, 0, len(lines)+1)
-			result = append(result, lines[:i]...)
-			result = append(result, line)
-			result = append(result, lines[i:]...)
-			return strings.Join(result, "\n")
 		}
 	}
-	// Fallback: no frontmatter found, prepend
-	return fmt.Sprintf("---\n%s\n---\n%s", line, content)
+
+	for _, field := range fields {
+		if seen[field.Key] {
+			continue
+		}
+		lines = append(lines, fmt.Sprintf("%s: %s", field.Key, formatFrontmatterValue(field.Value)))
+	}
+
+	return "---\n" + strings.Join(lines, "\n") + "\n---\n" + body
+}
+
+func splitFrontmatter(content string) (frontmatter string, body string, hasFrontmatter bool) {
+	if !strings.HasPrefix(content, "---\n") {
+		return "", content, false
+	}
+
+	rest := content[len("---\n"):]
+	idx := strings.Index(rest, "\n---\n")
+	if idx < 0 {
+		return "", content, false
+	}
+
+	frontmatter = rest[:idx]
+	body = rest[idx+len("\n---\n"):]
+	return frontmatter, body, true
+}
+
+func renderFrontmatter(fields []FrontmatterField) string {
+	var sb strings.Builder
+	sb.WriteString("---\n")
+	for _, field := range fields {
+		sb.WriteString(fmt.Sprintf("%s: %s\n", field.Key, formatFrontmatterValue(field.Value)))
+	}
+	sb.WriteString("---\n")
+	return sb.String()
+}
+
+func replaceManagedSection(content, replacement string) string {
+	start := strings.Index(content, managedSectionBegin)
+	end := strings.Index(content, managedSectionEnd)
+	if start < 0 || end < 0 || end < start {
+		return content
+	}
+	end += len(managedSectionEnd)
+	return content[:start] + replacement + content[end:]
+}
+
+func formatFrontmatterValue(value string) string {
+	if value == "" {
+		return `""`
+	}
+	if strings.ContainsAny(value, ":#[]{}&*!|>'\"%@`\n") || strings.HasPrefix(value, " ") || strings.HasSuffix(value, " ") {
+		return "'" + strings.ReplaceAll(value, "'", "''") + "'"
+	}
+	return value
+}
+
+func normalizeFrontmatterValue(value string) string {
+	if len(value) >= 2 {
+		if strings.HasPrefix(value, "'") && strings.HasSuffix(value, "'") {
+			return strings.ReplaceAll(value[1:len(value)-1], "''", "'")
+		}
+		if strings.HasPrefix(value, `"`) && strings.HasSuffix(value, `"`) {
+			return value[1 : len(value)-1]
+		}
+	}
+	return value
 }

@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "name": "system-design-reading-tracker",
+      "type": "inline_databases",
+      "topic": "system-design",
+      "folder": "system-design",
+      "slug": "system-design-reading-tracker",
+      "notion_id": "2b61cb73-7bce-8075-b9af-c7d40db19ecd",
+      "expand_items": true,
+      "sync_policy": "on-demand",
+      "cache_status": "missing",
+      "include_root": true,
+      "child_sync_policy": "index-only",
+      "child_cache_status": "optional"
+    },
+    {
+      "name": "backend-interview-question-bank",
+      "type": "inline_databases",
+      "topic": "system-design",
+      "folder": "system-design",
+      "slug": "backend-interview-question-bank",
+      "notion_id": "2911cb73-7bce-8023-998d-fb7cd6563732",
+      "expand_items": true,
+      "sync_policy": "on-demand",
+      "cache_status": "missing",
+      "include_root": true,
+      "child_sync_policy": "index-only",
+      "child_cache_status": "optional"
+    },
+    {
+      "name": "system-design-doc-center",
+      "type": "inline_databases",
+      "topic": "system-design",
+      "folder": "system-design",
+      "slug": "system-design-doc-center",
+      "notion_id": "2af1cb73-7bce-8074-ae83-ca8a0bdf7852",
+      "sync_policy": "on-demand",
+      "cache_status": "missing",
+      "include_root": true,
+      "child_sync_policy": "index-only",
+      "child_cache_status": "optional"
+    },
+    {
+      "name": "system-design-projects",
+      "type": "database_items",
+      "topic": "system-design",
+      "folder": "system-design",
+      "child_folder": "projects",
+      "slug": "projects",
+      "notion_id": "df1d5db06f8447e392c1653bb75635b8",
+      "include_root": false,
+      "child_sync_policy": "index-only",
+      "child_cache_status": "optional"
+    },
+    {
+      "name": "frontend-interview-question-bank",
+      "type": "page",
+      "topic": "frontend",
+      "folder": "frontend",
+      "slug": "frontend-interview-question-bank",
+      "notion_id": "2911cb73-7bce-80a8-9b3b-c7832ca9329e",
+      "sync_policy": "on-demand",
+      "cache_status": "missing"
+    },
+    {
+      "name": "personal-task-center",
+      "type": "inline_databases",
+      "topic": "life",
+      "folder": "life",
+      "slug": "personal-task-center",
+      "notion_id": "2351cb73-7bce-80e8-9840-c7f5c5ff0aef",
+      "expand_items": true,
+      "sync_policy": "index-only",
+      "cache_status": "optional",
+      "include_root": true,
+      "exclude_children": ["LeetCode Problem Tracker"],
+      "child_sync_policy": "index-only",
+      "child_cache_status": "optional"
+    },
+    {
+      "name": "leetcode-problem-tracker",
+      "type": "database",
+      "topic": "life",
+      "folder": "life",
+      "slug": "leetcode-problem-tracker",
+      "notion_id": "2361cb737bce80679701dc8e838d5256",
+      "expand_items": true,
+      "sync_policy": "index-only",
+      "cache_status": "optional"
+    },
+    {
+      "name": "habit-tracker-game",
+      "type": "page",
+      "topic": "life",
+      "folder": "life",
+      "slug": "habit-tracker-game",
+      "notion_id": "2cd1cb73-7bce-8033-8884-fa4454423754",
+      "sync_policy": "index-only",
+      "cache_status": "optional"
+    },
+    {
+      "name": "misc-data-records",
+      "type": "inline_databases",
+      "topic": "life",
+      "folder": "life",
+      "slug": "misc-data-records",
+      "notion_id": "2911cb73-7bce-8008-b39e-d80aa99e5d02",
+      "expand_items": true,
+      "sync_policy": "on-demand",
+      "cache_status": "missing",
+      "include_root": true,
+      "child_sync_policy": "index-only",
+      "child_cache_status": "optional"
+    },
+    {
+      "name": "aetherium-trader",
+      "type": "page",
+      "topic": "trading",
+      "folder": "trading",
+      "slug": "aetherium-trader",
+      "notion_id": "2af1cb73-7bce-80bf-a9b9-d9a52728df09",
+      "sync_policy": "on-demand",
+      "cache_status": "missing"
+    },
+    {
+      "name": "trading-journal",
+      "type": "database",
+      "topic": "trading",
+      "folder": "trading",
+      "slug": "trading-journal",
+      "notion_id": "a64952ad-5319-44db-8717-ded7780420d4",
+      "expand_items": true,
+      "sync_policy": "index-only",
+      "cache_status": "optional"
+    }
+  ]
+}

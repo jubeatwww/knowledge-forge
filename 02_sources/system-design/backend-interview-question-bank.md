@@ -1,11 +1,11 @@
 ---
-title: Backend Interview Question Bank
+title: 後端面試題庫
 kind: source
 topic: system-design
 source: notion
 source_type: page
-notion_id: 2911cb73-7bce-8023-998d-fb7cd6563732
-source_url: https://www.notion.so/2911cb737bce8023998dfb7cd6563732
+notion_id: 2911cb737bce8023998dfb7cd6563732
+source_url: 'https://www.notion.so/2911cb737bce8023998dfb7cd6563732'
 sync_policy: on-demand
 cache_status: missing
 tags:
@@ -14,6 +14,10 @@ tags:
   - backend
   - interview
   - question-bank
+generated_by: forge-sync
+discovery_rule: backend-interview-question-bank
+discovery_state: active
+last_discovered: 2026-04-14
 ---
 
 # Backend Interview Question Bank
@@ -52,3 +56,19 @@ tags:
 
 ## Cache
 - `../../90_cache/notion/system-design/backend-interview-question-bank.md`
+
+<!-- forge-sync:begin -->
+## Generated Index
+- Managed by `forge-sync sync-sources`
+- Rule: `backend-interview-question-bank`
+- Source type: `page`
+- Source URL: `https://www.notion.so/2911cb737bce8023998dfb7cd6563732`
+- Folder index: [INDEX](backend-interview-question-bank/INDEX.md)
+- Discovered children:
+  - [學習材料與筆記](backend-interview-question-bank/學習材料與筆記.md) (`database`)
+  - [課程](backend-interview-question-bank/課程.md) (`database`)
+  - [面試題練習](backend-interview-question-bank/面試題練習.md) (`database`)
+
+## Cache
+- `../../90_cache/notion/system-design/backend-interview-question-bank.md`
+<!-- forge-sync:end -->

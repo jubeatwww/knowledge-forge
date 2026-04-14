@@ -1,11 +1,11 @@
 ---
-title: System Design Doc Center
+title: 系統設計文件中心
 kind: source
 topic: system-design
 source: notion
 source_type: page
-notion_id: 2af1cb73-7bce-8074-ae83-ca8a0bdf7852
-source_url: https://www.notion.so/2af1cb737bce8074ae83ca8a0bdf7852
+notion_id: 2af1cb737bce8074ae83ca8a0bdf7852
+source_url: 'https://app.notion.com/p/2af1cb737bce8074ae83ca8a0bdf7852'
 sync_policy: on-demand
 cache_status: missing
 tags:
@@ -14,6 +14,10 @@ tags:
   - system-design
   - projects
   - design-docs
+generated_by: forge-sync
+discovery_rule: system-design-doc-center
+discovery_state: active
+last_discovered: 2026-04-14
 ---
 
 # System Design Doc Center
@@ -53,3 +57,17 @@ tags:
 
 ## Cache
 - `../../90_cache/notion/system-design/system-design-doc-center.md`
+
+<!-- forge-sync:begin -->
+## Generated Index
+- Managed by `forge-sync sync-sources`
+- Rule: `system-design-doc-center`
+- Source type: `page`
+- Source URL: `https://app.notion.com/p/2af1cb737bce8074ae83ca8a0bdf7852`
+- Folder index: [INDEX](system-design-doc-center/INDEX.md)
+- Discovered children:
+  - [Projects](system-design-doc-center/projects.md) (`database`)
+
+## Cache
+- `../../90_cache/notion/system-design/system-design-doc-center.md`
+<!-- forge-sync:end -->

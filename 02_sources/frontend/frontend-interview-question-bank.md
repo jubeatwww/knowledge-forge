@@ -1,11 +1,11 @@
 ---
-title: Frontend Interview Question Bank
+title: 前端面試題庫
 kind: source
 topic: frontend
 source: notion
 source_type: page
-notion_id: 2911cb73-7bce-80a8-9b3b-c7832ca9329e
-source_url: https://www.notion.so/2911cb737bce80a89b3bc7832ca9329e
+notion_id: 2911cb737bce80a89b3bc7832ca9329e
+source_url: 'https://app.notion.com/p/2911cb737bce80a89b3bc7832ca9329e'
 sync_policy: on-demand
 cache_status: missing
 tags:
@@ -14,6 +14,10 @@ tags:
   - frontend
   - interview
   - question-bank
+generated_by: forge-sync
+discovery_rule: frontend-interview-question-bank
+discovery_state: active
+last_discovered: 2026-04-14
 ---
 
 # Frontend Interview Question Bank
@@ -54,3 +58,14 @@ tags:
 
 ## Cache
 - `../../90_cache/notion/frontend-interview-question-bank.md`
+
+<!-- forge-sync:begin -->
+## Generated Index
+- Managed by `forge-sync sync-sources`
+- Rule: `frontend-interview-question-bank`
+- Source type: `page`
+- Source URL: `https://app.notion.com/p/2911cb737bce80a89b3bc7832ca9329e`
+
+## Cache
+- `../../90_cache/notion/frontend/frontend-interview-question-bank.md`
+<!-- forge-sync:end -->

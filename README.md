@@ -9,7 +9,7 @@ Notion 是 source of truth（原始資料、任務、dashboard），這裡存提
 
 ```
 Notion (source of truth)
-  ↓ forge-sync pull
+  ↓ forge-sync sync-sources
 02_sources/   ← index stubs (只存 metadata + notion_id，不存內容)
   ↓ forge-sync pull / pull-page
 90_cache/     ← Notion 內容快照 (機器產生，不手改)
@@ -48,7 +48,7 @@ Notion (source of truth)
 
 ## Source Stubs
 
-`02_sources/` 下的每個 `.md` 檔是一個 Notion 頁面的索引 stub，frontmatter 包含：
+`02_sources/` 下的每個 `.md` 檔是一個 Notion 頁面或 database 的索引 stub；database 型來源也可以再往下展開成資料夾和 `INDEX.md`，讓內容先被索引、再決定是否 pull 到 `90_cache/`。frontmatter 包含：
 
 ```yaml
 notion_id: <uuid>           # Notion page/database ID
@@ -59,6 +59,7 @@ cache_status: missing       # missing | cached | optional
 ## forge-sync
 
 Go 寫的 CLI 工具，用來從 Notion 拉內容到 `90_cache/`。
+也可用 discovery config 自動維護 `02_sources/`，不用手動整理每個 source stub。
 Source code 在 `.forge/tools/forge-sync/`，compiled binary 在 `.forge/bin/`。
 
 詳見 [.forge/tools/forge-sync/README.md](.forge/tools/forge-sync/README.md)。
