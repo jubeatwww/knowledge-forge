@@ -34,6 +34,9 @@ tags:
 - [[question-log]]
 - [[weekly-recap]]
 
+## Recent Delivery Notes
+- [[splt-525-status-site-localisation]] — BR / MX status page 與 announcement page 在地化，橫跨 `sportybet-patron` 與 `sportybet-site-status`
+
 ## Promotion Rule
 符合以下條件時，從 project 升級出去：
 
