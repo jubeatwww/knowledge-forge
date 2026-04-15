@@ -1,7 +1,11 @@
 # INDEX
 
-## Domains
+## Entry Points
+- [[01_hubs/_home]]
 - [[01_hubs/_now]]
+- [[02_sources/INDEX]]
+
+## Domains
 - [[01_hubs/system-design]]
 - [[01_hubs/frontend]]
 - [[01_hubs/english]]
@@ -9,12 +13,13 @@
 - [[01_hubs/life]]
 
 ## Core Knowledge
-- [[03_notes]]
-- [[04_playbooks]]
-- [[06_skills]]
+- [[03_notes/INDEX]]
+- [[04_playbooks/INDEX]]
+- [[06_skills/INDEX]]
 
 ## Operational Layers
-- [[02_sources]]
+- [[05_projects/INDEX]]
+- [[02_sources/INDEX]]
 - [[90_cache]]
 
 ## Current Focus

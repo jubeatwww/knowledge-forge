@@ -21,8 +21,9 @@ tags:
 - performance and architecture
 
 ## Start Here
+- [[../02_sources/frontend/INDEX]]
 - [[../02_sources/frontend/frontend-interview-question-bank]]
-- [[../06_skills/frontend/index]]
+- [[../06_skills/INDEX]]
 
 ## Preferred Reading Path
 1. 先看 skill index
@@ -52,7 +53,7 @@ tags:
 - `ui-data-flow-review-checklist`
 
 ## Sources
-- [[../02_sources/frontend/frontend-interview-question-bank]]
+- [[../02_sources/frontend/INDEX]]
 
 ## Related
 - [[system-design]]

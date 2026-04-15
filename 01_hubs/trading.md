@@ -19,6 +19,7 @@ tags:
 - side project: Aetherium Trader
 
 ## Start Here
+- [[../02_sources/trading/INDEX]]
 - [[../02_sources/trading/trading-journal]]
 - [[../02_sources/trading/aetherium-trader]]
 
@@ -47,8 +48,7 @@ tags:
 - `strategy-backtest-workflow`
 
 ## Sources
-- [[../02_sources/trading/trading-journal]]
-- [[../02_sources/trading/aetherium-trader]]
+- [[../02_sources/trading/INDEX]]
 
 ## Related
 - [[system-design]]

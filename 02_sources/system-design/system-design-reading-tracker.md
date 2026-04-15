@@ -53,7 +53,7 @@ System design 的來源樞紐頁。
 
 ## Links
 - [[../../01_hubs/system-design]]
-- [[../../06_skills/system-design/index]]
+- [[../../06_skills/INDEX]]
 
 ## Cache
 - `../../90_cache/notion/system-design-reading-tracker.md`

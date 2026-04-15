@@ -55,7 +55,7 @@ last_synced: 2026-04-14
 
 ## Links
 - [[../../01_hubs/frontend]]
-- [[../../06_skills/frontend/index]]
+- [[../../06_skills/INDEX]]
 
 ## Cache
 - `../../90_cache/notion/frontend-interview-question-bank.md`

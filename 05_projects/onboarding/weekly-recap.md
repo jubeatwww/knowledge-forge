@@ -34,4 +34,4 @@ tags:
 
 ## Related
 - [[INDEX]]
-- [[../../04_playbooks/weekly-alignment-review]]
+- [[../../04_playbooks/core/weekly-alignment-review]]

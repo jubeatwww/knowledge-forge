@@ -23,13 +23,13 @@ tags:
 ## Start Here
 - [[../06_skills/habit-game/INDEX]] — 遊戲化日常的意圖 / 行為 / agent 協定
 - [[../05_projects/habit-game/INDEX]] — 每日 sessions 與 weekly snapshot
+- [[../04_playbooks/INDEX]]
+- [[../04_playbooks/life/INDEX]]
+- [[../04_playbooks/core/weekly-alignment-review]]
+- [[../02_sources/life/INDEX]]
 - [[../02_sources/life/personal-task-center]]
 - [[../02_sources/life/misc-data-records]]
-- [[../04_playbooks/weekly-alignment-review]]
-- [[../04_playbooks/low-state-protocol]]
-- [[../04_playbooks/health-baseline-reset]]
-- [[../04_playbooks/daily-life-admin-reset]]
-- [[../06_skills/life/index]]
+- [[../06_skills/INDEX]]
 
 ## Preferred Reading Path
 1. 先看 playbooks
@@ -62,8 +62,7 @@ tags:
 - `daily-life-admin-reset`
 
 ## Sources
-- [[../02_sources/life/personal-task-center]]
-- [[../02_sources/life/misc-data-records]]
+- [[../02_sources/life/INDEX]]
 
 ## Related
 - [[system-design]]

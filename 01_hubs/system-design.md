@@ -23,10 +23,11 @@ tags:
 - case studies
 
 ## Start Here
+- [[../02_sources/system-design/INDEX]]
 - [[../02_sources/system-design/system-design-reading-tracker]]
 - [[../02_sources/system-design/backend-interview-question-bank]]
 - [[../02_sources/system-design/system-design-doc-center]]
-- [[../06_skills/system-design/index]]
+- [[../06_skills/INDEX]]
 
 ## Preferred Reading Path
 1. 先看 skill index
@@ -55,9 +56,7 @@ tags:
 - `system-design-answer-framework`
 
 ## Sources
-- [[../02_sources/system-design/system-design-reading-tracker]]
-- [[../02_sources/system-design/backend-interview-question-bank]]
-- [[../02_sources/system-design/system-design-doc-center]]
+- [[../02_sources/system-design/INDEX]]
 
 ## Related
 - [[frontend]]

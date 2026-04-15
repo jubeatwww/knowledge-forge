@@ -48,11 +48,10 @@ tags:
 
 ## Start Here
 - [[../05_projects/onboarding/INDEX]]
-- [[../04_playbooks/weekly-alignment-review]]
-- [[../04_playbooks/low-state-protocol]]
-- [[../04_playbooks/health-baseline-reset]]
-- [[../04_playbooks/daily-life-admin-reset]]
-- [[../04_playbooks/manager-1on1-prep]]
+- [[../04_playbooks/INDEX]]
+- [[../04_playbooks/core/weekly-alignment-review]]
+- [[../04_playbooks/life/INDEX]]
+- [[../04_playbooks/work/INDEX]]
 
 ## Deprioritized For Now
 以下內容可以保留，但不應主導結構：

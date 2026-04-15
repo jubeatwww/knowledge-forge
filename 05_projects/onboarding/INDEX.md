@@ -43,5 +43,5 @@ tags:
 
 ## Related
 - [[../../01_hubs/_now]]
-- [[../../04_playbooks/weekly-alignment-review]]
-- [[../../04_playbooks/manager-1on1-prep]]
+- [[../../04_playbooks/core/weekly-alignment-review]]
+- [[../../04_playbooks/work/manager-1on1-prep]]

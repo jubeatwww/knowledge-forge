@@ -36,6 +36,19 @@ tags:
 - [[trading]]
 - [[life]]
 
+## Knowledge Entry
+- [[../03_notes/INDEX]]
+- [[../04_playbooks/INDEX]]
+- [[../05_projects/INDEX]]
+- [[../06_skills/INDEX]]
+
+## Source Entry
+- [[../02_sources/INDEX]]
+- [[../02_sources/system-design/INDEX]]
+- [[../02_sources/life/INDEX]]
+- [[../02_sources/frontend/INDEX]]
+- [[../02_sources/trading/INDEX]]
+
 ## Key Folders
 - `00_inbox/`：尚未整理的內容
 - `01_hubs/`：主題入口
