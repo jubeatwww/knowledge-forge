@@ -1,0 +1,4 @@
+interface:
+  display_name: "Quick Commit"
+  short_description: "One-shot Jira commit workflow"
+  default_prompt: "Use $quick-commit to create a one-shot Jira-linked commit."

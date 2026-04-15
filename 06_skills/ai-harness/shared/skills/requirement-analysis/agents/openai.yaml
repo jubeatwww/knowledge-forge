@@ -1,0 +1,4 @@
+interface:
+  display_name: "Requirement Analysis"
+  short_description: "Pragmatic requirement analysis workflow"
+  default_prompt: "Use $requirement-analysis to evaluate this requirement and recommend a plan."

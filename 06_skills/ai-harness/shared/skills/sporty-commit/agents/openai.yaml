@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commit"
+  short_description: "Standardized Jira commit workflow"
+  default_prompt: "Use $commit to create a Jira-linked commit for the current changes."

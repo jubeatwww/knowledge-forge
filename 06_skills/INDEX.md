@@ -10,6 +10,7 @@ kind: skill-index
 
 ## Available Packs
 - [[habit-game/INDEX]] — 目前唯一成熟的 agent-facing skill pack
+- [[ai-harness/INDEX]] — Claude Code + Codex harness（`claude/`、`codex/`、`shared/` 共用來源）
 
 ## Planned Packs
 - `system-design`
