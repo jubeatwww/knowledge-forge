@@ -56,6 +56,7 @@ type pathResolver struct {
 type IndexLink struct {
 	Title string
 	Path  string
+	URL   string
 	Type  string
 }
 
@@ -80,6 +81,7 @@ func cmdSyncSources(client *NotionClient, vaultRoot string) error {
 	var failures int
 	var upserts int
 	var staleCount int
+	var prunedCount int
 
 	for _, rule := range cfg.Rules {
 		if !rule.isEnabled() {
@@ -93,6 +95,13 @@ func cmdSyncSources(client *NotionClient, vaultRoot string) error {
 			continue
 		}
 
+		pruned, err := pruneGeneratedEntryStubs(vaultRoot, rule, activePaths)
+		if err != nil {
+			failures++
+			fmt.Fprintf(os.Stderr, "error pruning generated entry stubs for %s: %v\n", rule.Name, err)
+			continue
+		}
+
 		stale, err := markStaleManagedStubs(vaultRoot, rule, activePaths)
 		if err != nil {
 			failures++
@@ -102,10 +111,11 @@ func cmdSyncSources(client *NotionClient, vaultRoot string) error {
 
 		upserts += ruleUpserts
 		staleCount += stale
-		fmt.Printf("  [%s] upserted %d, stale %d\n", rule.Name, ruleUpserts, stale)
+		prunedCount += pruned
+		fmt.Printf("  [%s] upserted %d, stale %d, pruned %d\n", rule.Name, ruleUpserts, stale, pruned)
 	}
 
-	fmt.Printf("\nupserted %d stub(s), marked %d stale\n", upserts, staleCount)
+	fmt.Printf("\nupserted %d stub(s), marked %d stale, pruned %d generated entry stub(s)\n", upserts, staleCount, prunedCount)
 	if err := upsertSourcesRootIndex(vaultRoot); err != nil {
 		return fmt.Errorf("update 02_sources/INDEX.md: %w", err)
 	}
@@ -188,7 +198,7 @@ func syncRule(client *NotionClient, vaultRoot string, resolver *pathResolver, ru
 		upserts++
 		if rule.shouldExpandItems() {
 			var childUpserts int
-			childLinks, childUpserts, err = expandDatabaseItems(client, vaultRoot, resolver, rule, relPath, relPath, db.ID, extractDatabaseTitle(db), activePaths)
+			childLinks, childUpserts, err = expandDatabaseItems(client, vaultRoot, rule, relPath, relPath, db.ID, extractDatabaseTitle(db), activePaths)
 			if err != nil {
 				return nil, 0, err
 			}
@@ -283,7 +293,7 @@ func syncRule(client *NotionClient, vaultRoot string, resolver *pathResolver, ru
 			childLinks = append(childLinks, IndexLink{Title: title, Path: relPath, Type: "database"})
 			upserts++
 			if rule.shouldExpandItems() {
-				entryLinks, childUpserts, err := expandDatabaseItems(client, vaultRoot, resolver, rule, relPath, relPath, block.ID, title, activePaths)
+				entryLinks, childUpserts, err := expandDatabaseItems(client, vaultRoot, rule, relPath, relPath, block.ID, title, activePaths)
 				if err != nil {
 					return nil, 0, err
 				}
@@ -367,34 +377,22 @@ func syncRule(client *NotionClient, vaultRoot string, resolver *pathResolver, ru
 		if err != nil {
 			return nil, 0, err
 		}
+		localPaths := loadLocalSourceStubMap(vaultRoot, childFolderRelPath)
 
 		for _, entry := range entries {
 			title := extractEntryTitle(entry)
-			desired := filepath.Join(rule.Folder, childFolder, slugify(title, shortID(entry.ID))+".md")
-			relPath := resolver.resolve(desired, entry.ID)
-			if err := upsertSourceStub(vaultRoot, SourceStubSpec{
-				RelPath:       relPath,
-				Title:         title,
-				Topic:         rule.Topic,
-				NotionID:      entry.ID,
-				SourceURL:     entry.URL,
-				SourceType:    "page",
-				SyncPolicy:    rule.childSyncPolicy(),
-				CacheStatus:   rule.childCacheStatus(),
-				RuleName:      rule.Name,
-				ParentRelPath: parentRelPath,
-				IndexRelPath:  folderIndexRelPath,
-			}); err != nil {
-				return nil, 0, err
+			link := IndexLink{Title: title, URL: entry.URL, Type: "page"}
+			if relPath, ok := localPaths[cleanNotionID(entry.ID)]; ok {
+				link.Path = relPath
+				link.URL = ""
 			}
-			activePaths[filepath.Join(vaultRoot, "02_sources", relPath)] = true
-			childLinks = append(childLinks, IndexLink{Title: title, Path: relPath, Type: "page"})
-			upserts++
+			childLinks = append(childLinks, link)
 		}
 
 		if err := upsertFolderIndex(vaultRoot, childFolderRelPath, dbTitle+" Index", parentRelPath, childLinks); err != nil {
 			return nil, 0, err
 		}
+		activePaths[filepath.Join(vaultRoot, "02_sources", folderIndexRelPath)] = true
 		if rule.shouldIncludeRoot(false) {
 			if err := upsertSourceStub(vaultRoot, SourceStubSpec{
 				RelPath:      rootRelPath,
@@ -499,8 +497,7 @@ func renderManagedSection(vaultRoot, absPath string, spec SourceStubSpec) string
 		} else {
 			sb.WriteString("- Discovered children:\n")
 			for _, child := range spec.ChildLinks {
-				childAbs := filepath.Join(vaultRoot, "02_sources", child.Path)
-				sb.WriteString(fmt.Sprintf("  - %s (`%s`)\n", markdownLink(absPath, childAbs, child.Title), child.Type))
+				sb.WriteString(fmt.Sprintf("  - %s (`%s`)\n", renderIndexLink(vaultRoot, absPath, child), child.Type))
 			}
 		}
 	}
@@ -529,8 +526,7 @@ func upsertFolderIndex(vaultRoot, folderRelPath, title, parentRelPath string, ch
 		sb.WriteString("- (empty)\n")
 	} else {
 		for _, child := range childLinks {
-			childAbs := filepath.Join(vaultRoot, "02_sources", child.Path)
-			sb.WriteString(fmt.Sprintf("- %s (`%s`)\n", markdownLink(absPath, childAbs, child.Title), child.Type))
+			sb.WriteString(fmt.Sprintf("- %s (`%s`)\n", renderIndexLink(vaultRoot, absPath, child), child.Type))
 		}
 	}
 	sb.WriteString("\n")
@@ -555,6 +551,9 @@ func markStaleManagedStubs(vaultRoot string, rule SourceDiscoveryRule, activePat
 		if stub.GeneratedBy != "forge-sync" || stub.DiscoveryRule != rule.Name {
 			continue
 		}
+		if shouldPruneGeneratedEntryStub(sourcesDir, path, stub) {
+			continue
+		}
 		if activePaths[path] {
 			continue
 		}
@@ -568,6 +567,37 @@ func markStaleManagedStubs(vaultRoot string, rule SourceDiscoveryRule, activePat
 		staleCount++
 	}
 	return staleCount, nil
+}
+
+func pruneGeneratedEntryStubs(vaultRoot string, rule SourceDiscoveryRule, activePaths map[string]bool) (int, error) {
+	sourcesDir := filepath.Join(vaultRoot, "02_sources")
+	stubs, err := FindSourceStubs(sourcesDir)
+	if err != nil {
+		return 0, err
+	}
+
+	pruned := 0
+	for _, path := range stubs {
+		stub, err := ParseSourceStub(path)
+		if err != nil {
+			continue
+		}
+		if stub.GeneratedBy != "forge-sync" || stub.DiscoveryRule != rule.Name {
+			continue
+		}
+		if activePaths[path] {
+			continue
+		}
+		if !shouldPruneGeneratedEntryStub(sourcesDir, path, stub) {
+			continue
+		}
+		if err := os.Remove(path); err != nil && !os.IsNotExist(err) {
+			return pruned, err
+		}
+		pruned++
+	}
+
+	return pruned, nil
 }
 
 func (r SourceDiscoveryRule) isEnabled() bool {
@@ -702,7 +732,7 @@ func indexRelPathForStub(stubRelPath string) string {
 	return filepath.Join(strings.TrimSuffix(stubRelPath, filepath.Ext(stubRelPath)), "INDEX.md")
 }
 
-func expandDatabaseItems(client *NotionClient, vaultRoot string, resolver *pathResolver, rule SourceDiscoveryRule, parentRelPath, dbStubRelPath, dbID, dbTitle string, activePaths map[string]bool) ([]IndexLink, int, error) {
+func expandDatabaseItems(client *NotionClient, vaultRoot string, rule SourceDiscoveryRule, parentRelPath, dbStubRelPath, dbID, dbTitle string, activePaths map[string]bool) ([]IndexLink, int, error) {
 	entries, err := client.QueryDatabase(dbID)
 	if err != nil {
 		return nil, 0, err
@@ -710,38 +740,79 @@ func expandDatabaseItems(client *NotionClient, vaultRoot string, resolver *pathR
 
 	folderRelPath := strings.TrimSuffix(dbStubRelPath, filepath.Ext(dbStubRelPath))
 	folderIndexRelPath := filepath.Join(folderRelPath, "INDEX.md")
+	localPaths := loadLocalSourceStubMap(vaultRoot, folderRelPath)
 	childLinks := make([]IndexLink, 0, len(entries))
-	upserts := 0
 
 	for _, entry := range entries {
 		title := extractEntryTitle(entry)
-		desired := filepath.Join(folderRelPath, slugify(title, shortID(entry.ID))+".md")
-		relPath := resolver.resolve(desired, entry.ID)
-		if err := upsertSourceStub(vaultRoot, SourceStubSpec{
-			RelPath:       relPath,
-			Title:         title,
-			Topic:         rule.Topic,
-			NotionID:      entry.ID,
-			SourceURL:     entry.URL,
-			SourceType:    "page",
-			SyncPolicy:    rule.childSyncPolicy(),
-			CacheStatus:   rule.childCacheStatus(),
-			RuleName:      rule.Name,
-			ParentRelPath: parentRelPath,
-			IndexRelPath:  folderIndexRelPath,
-		}); err != nil {
-			return nil, upserts, err
+		link := IndexLink{Title: title, URL: entry.URL, Type: "page"}
+		if relPath, ok := localPaths[cleanNotionID(entry.ID)]; ok {
+			link.Path = relPath
+			link.URL = ""
 		}
-		activePaths[filepath.Join(vaultRoot, "02_sources", relPath)] = true
-		childLinks = append(childLinks, IndexLink{Title: title, Path: relPath, Type: "page"})
-		upserts++
+		childLinks = append(childLinks, link)
 	}
 
 	if err := upsertFolderIndex(vaultRoot, folderRelPath, dbTitle+" Index", parentRelPath, childLinks); err != nil {
-		return nil, upserts, err
+		return nil, 0, err
+	}
+	activePaths[filepath.Join(vaultRoot, "02_sources", folderIndexRelPath)] = true
+
+	return childLinks, 0, nil
+}
+
+func renderIndexLink(vaultRoot, fromAbsPath string, link IndexLink) string {
+	if link.Path != "" {
+		linkAbs := filepath.Join(vaultRoot, "02_sources", link.Path)
+		return markdownLink(fromAbsPath, linkAbs, link.Title)
+	}
+	if link.URL != "" {
+		return fmt.Sprintf("[%s](%s)", link.Title, link.URL)
+	}
+	return link.Title
+}
+
+func shouldPruneGeneratedEntryStub(sourcesDir, path string, stub *SourceStub) bool {
+	if stub.Source != "notion" || stub.SourceType != "page" {
+		return false
+	}
+	rel, err := filepath.Rel(sourcesDir, path)
+	if err != nil {
+		return false
+	}
+	parts := strings.Split(filepath.ToSlash(rel), "/")
+	return len(parts) > 2
+}
+
+func loadLocalSourceStubMap(vaultRoot, folderRelPath string) map[string]string {
+	dir := filepath.Join(vaultRoot, "02_sources", folderRelPath)
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return map[string]string{}
 	}
 
-	return childLinks, upserts, nil
+	localPaths := make(map[string]string)
+	for _, entry := range entries {
+		if entry.IsDir() {
+			continue
+		}
+		name := entry.Name()
+		if !strings.HasSuffix(name, ".md") || name == "INDEX.md" {
+			continue
+		}
+		absPath := filepath.Join(dir, name)
+		stub, err := ParseSourceStub(absPath)
+		if err != nil || stub.Source != "notion" || stub.SourceType != "page" {
+			continue
+		}
+		relPath, err := filepath.Rel(filepath.Join(vaultRoot, "02_sources"), absPath)
+		if err != nil {
+			continue
+		}
+		localPaths[cleanNotionID(stub.NotionID)] = filepath.ToSlash(relPath)
+	}
+
+	return localPaths
 }
 
 func slugify(input, fallback string) string {

@@ -5,7 +5,7 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2351cb737bce80e89840c7f5c5ff0aef
-source_url: 'https://app.notion.com/p/2351cb737bce80e89840c7f5c5ff0aef'
+source_url: 'https://www.notion.so/2351cb737bce80e89840c7f5c5ff0aef'
 sync_policy: index-only
 cache_status: optional
 tags:
@@ -18,7 +18,7 @@ tags:
 generated_by: forge-sync
 discovery_rule: personal-task-center
 discovery_state: active
-last_discovered: 2026-04-14
+last_discovered: 2026-04-15
 ---
 
 # Personal Task Center
@@ -63,12 +63,12 @@ last_discovered: 2026-04-14
 - Managed by `forge-sync sync-sources`
 - Rule: `personal-task-center`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/2351cb737bce80e89840c7f5c5ff0aef`
+- Source URL: `https://www.notion.so/2351cb737bce80e89840c7f5c5ff0aef`
 - Folder index: [INDEX](personal-task-center/INDEX.md)
 - Discovered children:
   - [技術部落格管理](personal-task-center/技術部落格管理.md) (`database`)
   - [專題文章](personal-task-center/專題文章.md) (`database`)
 
 ## Cache
-- `..\..\90_cache\notion\life\personal-task-center.md`
+- `../../90_cache/notion/life/personal-task-center.md`
 <!-- forge-sync:end -->

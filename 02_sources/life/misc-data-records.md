@@ -5,9 +5,9 @@ topic: life
 source: notion
 source_type: page
 notion_id: 2911cb737bce8008b39ed80aa99e5d02
-source_url: 'https://app.notion.com/p/2911cb737bce8008b39ed80aa99e5d02'
+source_url: 'https://www.notion.so/2911cb737bce8008b39ed80aa99e5d02'
 sync_policy: on-demand
-cache_status: cached
+cache_status: missing
 tags:
   - source
   - notion
@@ -17,7 +17,7 @@ tags:
 generated_by: forge-sync
 discovery_rule: misc-data-records
 discovery_state: active
-last_discovered: 2026-04-14
+last_discovered: 2026-04-15
 last_synced: 2026-04-14
 ---
 
@@ -52,7 +52,7 @@ last_synced: 2026-04-14
 - Managed by `forge-sync sync-sources`
 - Rule: `misc-data-records`
 - Source type: `page`
-- Source URL: `https://app.notion.com/p/2911cb737bce8008b39ed80aa99e5d02`
+- Source URL: `https://www.notion.so/2911cb737bce8008b39ed80aa99e5d02`
 - Folder index: [INDEX](misc-data-records/INDEX.md)
 - Discovered children:
   - [Heptabase 暫存筆記](misc-data-records/heptabase-暫存筆記.md) (`database`)
@@ -60,5 +60,5 @@ last_synced: 2026-04-14
   - [有趣關鍵字備忘](misc-data-records/有趣關鍵字備忘.md) (`database`)
 
 ## Cache
-- `..\..\90_cache\notion\life\misc-data-records.md`
+- `../../90_cache/notion/life/misc-data-records.md`
 <!-- forge-sync:end -->

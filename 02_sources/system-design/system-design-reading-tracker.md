@@ -7,7 +7,7 @@ source_type: page
 notion_id: 2b61cb737bce8075b9afc7d40db19ecd
 source_url: 'https://www.notion.so/System-Design-Reading-Tracker-2b61cb737bce8075b9afc7d40db19ecd'
 sync_policy: on-demand
-cache_status: cached
+cache_status: missing
 tags:
   - source
   - notion
@@ -17,7 +17,7 @@ tags:
 generated_by: forge-sync
 discovery_rule: system-design-reading-tracker
 discovery_state: active
-last_discovered: 2026-04-14
+last_discovered: 2026-04-15
 last_synced: 2026-04-14
 ---
 
@@ -81,5 +81,5 @@ System design 的來源樞紐頁。
   - [Geekbang](system-design-reading-tracker/geekbang.md) (`database`)
 
 ## Cache
-- `..\..\90_cache\notion\system-design\system-design-reading-tracker.md`
+- `../../90_cache/notion/system-design/system-design-reading-tracker.md`
 <!-- forge-sync:end -->

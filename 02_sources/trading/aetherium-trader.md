@@ -7,7 +7,7 @@ source_type: page
 notion_id: 2af1cb737bce80bfa9b9d9a52728df09
 source_url: 'https://www.notion.so/Aetherium-Trader-2af1cb737bce80bfa9b9d9a52728df09'
 sync_policy: on-demand
-cache_status: cached
+cache_status: missing
 tags:
   - source
   - notion
@@ -17,7 +17,7 @@ tags:
 generated_by: forge-sync
 discovery_rule: aetherium-trader
 discovery_state: active
-last_discovered: 2026-04-14
+last_discovered: 2026-04-15
 last_synced: 2026-04-14
 ---
 
@@ -66,5 +66,5 @@ last_synced: 2026-04-14
 - Source URL: `https://www.notion.so/Aetherium-Trader-2af1cb737bce80bfa9b9d9a52728df09`
 
 ## Cache
-- `..\..\90_cache\notion\trading\aetherium-trader.md`
+- `../../90_cache/notion/trading/aetherium-trader.md`
 <!-- forge-sync:end -->

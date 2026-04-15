@@ -11,7 +11,7 @@ cache_status: optional
 generated_by: forge-sync
 discovery_rule: system-design-reading-tracker
 discovery_state: active
-last_discovered: 2026-04-14
+last_discovered: 2026-04-15
 ---
 
 # Book
@@ -29,5 +29,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Folder index: [INDEX](book/INDEX.md)
 
 ## Cache
-- `..\..\..\90_cache\notion\system-design\system-design-reading-tracker\book.md`
+- `../../../90_cache/notion/system-design/system-design-reading-tracker/book.md`
 <!-- forge-sync:end -->

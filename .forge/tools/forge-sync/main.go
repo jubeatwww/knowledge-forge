@@ -13,6 +13,7 @@ Usage:
   forge-sync pull [source-stub-path...]   Pull specific sources into 90_cache/
   forge-sync pull-all                     Pull all sources with sync_policy=on-demand
   forge-sync sync-sources                 Upsert 02_sources/ from discovery config
+  forge-sync promote <index> <ref>        Promote one indexed Notion entry into a local source stub
   forge-sync pull-page <notion-id> <out>  Pull a single Notion page to a file
   forge-sync list                         List all sources and cache status
   forge-sync index <notion-page-id>       Fetch a Notion page and print its child databases
@@ -88,6 +89,15 @@ func main() {
 		}
 	case "sync-sources":
 		if err := cmdSyncSources(client, vaultRoot); err != nil {
+			fmt.Fprintf(os.Stderr, "error: %v\n", err)
+			os.Exit(1)
+		}
+	case "promote":
+		if len(os.Args) < 4 {
+			fmt.Fprintln(os.Stderr, "error: promote requires <index-path> <notion-url-or-id>")
+			os.Exit(1)
+		}
+		if err := cmdPromote(client, vaultRoot, os.Args[2], os.Args[3]); err != nil {
 			fmt.Fprintf(os.Stderr, "error: %v\n", err)
 			os.Exit(1)
 		}

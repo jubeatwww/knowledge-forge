@@ -11,7 +11,7 @@ cache_status: optional
 generated_by: forge-sync
 discovery_rule: system-design-reading-tracker
 discovery_state: active
-last_discovered: 2026-04-14
+last_discovered: 2026-04-15
 ---
 
 # Architecture
@@ -30,5 +30,5 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Discovered children: 47 item(s); see folder index for full list
 
 ## Cache
-- `..\..\..\90_cache\notion\system-design\system-design-reading-tracker\architecture.md`
+- `../../../90_cache/notion/system-design/system-design-reading-tracker/architecture.md`
 <!-- forge-sync:end -->

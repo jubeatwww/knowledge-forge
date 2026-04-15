@@ -11,7 +11,7 @@ cache_status: optional
 generated_by: forge-sync
 discovery_rule: system-design-reading-tracker
 discovery_state: active
-last_discovered: 2026-04-14
+last_discovered: 2026-04-15
 ---
 
 # Geekbang
@@ -28,9 +28,9 @@ Auto-generated source stub from Notion discovery. Add curated notes here if this
 - Parent: [system-design-reading-tracker](../system-design-reading-tracker.md)
 - Folder index: [INDEX](geekbang/INDEX.md)
 - Discovered children:
-  - [架构设计面试精讲](geekbang/架构设计面试精讲.md) (`page`)
-  - [高并发系统设计40问](geekbang/高并发系统设计40问.md) (`page`)
+  - [架构设计面试精讲](https://www.notion.so/2e51cb737bce8027a84acc41e03fde58) (`page`)
+  - [高并发系统设计40问](https://www.notion.so/40-2ed1cb737bce80d7a9c7f11a932173f2) (`page`)
 
 ## Cache
-- `..\..\..\90_cache\notion\system-design\system-design-reading-tracker\geekbang.md`
+- `../../../90_cache/notion/system-design/system-design-reading-tracker/geekbang.md`
 <!-- forge-sync:end -->

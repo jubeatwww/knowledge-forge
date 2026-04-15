@@ -68,7 +68,7 @@ func upsertSourcesRootIndex(vaultRoot string) error {
 			section.GroupIndexes = append(section.GroupIndexes, groupIndexEntry{
 				Title: title,
 				Path:  rel,
-				Count: countDirectMarkdownChildren(filepath.Dir(absPath)),
+				Count: countListedSourcesInIndex(absPath),
 			})
 			continue
 		}
@@ -177,27 +177,31 @@ func readMarkdownTitle(path string) string {
 	return ""
 }
 
-func countDirectMarkdownChildren(dir string) int {
-	entries, err := os.ReadDir(dir)
+func countListedSourcesInIndex(indexPath string) int {
+	f, err := os.Open(indexPath)
 	if err != nil {
 		return 0
 	}
+	defer f.Close()
 
+	scanner := bufio.NewScanner(f)
+	inSources := false
 	count := 0
-	for _, entry := range entries {
-		if entry.IsDir() {
+	for scanner.Scan() {
+		line := strings.TrimSpace(scanner.Text())
+		switch {
+		case line == "## Sources":
+			inSources = true
 			continue
-		}
-		name := entry.Name()
-		if !strings.HasSuffix(name, ".md") || name == "INDEX.md" {
+		case strings.HasPrefix(line, "## ") && inSources:
+			return count
+		case !inSources:
 			continue
+		case line == "- (empty)":
+			return 0
+		case strings.HasPrefix(line, "- "):
+			count++
 		}
-		path := filepath.Join(dir, name)
-		stub, err := ParseSourceStub(path)
-		if err == nil && stub.Source == "notion" && stub.DiscoveryState == "stale" {
-			continue
-		}
-		count++
 	}
 	return count
 }

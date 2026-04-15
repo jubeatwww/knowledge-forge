@@ -48,7 +48,7 @@ Notion (source of truth)
 
 ## Source Stubs
 
-`02_sources/` 下的每個 `.md` 檔是一個 Notion 頁面或 database 的索引 stub；database 型來源也可以再往下展開成資料夾和 `INDEX.md`，讓內容先被索引、再決定是否 pull 到 `90_cache/`。frontmatter 包含：
+`02_sources/` 下的每個 `.md` 檔是一個 Notion 頁面或 database 的索引 stub；database 型來源可以再往下展開成資料夾和 `INDEX.md`，但不需要為每個 entry 各建一個 `.md`。`02_sources/` 應該維持索引層，不是 page mirror。只有真的值得留下的 entry，再用 `forge-sync promote` 單獨升成 local source stub。frontmatter 包含：
 
 ```yaml
 notion_id: <uuid>           # Notion page/database ID
