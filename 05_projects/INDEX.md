@@ -11,6 +11,7 @@ kind: project-index
 ## Active Projects
 - [[onboarding/INDEX]] — 新工作 ramp-up、名詞地圖、問題清單、週回顧
 - [[habit-game/INDEX]] — habit game 的每日 session 與週快照
+- [[home-automation/INDEX]] — HA on k3s + Zigbee2MQTT；實體按鈕雙擊燈光循環
 
 ## Promotion Rule
 - 專案內資訊若重複出現兩次以上，先考慮升級成 playbook
