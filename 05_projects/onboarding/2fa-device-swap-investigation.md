@@ -14,7 +14,7 @@ tags:
 
 ## Snapshot
 - Date: 2026-04-17
-- Status: 調查中，待 Android 端確認 client 行為
+- Status: 已關單（Android 修復中，預計下週一發版）
 - Jira: [SPLT-648](https://opennetltd.atlassian.net/browse/SPLT-648) — BE - Investigate app access failure for user R220202072200puid81682517 in Nigeria
 - 研究材料 (本機):
   - `~/sportybet-patron/tmp/SPLT-648-debug-report.md`
@@ -98,10 +98,29 @@ tags:
 3. 為什麼有時候 2FA 通過、拿到 Token-A 後 ~2.7 秒會再打一次 `/accessToken`？是 client 內部 race / 重複觸發？
 4. 收到 `GET /two-factor-auth` 401 時的 fallback 是什麼？
 
+## 2FA flow 未觸及 server 的發現（2026-04-17）
+
+Android 確認：收到 `12400`（`MSG_TWO_FACTOR_AUTH_NEED_VERIFY`）後會走 2FA 流程。
+
+但 server 端完全找不到對應紀錄：
+- `POST /two-factor-auth/code/send`：無 log
+- `POST /two-factor-auth/verify`：無 log
+
+同一 user 在 WAP 上有完整的 2FA verify 成功 log，可排除 log 遺失問題。
+
+**推論**：Android 進入 2FA 頁面前需先通過 reCAPTCHA，reCAPTCHA 在 client 端就已失敗，導致後續 2FA API 從未被呼叫。死循環：`/accessToken` → `12400` → client 走 2FA → reCAPTCHA 失敗 → 無法送 OTP → 重試 `/accessToken`。
+
+---
+
+## 結案（2026-04-17）
+
+- 2FA 屬 Fraud 團隊範疇，由他們確認 Android 端存在此 bug
+- Android 修復單：[SPLT-659](https://opennetltd.atlassian.net/browse/SPLT-659)（by George Yu），預計下週一（2026-04-21）發版
+- SPLT-648 / SPLT-687 已關單，OPS 回覆由原 reporter 處理
+
 ## Open Questions / Next Steps
-- [ ] 跟 Android 確認上述 client 行為
+- [x] 請 Android 確認 reCAPTCHA 失敗時的 error handling → 確認為 Android bug，SPLT-659 修復中
 - [ ] 釐清為何 device 沒被加入 `t_patron_authorized_device`（理論上 2FA 通過後應該要登記）
-- [ ] User A 用同樣方法重 trace 一次，驗證是否同 root cause
 - [ ] 評估 server 端是否要加 guard：deleteRecordToken 前先檢查間隔，避免短時間多 request 互砍 token
 
 ## Related
