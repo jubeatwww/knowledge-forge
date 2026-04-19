@@ -47,15 +47,22 @@ $Mode = if ($Copy) { 'copy' } else { 'symlink' }
 
 # Resolve source dirs relative to this script.
 $ScriptDir  = $PSScriptRoot
-$SkillsSrc  = Join-Path $ScriptDir 'skills'
-$AgentsSrc  = Join-Path $ScriptDir 'agents'
-$CommandsSrc = Join-Path $ScriptDir 'commands'
+$SkillsSrc      = Join-Path $ScriptDir 'skills'
+$AgentsSrc      = Join-Path $ScriptDir 'agents'
+$CommandsSrc    = Join-Path $ScriptDir 'commands'
+$HooksSrc       = Join-Path $ScriptDir 'hooks'
+$AudioSrc       = Resolve-Path -LiteralPath (Join-Path $ScriptDir '..\audio') -ErrorAction SilentlyContinue
+if (-not $AudioSrc) { $AudioSrc = Join-Path $ScriptDir '..\audio' } else { $AudioSrc = $AudioSrc.Path }
 $StatuslineSrc  = Join-Path (Join-Path $ScriptDir 'statusline') 'statusline-command.sh'
+$SettingsSrc    = Join-Path $ScriptDir 'settings.json'
 $ClaudeHome     = Join-Path $env:USERPROFILE '.claude'
 $SkillsDest     = Join-Path $ClaudeHome 'skills'
 $AgentsDest     = Join-Path $ClaudeHome 'agents'
 $CommandsDest   = Join-Path $ClaudeHome 'commands'
+$HooksDest      = Join-Path $ClaudeHome 'hooks'
+$AudioDest      = Join-Path $ClaudeHome 'audio'
 $StatuslineDest = Join-Path $ClaudeHome 'statusline-command.sh'
+$SettingsDest   = Join-Path $ClaudeHome 'settings.json'
 
 # --- Collect items ---
 
@@ -85,8 +92,26 @@ if (Test-Path $CommandsSrc -PathType Container) {
     }
 }
 
-if ($Skills.Count -eq 0 -and $Agents.Count -eq 0 -and $Commands.Count -eq 0 -and -not (Test-Path $StatuslineSrc)) {
-    Write-Error 'nothing to install — no skills, agents, commands, or statusline found'
+# Hooks: *.mjs / *.ps1 files under hooks/
+$HookFiles = @()
+if (Test-Path $HooksSrc -PathType Container) {
+    Get-ChildItem -Path $HooksSrc -File | Where-Object { $_.Extension -in '.mjs', '.ps1' } | ForEach-Object {
+        $HookFiles += $_.Name
+    }
+}
+
+# Audio: *.mp3 files under ../audio/
+$AudioFiles = @()
+if (Test-Path $AudioSrc -PathType Container) {
+    Get-ChildItem -Path $AudioSrc -Filter '*.mp3' -File | ForEach-Object {
+        $AudioFiles += $_.Name
+    }
+}
+
+if ($Skills.Count -eq 0 -and $Agents.Count -eq 0 -and $Commands.Count -eq 0 `
+    -and $HookFiles.Count -eq 0 -and $AudioFiles.Count -eq 0 `
+    -and -not (Test-Path $StatuslineSrc) -and -not (Test-Path $SettingsSrc)) {
+    Write-Error 'nothing to install — no skills, agents, commands, hooks, audio, statusline, or settings found'
     exit 1
 }
 
@@ -132,8 +157,43 @@ function Uninstall-One {
     }
 }
 
+function Merge-Settings {
+    if (-not (Test-Path $SettingsSrc)) { return }
+    Ensure-Dir $ClaudeHome
+    if (-not (Test-Path $SettingsDest)) {
+        Invoke-Run "copy $SettingsSrc -> $SettingsDest" {
+            Copy-Item -Path $SettingsSrc -Destination $SettingsDest -Force
+        }
+        Write-Host "created: $SettingsDest"
+        return
+    }
+    Invoke-Run "merge hooks from $SettingsSrc into $SettingsDest" {
+        $proj = Get-Content $SettingsSrc -Raw | ConvertFrom-Json
+        $user = Get-Content $SettingsDest -Raw | ConvertFrom-Json
+        if ($user.PSObject.Properties.Name -contains 'hooks') {
+            $user.hooks = $proj.hooks
+        } else {
+            $user | Add-Member -NotePropertyName 'hooks' -NotePropertyValue $proj.hooks
+        }
+        $user | ConvertTo-Json -Depth 20 | Set-Content $SettingsDest -Encoding UTF8
+    }
+    Write-Host "merged hooks block into: $SettingsDest"
+}
+
+function Uninstall-Settings {
+    if (-not (Test-Path $SettingsDest)) { return }
+    Invoke-Run "remove hooks key from $SettingsDest" {
+        $user = Get-Content $SettingsDest -Raw | ConvertFrom-Json
+        if ($user.PSObject.Properties.Name -contains 'hooks') {
+            $user.PSObject.Properties.Remove('hooks')
+            $user | ConvertTo-Json -Depth 20 | Set-Content $SettingsDest -Encoding UTF8
+            Write-Host "removed hooks block from: $SettingsDest"
+        }
+    }
+}
+
 function Install-One {
-    param([string]$Src, [string]$Target)
+    param([string]$Src, [string]$Target, [switch]$Force)
 
     # Existing symlink — safe to replace.
     if (Test-Symlink $Target) {
@@ -146,10 +206,17 @@ function Install-One {
             }
         }
     }
-    # Existing real dir/file — refuse to clobber.
+    # Existing real dir/file — default refuses to clobber. -Force replaces
+    # (used for hooks/audio, which are tool-owned).
     elseif (Test-Path $Target) {
-        Write-Host "skip (exists, not a symlink — refusing to clobber): $Target"
-        return
+        if ($Force) {
+            Invoke-Run "rm $Target" {
+                Remove-Item $Target -Recurse -Force
+            }
+        } else {
+            Write-Host "skip (exists, not a symlink — refusing to clobber): $Target"
+            return
+        }
     }
 
     if ($Mode -eq 'symlink') {
@@ -173,8 +240,11 @@ function Install-One {
 if ($Uninstall) {
     foreach ($name in $Skills)   { Uninstall-One (Join-Path $SkillsDest $name) }
     foreach ($name in $Agents)   { Uninstall-One (Join-Path $AgentsDest $name) }
-    foreach ($name in $Commands) { Uninstall-One (Join-Path $CommandsDest $name) }
+    foreach ($name in $Commands)   { Uninstall-One (Join-Path $CommandsDest $name) }
+    foreach ($name in $HookFiles)  { Uninstall-One (Join-Path $HooksDest $name) }
+    foreach ($name in $AudioFiles) { Uninstall-One (Join-Path $AudioDest $name) }
     Uninstall-One $StatuslineDest
+    Uninstall-Settings
     exit 0
 }
 
@@ -212,6 +282,26 @@ if ($Commands.Count -gt 0) {
     Write-Host ''
 }
 
+# Hooks (tool-owned — force-replace existing real files)
+if ($HookFiles.Count -gt 0) {
+    Ensure-Dir $HooksDest
+    Write-Host "hooks: $HooksSrc -> $HooksDest"
+    foreach ($name in $HookFiles) {
+        Install-One (Join-Path $HooksSrc $name) (Join-Path $HooksDest $name) -Force
+    }
+    Write-Host ''
+}
+
+# Audio (tool-owned — force-replace)
+if ($AudioFiles.Count -gt 0) {
+    Ensure-Dir $AudioDest
+    Write-Host "audio: $AudioSrc -> $AudioDest"
+    foreach ($name in $AudioFiles) {
+        Install-One (Join-Path $AudioSrc $name) (Join-Path $AudioDest $name) -Force
+    }
+    Write-Host ''
+}
+
 # Statusline
 $StatuslineInstalled = 0
 if (Test-Path $StatuslineSrc) {
@@ -222,11 +312,25 @@ if (Test-Path $StatuslineSrc) {
     Write-Host ''
 }
 
-$total = $Skills.Count + $Agents.Count + $Commands.Count + $StatuslineInstalled
+# settings.json hooks merge (always merge, regardless of -Copy / symlink mode).
+$SettingsInstalled = 0
+if (Test-Path $SettingsSrc) {
+    Write-Host "settings: merge hooks from $SettingsSrc into $SettingsDest"
+    Merge-Settings
+    $SettingsInstalled = 1
+    Write-Host ''
+}
+
+$total = $Skills.Count + $Agents.Count + $Commands.Count + $HookFiles.Count + $AudioFiles.Count + $StatuslineInstalled + $SettingsInstalled
 Write-Host "done. installed $total item(s):"
-foreach ($name in $Skills)   { Write-Host "  skill: $name" }
-foreach ($name in $Agents)   { Write-Host "  agent: $name" }
-foreach ($name in $Commands) { Write-Host "  command: $name" }
+foreach ($name in $Skills)     { Write-Host "  skill:   $name" }
+foreach ($name in $Agents)     { Write-Host "  agent:   $name" }
+foreach ($name in $Commands)   { Write-Host "  command: $name" }
+foreach ($name in $HookFiles)  { Write-Host "  hook:    $name" }
+foreach ($name in $AudioFiles) { Write-Host "  audio:   $name" }
 if ($StatuslineInstalled -eq 1) {
     Write-Host "  statusline: $StatuslineDest"
+}
+if ($SettingsInstalled -eq 1) {
+    Write-Host "  settings:   $SettingsDest (hooks merged)"
 }

@@ -47,11 +47,17 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILLS_SRC="$SCRIPT_DIR/skills"
 AGENTS_SRC="$SCRIPT_DIR/agents"
 COMMANDS_SRC="$SCRIPT_DIR/commands"
+HOOKS_SRC="$SCRIPT_DIR/hooks"
+AUDIO_SRC="$SCRIPT_DIR/../audio"
 STATUSLINE_SRC="$SCRIPT_DIR/statusline/statusline-command.sh"
+SETTINGS_SRC="$SCRIPT_DIR/settings.json"
 SKILLS_DEST="$HOME/.claude/skills"
 AGENTS_DEST="$HOME/.claude/agents"
 COMMANDS_DEST="$HOME/.claude/commands"
+HOOKS_DEST="$HOME/.claude/hooks"
+AUDIO_DEST="$HOME/.claude/audio"
 STATUSLINE_DEST="$HOME/.claude/statusline-command.sh"
+SETTINGS_DEST="$HOME/.claude/settings.json"
 
 # Collect skill names (any directory under skills/ that contains SKILL.md).
 skills=()
@@ -81,8 +87,28 @@ if [ -d "$COMMANDS_SRC" ]; then
   done
 fi
 
-if [ ${#skills[@]} -eq 0 ] && [ ${#agents[@]} -eq 0 ] && [ ${#commands[@]} -eq 0 ] && [ ! -f "$STATUSLINE_SRC" ]; then
-  echo "nothing to install — no skills, agents, commands, or statusline found" >&2
+# Collect hook files (*.mjs / *.ps1 under hooks/).
+hook_files=()
+if [ -d "$HOOKS_SRC" ]; then
+  for path in "$HOOKS_SRC"/*.mjs "$HOOKS_SRC"/*.ps1; do
+    [ -f "$path" ] || continue
+    hook_files+=("$(basename "$path")")
+  done
+fi
+
+# Collect audio files (*.mp3 under audio/).
+audio_files=()
+if [ -d "$AUDIO_SRC" ]; then
+  for path in "$AUDIO_SRC"/*.mp3; do
+    [ -f "$path" ] || continue
+    audio_files+=("$(basename "$path")")
+  done
+fi
+
+if [ ${#skills[@]} -eq 0 ] && [ ${#agents[@]} -eq 0 ] && [ ${#commands[@]} -eq 0 ] \
+   && [ ${#hook_files[@]} -eq 0 ] && [ ${#audio_files[@]} -eq 0 ] \
+   && [ ! -f "$STATUSLINE_SRC" ] && [ ! -f "$SETTINGS_SRC" ]; then
+  echo "nothing to install — no skills, agents, commands, hooks, audio, statusline, or settings found" >&2
   exit 1
 fi
 
@@ -110,17 +136,63 @@ uninstall_one() {
   fi
 }
 
+merge_settings() {
+  [ -f "$SETTINGS_SRC" ] || return 0
+  if ! command -v jq >/dev/null 2>&1; then
+    echo "skip settings.json merge (jq not installed)"
+    return 0
+  fi
+  ensure_dir "$(dirname "$SETTINGS_DEST")"
+  if [ ! -f "$SETTINGS_DEST" ]; then
+    run "cp \"$SETTINGS_SRC\" \"$SETTINGS_DEST\""
+    echo "created: $SETTINGS_DEST"
+    return 0
+  fi
+  if [ "$DRY_RUN" -eq 1 ]; then
+    echo "DRY: merge hooks from $SETTINGS_SRC into $SETTINGS_DEST"
+    return 0
+  fi
+  local tmp
+  tmp=$(mktemp)
+  jq --slurpfile proj "$SETTINGS_SRC" '.hooks = $proj[0].hooks' "$SETTINGS_DEST" > "$tmp"
+  mv "$tmp" "$SETTINGS_DEST"
+  echo "merged hooks block into: $SETTINGS_DEST"
+}
+
+uninstall_settings() {
+  [ -f "$SETTINGS_DEST" ] || return 0
+  if ! command -v jq >/dev/null 2>&1; then
+    echo "skip settings.json clean (jq not installed)"
+    return 0
+  fi
+  if [ "$DRY_RUN" -eq 1 ]; then
+    echo "DRY: remove hooks key from $SETTINGS_DEST"
+    return 0
+  fi
+  local tmp
+  tmp=$(mktemp)
+  jq 'del(.hooks)' "$SETTINGS_DEST" > "$tmp"
+  mv "$tmp" "$SETTINGS_DEST"
+  echo "removed hooks block from: $SETTINGS_DEST"
+}
+
 install_one() {
   local src="$1"
   local target="$2"
+  local force="${3:-0}"
 
   # Existing symlink — safe to replace.
   if [ -L "$target" ]; then
     run "rm \"$target\""
-  # Existing real dir/file — refuse to clobber.
+  # Existing real dir/file — by default, refuse to clobber. With force=1
+  # (used for hooks/audio, which are tool-owned), replace it.
   elif [ -e "$target" ]; then
-    echo "skip (exists, not a symlink — refusing to clobber): $target"
-    return
+    if [ "$force" -eq 1 ]; then
+      run "rm -rf \"$target\""
+    else
+      echo "skip (exists, not a symlink — refusing to clobber): $target"
+      return
+    fi
   fi
 
   if [ "$MODE" = "symlink" ]; then
@@ -143,7 +215,14 @@ if [ "$UNINSTALL" -eq 1 ]; then
   for name in "${commands[@]}"; do
     uninstall_one "$COMMANDS_DEST/$name"
   done
+  for name in "${hook_files[@]}"; do
+    uninstall_one "$HOOKS_DEST/$name"
+  done
+  for name in "${audio_files[@]}"; do
+    uninstall_one "$AUDIO_DEST/$name"
+  done
   uninstall_one "$STATUSLINE_DEST"
+  uninstall_settings
   exit 0
 fi
 
@@ -181,6 +260,27 @@ if [ ${#commands[@]} -gt 0 ]; then
   echo
 fi
 
+# Hooks (tool-owned — force-replace existing real files).
+if [ ${#hook_files[@]} -gt 0 ]; then
+  ensure_dir "$HOOKS_DEST"
+  echo "hooks: $HOOKS_SRC -> $HOOKS_DEST"
+  for name in "${hook_files[@]}"; do
+    install_one "$HOOKS_SRC/$name" "$HOOKS_DEST/$name" 1
+  done
+  echo
+fi
+
+# Audio (tool-owned — force-replace). Symlink mode handles individual files
+# cleanly; copy mode duplicates the *.mp3 bytes once per machine.
+if [ ${#audio_files[@]} -gt 0 ]; then
+  ensure_dir "$AUDIO_DEST"
+  echo "audio: $AUDIO_SRC -> $AUDIO_DEST"
+  for name in "${audio_files[@]}"; do
+    install_one "$AUDIO_SRC/$name" "$AUDIO_DEST/$name" 1
+  done
+  echo
+fi
+
 # Statusline (Claude Code specific)
 statusline_installed=0
 if [ -f "$STATUSLINE_SRC" ]; then
@@ -194,17 +294,36 @@ if [ -f "$STATUSLINE_SRC" ]; then
   echo
 fi
 
-total=$(( ${#skills[@]} + ${#agents[@]} + ${#commands[@]} + statusline_installed ))
+# settings.json hooks merge (Claude Code specific). Always merge, regardless of
+# --copy / symlink mode — we can't symlink a single key inside a shared file.
+settings_installed=0
+if [ -f "$SETTINGS_SRC" ]; then
+  echo "settings: merge hooks from $SETTINGS_SRC into $SETTINGS_DEST"
+  merge_settings
+  settings_installed=1
+  echo
+fi
+
+total=$(( ${#skills[@]} + ${#agents[@]} + ${#commands[@]} + ${#hook_files[@]} + ${#audio_files[@]} + statusline_installed + settings_installed ))
 echo "done. installed $total item(s):"
 for name in "${skills[@]}"; do
-  echo "  skill: $name"
+  echo "  skill:   $name"
 done
 for name in "${agents[@]}"; do
-  echo "  agent: $name"
+  echo "  agent:   $name"
 done
 for name in "${commands[@]}"; do
   echo "  command: $name"
 done
+for name in "${hook_files[@]}"; do
+  echo "  hook:    $name"
+done
+for name in "${audio_files[@]}"; do
+  echo "  audio:   $name"
+done
 if [ "$statusline_installed" -eq 1 ]; then
   echo "  statusline: $STATUSLINE_DEST"
+fi
+if [ "$settings_installed" -eq 1 ]; then
+  echo "  settings:   $SETTINGS_DEST (hooks merged)"
 fi

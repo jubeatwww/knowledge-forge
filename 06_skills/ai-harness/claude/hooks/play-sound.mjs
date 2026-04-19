@@ -1,22 +1,26 @@
 #!/usr/bin/env node
 //
 // Cross-platform sound player for Claude Code hooks.
-// Audio lives in the sibling `../../audio/` directory (relative to this script's
-// real path — symlinks resolve via import.meta.url).
+// Audio + script are installed by sync.sh/sync.ps1 into ~/.claude/:
+//   ~/.claude/hooks/play-sound.mjs   (this file)
+//   ~/.claude/hooks/play-sound.ps1   (Windows helper)
+//   ~/.claude/audio/*.mp3            (sound files)
+// The audio dir is resolved via $HOME (os.homedir) so copy/symlink install
+// modes and any working directory behave the same.
 //
 // Invocation: node play-sound.mjs <event>
 //   events: permission | stop | subagent_start | subagent_stop | session_end |
 //           post_tool_failure | stop_failure | task_completed
 
 import { spawn } from 'node:child_process';
-import { platform } from 'node:os';
+import { platform, homedir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { existsSync } from 'node:fs';
 
 const EVENT = process.argv[2];
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const SOUND_DIR = join(__dirname, '..', 'audio');
+const SOUND_DIR = join(homedir(), '.claude', 'audio');
 
 const SOUND_MAP = {
   permission:        'gojo_domain.mp3',

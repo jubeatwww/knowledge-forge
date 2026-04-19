@@ -33,11 +33,59 @@ ai-harness/claude/
 │   └── code-review-*.agent.md -> ../../shared/code-review/agents/...
 ├── commands/
 │   └── checkin.md           # /checkin — vault-scoped daily log capture
+├── hooks/
+│   ├── play-sound.mjs       # cross-platform audio player, reads ~/.claude/audio/*.mp3
+│   └── play-sound.ps1       # Windows mciSendString helper
+├── settings.json            # hooks block merged into ~/.claude/settings.json by sync
 ├── statusline/
 │   └── statusline-command.sh
-├── sync.sh                  # skills + agents + commands + statusline → ~/.claude/ (bash)
+├── sync.sh                  # skills + agents + commands + hooks + audio + statusline + settings → ~/.claude/ (bash)
 └── sync.ps1                 # same, PowerShell for Windows
 ```
+
+Audio files live at `../audio/` (sibling to this dir) and are copied/symlinked
+into `~/.claude/audio/` by sync.
+
+## Hooks
+
+`hooks/play-sound.mjs` fires audio cues for Claude Code events. Audio files
+live in `../audio/` and the script resolves them via `import.meta.url`, so
+symlinks / absolute-path invocation both work.
+
+Event → sound mapping:
+
+| Hook event           | Arg                 | File                      |
+|----------------------|---------------------|---------------------------|
+| `PermissionRequest`  | `permission`        | `gojo_domain.mp3`         |
+| `Stop`               | `stop`              | `pain_itami_o_kanjiro.mp3`|
+| `SubagentStart`      | `subagent_start`    | `nico_nico_nii.mp3`       |
+| `SubagentStop`       | `subagent_stop`     | `za_warudo.mp3`           |
+| `SessionEnd`         | `session_end`       | `to_be_continued.mp3`     |
+| `PostToolUseFailure` | `post_tool_failure` | `sukuna_domain.mp3`       |
+| `StopFailure`        | `stop_failure`      | `saber_excalibur.mp3`     |
+| `TaskCompleted`      | `task_completed`    | `megumin_explosion.mp3`   |
+
+Hooks are wired via `settings.json` (this repo) using `$HOME/.claude/hooks/`,
+so they fire globally (not only inside this vault — `$CLAUDE_PROJECT_DIR` is
+unreliable for hook commands). Command shape:
+
+```json
+"command": "node $HOME/.claude/hooks/play-sound.mjs <arg>"
+```
+
+`sync.sh` / `sync.ps1` do three things:
+
+1. Install hook scripts to `~/.claude/hooks/` and audio files to
+   `~/.claude/audio/` (force-replacing existing real files — these are
+   tool-owned).
+2. Merge the `hooks` block from this repo's `settings.json` into
+   `~/.claude/settings.json`, preserving every other key like `model`,
+   `statusLine`, `enabledPlugins`.
+3. `--uninstall` / `-Uninstall` reverses 1 (symlinks only, to avoid
+   clobbering hand edits) and drops the `hooks` key from user settings.
+
+Bash needs `jq` for the settings merge; PowerShell uses native
+`ConvertFrom-Json` / `ConvertTo-Json`.
 
 ## Usage
 
