@@ -1,0 +1,39 @@
+{
+  "includeCoAuthoredBy": false,
+  "model": "opus",
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"C:/Users/Justin/.claude/statusline-command.sh\""
+  },
+  "hooks": {
+    "PermissionRequest": [
+      { "matcher": "", "hooks": [{ "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/06_skills/ai-harness/claude/hooks/play-sound.mjs\" permission",        "async": true }] }
+    ],
+    "Stop": [
+      { "matcher": "", "hooks": [{ "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/06_skills/ai-harness/claude/hooks/play-sound.mjs\" stop",              "async": true }] }
+    ],
+    "SubagentStart": [
+      { "matcher": "", "hooks": [{ "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/06_skills/ai-harness/claude/hooks/play-sound.mjs\" subagent_start",    "async": true }] }
+    ],
+    "SubagentStop": [
+      { "matcher": "", "hooks": [{ "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/06_skills/ai-harness/claude/hooks/play-sound.mjs\" subagent_stop",     "async": true }] }
+    ],
+    "SessionEnd": [
+      { "matcher": "", "hooks": [{ "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/06_skills/ai-harness/claude/hooks/play-sound.mjs\" session_end",       "async": true }] }
+    ],
+    "PostToolUseFailure": [
+      { "matcher": "", "hooks": [{ "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/06_skills/ai-harness/claude/hooks/play-sound.mjs\" post_tool_failure", "async": true }] }
+    ],
+    "StopFailure": [
+      { "matcher": "", "hooks": [{ "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/06_skills/ai-harness/claude/hooks/play-sound.mjs\" stop_failure",      "async": true }] }
+    ],
+    "TaskCompleted": [
+      { "matcher": "", "hooks": [{ "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/06_skills/ai-harness/claude/hooks/play-sound.mjs\" task_completed",    "async": true }] }
+    ]
+  }
+}

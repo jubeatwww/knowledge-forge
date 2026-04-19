@@ -46,9 +46,11 @@ done
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILLS_SRC="$SCRIPT_DIR/skills"
 AGENTS_SRC="$SCRIPT_DIR/agents"
+COMMANDS_SRC="$SCRIPT_DIR/commands"
 STATUSLINE_SRC="$SCRIPT_DIR/statusline/statusline-command.sh"
 SKILLS_DEST="$HOME/.claude/skills"
 AGENTS_DEST="$HOME/.claude/agents"
+COMMANDS_DEST="$HOME/.claude/commands"
 STATUSLINE_DEST="$HOME/.claude/statusline-command.sh"
 
 # Collect skill names (any directory under skills/ that contains SKILL.md).
@@ -70,8 +72,17 @@ if [ -d "$AGENTS_SRC" ]; then
   done
 fi
 
-if [ ${#skills[@]} -eq 0 ] && [ ${#agents[@]} -eq 0 ] && [ ! -f "$STATUSLINE_SRC" ]; then
-  echo "nothing to install — no skills, agents, or statusline found" >&2
+# Collect slash-command files (*.md under commands/).
+commands=()
+if [ -d "$COMMANDS_SRC" ]; then
+  for path in "$COMMANDS_SRC"/*.md; do
+    [ -f "$path" ] || continue
+    commands+=("$(basename "$path")")
+  done
+fi
+
+if [ ${#skills[@]} -eq 0 ] && [ ${#agents[@]} -eq 0 ] && [ ${#commands[@]} -eq 0 ] && [ ! -f "$STATUSLINE_SRC" ]; then
+  echo "nothing to install — no skills, agents, commands, or statusline found" >&2
   exit 1
 fi
 
@@ -129,6 +140,9 @@ if [ "$UNINSTALL" -eq 1 ]; then
   for name in "${agents[@]}"; do
     uninstall_one "$AGENTS_DEST/$name"
   done
+  for name in "${commands[@]}"; do
+    uninstall_one "$COMMANDS_DEST/$name"
+  done
   uninstall_one "$STATUSLINE_DEST"
   exit 0
 fi
@@ -157,6 +171,16 @@ if [ ${#agents[@]} -gt 0 ]; then
   echo
 fi
 
+# Slash commands
+if [ ${#commands[@]} -gt 0 ]; then
+  ensure_dir "$COMMANDS_DEST"
+  echo "commands: $COMMANDS_SRC -> $COMMANDS_DEST"
+  for name in "${commands[@]}"; do
+    install_one "$COMMANDS_SRC/$name" "$COMMANDS_DEST/$name"
+  done
+  echo
+fi
+
 # Statusline (Claude Code specific)
 statusline_installed=0
 if [ -f "$STATUSLINE_SRC" ]; then
@@ -170,13 +194,16 @@ if [ -f "$STATUSLINE_SRC" ]; then
   echo
 fi
 
-total=$(( ${#skills[@]} + ${#agents[@]} + statusline_installed ))
+total=$(( ${#skills[@]} + ${#agents[@]} + ${#commands[@]} + statusline_installed ))
 echo "done. installed $total item(s):"
 for name in "${skills[@]}"; do
   echo "  skill: $name"
 done
 for name in "${agents[@]}"; do
   echo "  agent: $name"
+done
+for name in "${commands[@]}"; do
+  echo "  command: $name"
 done
 if [ "$statusline_installed" -eq 1 ]; then
   echo "  statusline: $STATUSLINE_DEST"
