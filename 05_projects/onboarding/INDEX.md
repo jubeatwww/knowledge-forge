@@ -37,6 +37,9 @@ tags:
 ## Recent Delivery Notes
 - [[splt-525-status-site-localisation]] — BR / MX status page 與 announcement page 在地化，橫跨 `sportybet-patron` 與 `sportybet-site-status`
 
+## Active Investigations
+- [[2fa-device-swap-investigation]] — 兩位 user 的 app 登入失敗追查；含 SPLT-648 (Nigeria app access) 與另一位疑似換裝置 + 2FA 阻擋的 case
+
 ## Promotion Rule
 符合以下條件時，從 project 升級出去：
 
