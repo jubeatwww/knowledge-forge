@@ -54,16 +54,16 @@ symlinks / absolute-path invocation both work.
 
 Event → sound mapping:
 
-| Hook event           | Arg                 | File                      |
-|----------------------|---------------------|---------------------------|
-| `PermissionRequest`  | `permission`        | `gojo_domain.mp3`         |
-| `Stop`               | `stop`              | `pain_itami_o_kanjiro.mp3`|
-| `SubagentStart`      | `subagent_start`    | `nico_nico_nii.mp3`       |
-| `SubagentStop`       | `subagent_stop`     | `za_warudo.mp3`           |
-| `SessionEnd`         | `session_end`       | `to_be_continued.mp3`     |
-| `PostToolUseFailure` | `post_tool_failure` | `sukuna_domain.mp3`       |
-| `StopFailure`        | `stop_failure`      | `saber_excalibur.mp3`     |
-| `TaskCompleted`      | `task_completed`    | `megumin_explosion.mp3`   |
+| Hook event           | Arg                 | File                       |
+|----------------------|---------------------|----------------------------|
+| `PermissionRequest`  | `permission`        | `gojo_domain.mp3`          |
+| `Stop`               | `stop`              | `pain_itami_o_kanjiro.mp3` |
+| `SubagentStart`      | `subagent_start`    | `nico_nico_nii.mp3`        |
+| `SubagentStop`       | `subagent_stop`     | `za_warudo.mp3`            |
+| `SessionEnd`         | `session_end`       | `to_be_continued.mp3`      |
+| `PostToolUseFailure` | `post_tool_failure` | `sukuna_domain.mp3`        |
+| `StopFailure`        | `stop_failure`      | `saber_excalibur.mp3`      |
+| `TaskCompleted`      | `task_completed`    | `megumin_explosion.mp3`    |
 
 Hooks are wired via `settings.json` (this repo) using `$HOME/.claude/hooks/`,
 so they fire globally (not only inside this vault — `$CLAUDE_PROJECT_DIR` is

@@ -1,7 +1,19 @@
 param([Parameter(Mandatory)][string]$Path)
-$sig = '[DllImport("winmm.dll", CharSet=CharSet.Auto)] public static extern int mciSendString(string c, System.Text.StringBuilder r, int l, System.IntPtr h);'
-$m = Add-Type -MemberDefinition $sig -Name WinMM -Namespace Win32 -PassThru
-$alias = "snd_$([guid]::NewGuid().ToString('N'))"
-$r1 = $m::mciSendString("open `"$Path`" type mpegvideo alias $alias", $null, 0, [System.IntPtr]::Zero)
-$r2 = $m::mciSendString("play $alias wait", $null, 0, [System.IntPtr]::Zero)
-$r3 = $m::mciSendString("close $alias", $null, 0, [System.IntPtr]::Zero)
+# WPF MediaPlayer (via PresentationCore) handles the MP3 variants that the
+# older MCI `mpegvideo` driver rejects with error 277 on open — notably
+# higher-bitrate / longer clips. We poll NaturalDuration to learn the clip
+# length, then sleep synchronously so the process outlives playback.
+Add-Type -AssemblyName PresentationCore
+$mp = New-Object System.Windows.Media.MediaPlayer
+$mp.Open([Uri]::new($Path))
+$deadline = (Get-Date).AddSeconds(3)
+while (-not $mp.NaturalDuration.HasTimeSpan -and (Get-Date) -lt $deadline) {
+  Start-Sleep -Milliseconds 20
+}
+if (-not $mp.NaturalDuration.HasTimeSpan) {
+  Write-Error "failed to load: $Path"
+  exit 1
+}
+$mp.Play()
+Start-Sleep -Milliseconds ([int]($mp.NaturalDuration.TimeSpan.TotalMilliseconds + 200))
+$mp.Close()
