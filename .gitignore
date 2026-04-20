@@ -19,5 +19,7 @@ desktop.ini
 .idea
 .vscode
 
-.codex/
+.codex/*
+!.codex/config.toml
+!.codex/hooks.json
 .claude/

@@ -18,6 +18,10 @@ Vault 是 source of truth；symlink 模式下編輯這裡立即生效。
 `sync.sh` / child sync scripts 會以這個 repo 為主，覆蓋 `~/.claude/` /
 `~/.codex/` 裡同名項目。
 
+另外，repo root 的 `.codex/` 會放專案級 Codex 設定，例如 status line、
+`notify` 與 experimental hooks。這些不是 sync 到 `~/.codex/` 的全域檔，
+而是進到這個 repo 就會生效的 local harness。
+
 ## Layout
 
 ```

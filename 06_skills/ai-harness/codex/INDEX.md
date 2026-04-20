@@ -16,6 +16,11 @@ Vault 是 source of truth；`sync.sh` 預設以 symlink 裝進 `~/.codex/`，
 編輯這裡立即生效。sync 時遇到同名 skill / agent 會以這個 repo 的版本
 覆蓋掉。
 
+這個 repo 也提供 repo-local Codex 音效設定：
+`.codex/config.toml` 開 `notify` + `codex_hooks`，`.codex/hooks.json`
+直接重用 `../claude/hooks/play-sound.mjs`，只是在 Codex 端用
+`AI_HARNESS_AUDIO_DIR` 指回 repo 內 audio。
+
 ## Layout
 
 ```
@@ -36,6 +41,13 @@ ai-harness/codex/
 └── sync.sh                  # skills + agents → ~/.codex/
 ```
 
+Repo root 另外有：
+
+```text
+.codex/config.toml           # status line + notify + codex_hooks
+.codex/hooks.json            # SessionStart / PostToolUse(Bash) hooks
+```
+
 ## Usage
 
 ```bash
@@ -54,6 +66,18 @@ cd /path/to/knowledge-forge/06_skills/ai-harness/codex
   SKILL.md description guard 雙重保險；`table-archive-analysis` 因相容性
   保留舊名稱。非 Sporty 專案透過 Codex 設定停用。
 - `code-review` / `requirement-analysis` — 通用。
+
+## Audio hooks
+
+- `notify` 負責 turn 完成音，因為官方 stable config 只保證這個通知點。
+- experimental hooks 目前只接 `SessionStart` 和 `PostToolUse(Bash)`；
+  `PostToolUse` 只在 shell payload 看起來是 failure 時才播音，避免每個
+  Bash tool call 都吵一次。
+- 實作上直接共用 `claude/hooks/play-sound.mjs`；Codex 只是在 command
+  裡多塞 `AI_HARNESS_AUDIO_DIR`，讓同一支腳本改讀 repo 內 audio。
+- 這不是 Claude hooks 的 1:1 對應。官方目前沒有對等的
+  `PermissionRequest` / `SubagentStart` / `SubagentStop` / `TaskCompleted`
+  事件。
 
 ## Related
 
