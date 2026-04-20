@@ -1,6 +1,9 @@
 # Report Template
 
-````markdown
+Use the following shape for the final report. Do **not** wrap the entire report
+in a fenced `markdown` block, and do **not** wrap the final recommendation in a
+generic `text` block.
+
 # `<TABLE_NAME>` 依賴路徑報告
 
 ## 背景
@@ -14,7 +17,7 @@
 
 ```sql
 <DDL>
-````
+```
 
 ## 基本判斷
 
@@ -41,12 +44,12 @@
 
 <per-path mermaid block>
 
-```text
-<entry> -> <service> -> <mapper>
-SQL: <type> <key fields / WHERE conditions>
-```
+路徑摘要:
+- `<entry> -> <service> -> <mapper>`
+- `SQL: <type> <key fields / WHERE conditions>`
 
-回傳用途: <why this path exists>
+回傳用途:
+- `<why this path exists>`
 
 ## 欄位存取矩陣
 
@@ -62,8 +65,23 @@ SQL: <type> <key fields / WHERE conditions>
 
 ### 最終建議
 
-<DBA SOP recommendation block>
-```
+Archive Rule: `[x] Required / [ ] Not Required`
+
+Condition:
+- `create_time < DATE_SUB(CURDATE(), INTERVAL <N> DAY)`
+
+idx_create_time:
+- `✅ already exists` or `❌ add before review`
+
+write-once:
+- `✅ no UPDATE found`
+- or `⚠️ UPDATE found — <details>`
+
+風險項目:
+- `<path>: <risk> -> <mitigation>`
+
+Action items before DBA review:
+- `[ ] <item>`
 
 ## Mermaid Cheatsheet
 

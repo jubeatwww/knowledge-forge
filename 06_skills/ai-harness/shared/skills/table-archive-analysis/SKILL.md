@@ -74,6 +74,7 @@ The final deliverable should contain:
 - path-level explanation and field-touch summary
 - archive evaluation matrix
 - final DBA SOP recommendation block
+  This must be rendered as normal markdown, not wrapped in a generic code block.
 
 ## Rules
 
@@ -86,4 +87,6 @@ The final deliverable should contain:
 - If the host truly lacks subagent capability, say that explicitly and only
   then fall back to sequential generation.
 - For archive safety, reason from actual query shape, not naming guesses.
+- The final recommendation section must be normal markdown prose / bullets /
+  checklist content, not a fenced `text` or `markdown` block.
 - Respond in the same language the user is writing in.

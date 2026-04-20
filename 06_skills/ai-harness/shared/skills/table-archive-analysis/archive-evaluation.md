@@ -35,23 +35,32 @@ Use this table in the report:
 |----|----|----|----|----|----|
 | A  |    |    |    |    |    |
 
-## Final Recommendation Block
+## Final Recommendation Format
 
-```text
-Archive Rule: [x] Required / [ ] Not Required
+Write the final recommendation as normal markdown, not inside a fenced code
+block.
+
+Use this structure:
+
+### 最終建議
+
+Archive Rule: `[x] Required / [ ] Not Required`
 
 Condition:
-  create_time < DATE_SUB(CURDATE(), INTERVAL <N> DAY)
+- `create_time < DATE_SUB(CURDATE(), INTERVAL <N> DAY)`
 
-idx_create_time: ✅ already exists / ❌ add before review
-write-once:      ✅ no UPDATE found / ⚠️ UPDATE found — <details>
+idx_create_time:
+- `✅ already exists` or `❌ add before review`
+
+write-once:
+- `✅ no UPDATE found`
+- or `⚠️ UPDATE found — <details>`
 
 風險項目:
-  <path>: <risk> -> <mitigation>
+- `<path>: <risk> -> <mitigation>`
 
 Action items before DBA review:
-  [ ] <item>
-```
+- `[ ] <item>`
 
 ## Judgment Rules
 
@@ -62,3 +71,5 @@ Action items before DBA review:
 - `idx_create_time` is mandatory if the archive condition depends on
   `create_time`.
 - Any `UPDATE` breaks the default write-once assumption and must be called out.
+- The final recommendation should read like a review note, not like pasted raw
+  template text inside a code fence.
