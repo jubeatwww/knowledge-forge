@@ -23,14 +23,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const SOUND_DIR = join(homedir(), '.claude', 'audio');
 
 const SOUND_MAP = {
-  permission:        'gojo_domain.mp3',
+  permission:        'megumin_explosion.mp3',
   stop:              'pain_itami_o_kanjiro.mp3',
   subagent_start:    'nico_nico_nii.mp3',
   subagent_stop:     'za_warudo.mp3',
   session_end:       'to_be_continued.mp3',
   post_tool_failure: 'sukuna_domain.mp3',
   stop_failure:      'saber_excalibur.mp3',
-  task_completed:    'megumin_explosion.mp3',
+  task_completed:    'gojo_domain.mp3',
 };
 
 const file = SOUND_MAP[EVENT];

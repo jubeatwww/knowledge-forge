@@ -13,8 +13,8 @@
 #
 # Conflict handling:
 #   - Existing symlinks are replaced silently.
-#   - Existing real directories or files are not clobbered. The script reports
-#     them and skips, so hand-edited local items are left alone.
+#   - Existing real directories or files with the same managed name are
+#     replaced. This repo is the source of truth for installed items.
 
 set -euo pipefail
 
@@ -96,11 +96,8 @@ install_one() {
   local src="$1"
   local target="$2"
 
-  if [ -L "$target" ]; then
-    run "rm \"$target\""
-  elif [ -e "$target" ]; then
-    echo "skip (exists, not a symlink - refusing to clobber): $target"
-    return
+  if [ -L "$target" ] || [ -e "$target" ]; then
+    run "rm -rf \"$target\""
   fi
 
   if [ "$MODE" = "symlink" ]; then

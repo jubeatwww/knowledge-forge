@@ -14,9 +14,8 @@
 #
 # Conflict handling:
 #   - Existing symlinks are replaced silently.
-#   - Existing real directories or files are NOT clobbered. The script
-#     reports them and skips, so other people's items (or hand-edited
-#     copies) are never destroyed.
+#   - Existing real directories or files with the same managed name are
+#     replaced. This repo is the source of truth for installed items.
 
 set -euo pipefail
 
@@ -179,20 +178,9 @@ uninstall_settings() {
 install_one() {
   local src="$1"
   local target="$2"
-  local force="${3:-0}"
 
-  # Existing symlink — safe to replace.
-  if [ -L "$target" ]; then
-    run "rm \"$target\""
-  # Existing real dir/file — by default, refuse to clobber. With force=1
-  # (used for hooks/audio, which are tool-owned), replace it.
-  elif [ -e "$target" ]; then
-    if [ "$force" -eq 1 ]; then
-      run "rm -rf \"$target\""
-    else
-      echo "skip (exists, not a symlink — refusing to clobber): $target"
-      return
-    fi
+  if [ -L "$target" ] || [ -e "$target" ]; then
+    run "rm -rf \"$target\""
   fi
 
   if [ "$MODE" = "symlink" ]; then
@@ -260,23 +248,23 @@ if [ ${#commands[@]} -gt 0 ]; then
   echo
 fi
 
-# Hooks (tool-owned — force-replace existing real files).
+# Hooks.
 if [ ${#hook_files[@]} -gt 0 ]; then
   ensure_dir "$HOOKS_DEST"
   echo "hooks: $HOOKS_SRC -> $HOOKS_DEST"
   for name in "${hook_files[@]}"; do
-    install_one "$HOOKS_SRC/$name" "$HOOKS_DEST/$name" 1
+    install_one "$HOOKS_SRC/$name" "$HOOKS_DEST/$name"
   done
   echo
 fi
 
-# Audio (tool-owned — force-replace). Symlink mode handles individual files
-# cleanly; copy mode duplicates the *.mp3 bytes once per machine.
+# Audio. Symlink mode handles individual files cleanly; copy mode duplicates
+# the *.mp3 bytes once per machine.
 if [ ${#audio_files[@]} -gt 0 ]; then
   ensure_dir "$AUDIO_DEST"
   echo "audio: $AUDIO_SRC -> $AUDIO_DEST"
   for name in "${audio_files[@]}"; do
-    install_one "$AUDIO_SRC/$name" "$AUDIO_DEST/$name" 1
+    install_one "$AUDIO_SRC/$name" "$AUDIO_DEST/$name"
   done
   echo
 fi

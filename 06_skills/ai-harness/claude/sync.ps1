@@ -28,9 +28,8 @@
 .NOTES
   Conflict handling:
     - Existing symlinks are replaced silently.
-    - Existing real directories or files are NOT clobbered. The script
-      reports them and skips, so other people's items (or hand-edited
-      copies) are never destroyed.
+    - Existing real directories or files with the same managed name are
+      replaced. This repo is the source of truth for installed items.
 #>
 
 [CmdletBinding()]
@@ -193,9 +192,8 @@ function Uninstall-Settings {
 }
 
 function Install-One {
-    param([string]$Src, [string]$Target, [switch]$Force)
+    param([string]$Src, [string]$Target)
 
-    # Existing symlink — safe to replace.
     if (Test-Symlink $Target) {
         Invoke-Run "rm $Target" {
             $item = Get-Item $Target -Force
@@ -206,16 +204,9 @@ function Install-One {
             }
         }
     }
-    # Existing real dir/file — default refuses to clobber. -Force replaces
-    # (used for hooks/audio, which are tool-owned).
     elseif (Test-Path $Target) {
-        if ($Force) {
-            Invoke-Run "rm $Target" {
-                Remove-Item $Target -Recurse -Force
-            }
-        } else {
-            Write-Host "skip (exists, not a symlink — refusing to clobber): $Target"
-            return
+        Invoke-Run "rm $Target" {
+            Remove-Item $Target -Recurse -Force
         }
     }
 
@@ -282,22 +273,22 @@ if ($Commands.Count -gt 0) {
     Write-Host ''
 }
 
-# Hooks (tool-owned — force-replace existing real files)
+# Hooks
 if ($HookFiles.Count -gt 0) {
     Ensure-Dir $HooksDest
     Write-Host "hooks: $HooksSrc -> $HooksDest"
     foreach ($name in $HookFiles) {
-        Install-One (Join-Path $HooksSrc $name) (Join-Path $HooksDest $name) -Force
+        Install-One (Join-Path $HooksSrc $name) (Join-Path $HooksDest $name)
     }
     Write-Host ''
 }
 
-# Audio (tool-owned — force-replace)
+# Audio
 if ($AudioFiles.Count -gt 0) {
     Ensure-Dir $AudioDest
     Write-Host "audio: $AudioSrc -> $AudioDest"
     foreach ($name in $AudioFiles) {
-        Install-One (Join-Path $AudioSrc $name) (Join-Path $AudioDest $name) -Force
+        Install-One (Join-Path $AudioSrc $name) (Join-Path $AudioDest $name)
     }
     Write-Host ''
 }

@@ -13,7 +13,8 @@ Portable Claude Code harness bits — skills, agents, statusline — mirroring
 with [[../codex/INDEX|the codex side]].
 
 Vault 是 source of truth；`sync.sh` 預設以 symlink 裝進 `~/.claude/`，
-編輯這裡立即生效。
+編輯這裡立即生效。sync 時遇到同名 skill / agent / command / hook /
+audio / statusline 會以這個 repo 的版本覆蓋掉。
 
 This is **not** an agent-facing skill pack like [[../../habit-game/INDEX]].
 It is Claude Code configuration carried across machines.
@@ -23,10 +24,14 @@ It is Claude Code configuration carried across machines.
 ```
 ai-harness/claude/
 ├── skills/
+│   ├── commit               -> ../../shared/skills/commit
+│   ├── create-pr            -> ../../shared/skills/create-pr
+│   ├── quick-commit         -> ../../shared/skills/quick-commit
 │   ├── sporty-commit        -> ../../shared/skills/sporty-commit
 │   ├── sporty-create-pr     -> ../../shared/skills/sporty-create-pr
 │   ├── sporty-quick-commit  -> ../../shared/skills/sporty-quick-commit
 │   ├── requirement-analysis -> ../../shared/skills/requirement-analysis
+│   ├── table-archive-analysis -> ../../shared/skills/table-archive-analysis
 │   └── code-review/         # claude-flavored wrapper + aspects/references
 ├── agents/
 │   ├── code-review.agent.md
@@ -109,8 +114,12 @@ cd D:\knowledge-forge\Knowledge Forge\06_skills\ai-harness\claude
 
 ## Skill scope
 
-- `sporty-*` — Sporty 專用。名稱 prefix + SKILL.md description guard 雙重
-  保險。真要關，在非 Sporty repo 的 `.claude/settings.json` 停用即可。
+- `commit` / `quick-commit` / `create-pr` — 通用，但有 repo guard。
+  偵測到 repo path 或 repo name 含 `sporty` 時才套用 Sporty 規則。
+- `sporty-*` / `table-archive-analysis` — Sporty 專用。名稱 prefix +
+  SKILL.md description guard 雙重保險；`table-archive-analysis` 因相容性
+  保留舊名稱。真要關，在非 Sporty repo 的 `.claude/settings.json`
+  停用即可。
 - `code-review` / `requirement-analysis` — 通用。
 
 ## Slash command scope
