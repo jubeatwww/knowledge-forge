@@ -27,9 +27,8 @@
 
 .NOTES
   Conflict handling:
-    - Existing symlinks are replaced silently.
-    - Existing real directories or files with the same managed name are
-      replaced. This repo is the source of truth for installed items.
+    - If the same name already exists, leave it alone and skip installation.
+    - If the existing entry is already linked to this repo, skip as a no-op.
 #>
 
 [CmdletBinding()]
@@ -62,6 +61,7 @@ $HooksDest      = Join-Path $ClaudeHome 'hooks'
 $AudioDest      = Join-Path $ClaudeHome 'audio'
 $StatuslineDest = Join-Path $ClaudeHome 'statusline-command.sh'
 $SettingsDest   = Join-Path $ClaudeHome 'settings.json'
+$NodePathDest   = Join-Path $ClaudeHome 'ai-harness-node-path.txt'
 
 # --- Collect items ---
 
@@ -139,6 +139,38 @@ function Ensure-Dir {
     }
 }
 
+function Resolve-NodeBin {
+    if ($env:AI_HARNESS_NODE_BIN -and (Test-Path $env:AI_HARNESS_NODE_BIN)) {
+        return (Resolve-Path -LiteralPath $env:AI_HARNESS_NODE_BIN).Path
+    }
+
+    try {
+        return (Get-Command node -ErrorAction Stop).Source
+    } catch {}
+
+    foreach ($candidate in @(
+        (Join-Path $env:USERPROFILE '.volta\bin\node.exe'),
+        'C:\Program Files\nodejs\node.exe',
+        'C:\Program Files (x86)\nodejs\node.exe'
+    )) {
+        if (Test-Path $candidate) {
+            return $candidate
+        }
+    }
+
+    $nvmRoot = Join-Path $env:USERPROFILE '.nvm\versions\node'
+    if (Test-Path $nvmRoot) {
+        $candidate = Get-ChildItem -Path $nvmRoot -Recurse -Filter 'node.exe' -File -ErrorAction SilentlyContinue |
+            Sort-Object FullName |
+            Select-Object -Last 1
+        if ($candidate) {
+            return $candidate.FullName
+        }
+    }
+
+    return $null
+}
+
 function Uninstall-One {
     param([string]$Target)
     if (Test-Symlink $Target) {
@@ -156,18 +188,72 @@ function Uninstall-One {
     }
 }
 
+function Resolve-NormalizedPath {
+    param([string]$Path)
+    try {
+        return (Resolve-Path -LiteralPath $Path).Path
+    } catch {
+        return $null
+    }
+}
+
+function Write-NodePathFile {
+    param([string]$NodeBin)
+
+    if (-not $NodeBin) {
+        Write-Host 'warning: node not found during sync; hook commands will still depend on runtime PATH'
+        return
+    }
+
+    Ensure-Dir $ClaudeHome
+    $current = if (Test-Path $NodePathDest) { Get-Content $NodePathDest -Raw -ErrorAction SilentlyContinue } else { $null }
+    if ($current) {
+        $current = $current.Trim()
+    }
+    if ($current -eq $NodeBin) {
+        Write-Host "node path unchanged: $NodePathDest"
+        return
+    }
+
+    Invoke-Run "write node path $NodeBin -> $NodePathDest" {
+        Set-Content -Path $NodePathDest -Value $NodeBin -Encoding UTF8
+    }
+    Write-Host "node path: $NodeBin"
+}
+
+function Get-RenderedSettingsObject {
+    $proj = Get-Content $SettingsSrc -Raw | ConvertFrom-Json
+    if (-not $script:NodeBin) {
+        return $proj
+    }
+
+    foreach ($hookGroup in $proj.hooks.PSObject.Properties) {
+        foreach ($matcher in $hookGroup.Value) {
+            foreach ($hook in $matcher.hooks) {
+                if ($hook.type -ne 'command') { continue }
+                if ($hook.command -notmatch ' (?<event>[^ ]+)$') { continue }
+                $event = $Matches['event']
+                $hook.command = "`"$script:NodeBin`" `$HOME/.claude/hooks/play-sound.mjs $event"
+            }
+        }
+    }
+
+    return $proj
+}
+
 function Merge-Settings {
     if (-not (Test-Path $SettingsSrc)) { return }
     Ensure-Dir $ClaudeHome
     if (-not (Test-Path $SettingsDest)) {
-        Invoke-Run "copy $SettingsSrc -> $SettingsDest" {
-            Copy-Item -Path $SettingsSrc -Destination $SettingsDest -Force
+        Invoke-Run "create $SettingsDest from rendered settings template" {
+            $proj = Get-RenderedSettingsObject
+            $proj | ConvertTo-Json -Depth 20 | Set-Content $SettingsDest -Encoding UTF8
         }
         Write-Host "created: $SettingsDest"
         return
     }
     Invoke-Run "merge hooks from $SettingsSrc into $SettingsDest" {
-        $proj = Get-Content $SettingsSrc -Raw | ConvertFrom-Json
+        $proj = Get-RenderedSettingsObject
         $user = Get-Content $SettingsDest -Raw | ConvertFrom-Json
         if ($user.PSObject.Properties.Name -contains 'hooks') {
             $user.hooks = $proj.hooks
@@ -194,20 +280,15 @@ function Uninstall-Settings {
 function Install-One {
     param([string]$Src, [string]$Target)
 
-    if (Test-Symlink $Target) {
-        Invoke-Run "rm $Target" {
-            $item = Get-Item $Target -Force
-            if ($item.PSIsContainer) {
-                $item.Delete()
-            } else {
-                Remove-Item $Target -Force
-            }
+    if (Test-Path $Target) {
+        $resolvedSrc = Resolve-NormalizedPath $Src
+        $resolvedTarget = Resolve-NormalizedPath $Target
+        if ((Test-Symlink $Target) -and $resolvedSrc -and $resolvedTarget -and $resolvedSrc -eq $resolvedTarget) {
+            Write-Host "skip (already linked): $Target"
+        } else {
+            Write-Host "skip (name exists, leaving alone): $Target"
         }
-    }
-    elseif (Test-Path $Target) {
-        Invoke-Run "rm $Target" {
-            Remove-Item $Target -Recurse -Force
-        }
+        return
     }
 
     if ($Mode -eq 'symlink') {
@@ -238,6 +319,9 @@ if ($Uninstall) {
     Uninstall-Settings
     exit 0
 }
+
+$script:NodeBin = Resolve-NodeBin
+Write-NodePathFile $script:NodeBin
 
 # --- Install mode ---
 Write-Host "mode: $Mode"
@@ -313,7 +397,7 @@ if (Test-Path $SettingsSrc) {
 }
 
 $total = $Skills.Count + $Agents.Count + $Commands.Count + $HookFiles.Count + $AudioFiles.Count + $StatuslineInstalled + $SettingsInstalled
-Write-Host "done. installed $total item(s):"
+Write-Host "done. processed $total item(s):"
 foreach ($name in $Skills)     { Write-Host "  skill:   $name" }
 foreach ($name in $Agents)     { Write-Host "  agent:   $name" }
 foreach ($name in $Commands)   { Write-Host "  command: $name" }

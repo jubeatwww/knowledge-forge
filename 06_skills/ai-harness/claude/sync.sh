@@ -13,9 +13,8 @@
 #   ./sync.sh -h | --help  # show this help
 #
 # Conflict handling:
-#   - Existing symlinks are replaced silently.
-#   - Existing real directories or files with the same managed name are
-#     replaced. This repo is the source of truth for installed items.
+#   - If the same name already exists, leave it alone and skip installation.
+#   - If the existing entry is already linked to this repo, skip as a no-op.
 
 set -euo pipefail
 
@@ -57,6 +56,7 @@ HOOKS_DEST="$HOME/.claude/hooks"
 AUDIO_DEST="$HOME/.claude/audio"
 STATUSLINE_DEST="$HOME/.claude/statusline-command.sh"
 SETTINGS_DEST="$HOME/.claude/settings.json"
+NODE_PATH_DEST="$HOME/.claude/ai-harness-node-path.txt"
 
 # Collect skill names (any directory under skills/ that contains SKILL.md).
 skills=()
@@ -125,6 +125,92 @@ ensure_dir() {
   fi
 }
 
+detect_node_bin() {
+  if [ -n "${AI_HARNESS_NODE_BIN:-}" ] && [ -x "${AI_HARNESS_NODE_BIN}" ]; then
+    printf '%s\n' "${AI_HARNESS_NODE_BIN}"
+    return 0
+  fi
+
+  if command -v node >/dev/null 2>&1; then
+    command -v node
+    return 0
+  fi
+
+  for candidate in \
+    "$HOME/.volta/bin/node" \
+    /opt/homebrew/bin/node \
+    /usr/local/bin/node \
+    /opt/local/bin/node
+  do
+    if [ -x "$candidate" ]; then
+      printf '%s\n' "$candidate"
+      return 0
+    fi
+  done
+
+  local found=""
+  for candidate in "$HOME"/.nvm/versions/node/*/bin/node; do
+    [ -x "$candidate" ] || continue
+    found="$candidate"
+  done
+  if [ -n "$found" ]; then
+    printf '%s\n' "$found"
+    return 0
+  fi
+
+  return 1
+}
+
+write_node_path_file() {
+  local node_bin="$1"
+
+  if [ -z "$node_bin" ]; then
+    echo "warning: node not found during sync; hook commands will still depend on runtime PATH"
+    return 0
+  fi
+
+  ensure_dir "$(dirname "$NODE_PATH_DEST")"
+  if [ -f "$NODE_PATH_DEST" ] && [ "$(cat "$NODE_PATH_DEST" 2>/dev/null)" = "$node_bin" ]; then
+    echo "node path unchanged: $NODE_PATH_DEST"
+    return 0
+  fi
+
+  if [ "$DRY_RUN" -eq 1 ]; then
+    echo "DRY: write node path $node_bin -> $NODE_PATH_DEST"
+  else
+    printf '%s\n' "$node_bin" > "$NODE_PATH_DEST"
+  fi
+  echo "node path: $node_bin"
+}
+
+render_settings_source() {
+  local out="$1"
+
+  if ! command -v jq >/dev/null 2>&1 || [ -z "${NODE_BIN:-}" ]; then
+    run "cp \"$SETTINGS_SRC\" \"$out\""
+    return 0
+  fi
+
+  if [ "$DRY_RUN" -eq 1 ]; then
+    echo "DRY: render settings with node path $NODE_BIN"
+    return 0
+  fi
+
+  jq --arg node "$NODE_BIN" '
+    .hooks |= with_entries(
+      .value |= map(
+        .hooks |= map(
+          if .type == "command" and (.command | test("play-sound\\.mjs ")) then
+            .command = ("\"" + $node + "\" $HOME/.claude/hooks/play-sound.mjs " + ((.command | capture(" (?<event>[^ ]+)$")).event))
+          else
+            .
+          end
+        )
+      )
+    )
+  ' "$SETTINGS_SRC" > "$out"
+}
+
 uninstall_one() {
   local target="$1"
   if [ -L "$target" ]; then
@@ -143,17 +229,27 @@ merge_settings() {
   fi
   ensure_dir "$(dirname "$SETTINGS_DEST")"
   if [ ! -f "$SETTINGS_DEST" ]; then
-    run "cp \"$SETTINGS_SRC\" \"$SETTINGS_DEST\""
-    echo "created: $SETTINGS_DEST"
+    if [ "$DRY_RUN" -eq 1 ]; then
+      echo "DRY: create $SETTINGS_DEST from rendered settings template"
+    else
+      local rendered
+      rendered=$(mktemp)
+      render_settings_source "$rendered"
+      mv "$rendered" "$SETTINGS_DEST"
+      echo "created: $SETTINGS_DEST"
+    fi
     return 0
   fi
   if [ "$DRY_RUN" -eq 1 ]; then
     echo "DRY: merge hooks from $SETTINGS_SRC into $SETTINGS_DEST"
     return 0
   fi
-  local tmp
+  local tmp rendered
   tmp=$(mktemp)
-  jq --slurpfile proj "$SETTINGS_SRC" '.hooks = $proj[0].hooks' "$SETTINGS_DEST" > "$tmp"
+  rendered=$(mktemp)
+  render_settings_source "$rendered"
+  jq --slurpfile proj "$rendered" '.hooks = $proj[0].hooks' "$SETTINGS_DEST" > "$tmp"
+  rm -f "$rendered"
   mv "$tmp" "$SETTINGS_DEST"
   echo "merged hooks block into: $SETTINGS_DEST"
 }
@@ -180,7 +276,12 @@ install_one() {
   local target="$2"
 
   if [ -L "$target" ] || [ -e "$target" ]; then
-    run "rm -rf \"$target\""
+    if [ -L "$target" ] && [ "$src" -ef "$target" ]; then
+      echo "skip (already linked): $target"
+    else
+      echo "skip (name exists, leaving alone): $target"
+    fi
+    return 0
   fi
 
   if [ "$MODE" = "symlink" ]; then
@@ -213,6 +314,9 @@ if [ "$UNINSTALL" -eq 1 ]; then
   uninstall_settings
   exit 0
 fi
+
+NODE_BIN="$(detect_node_bin || true)"
+write_node_path_file "$NODE_BIN"
 
 # --- Install mode ---
 echo "mode: $MODE"
@@ -293,7 +397,7 @@ if [ -f "$SETTINGS_SRC" ]; then
 fi
 
 total=$(( ${#skills[@]} + ${#agents[@]} + ${#commands[@]} + ${#hook_files[@]} + ${#audio_files[@]} + statusline_installed + settings_installed ))
-echo "done. installed $total item(s):"
+echo "done. processed $total item(s):"
 for name in "${skills[@]}"; do
   echo "  skill:   $name"
 done

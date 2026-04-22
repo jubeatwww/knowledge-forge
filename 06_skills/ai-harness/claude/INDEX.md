@@ -14,7 +14,8 @@ with [[../codex/INDEX|the codex side]].
 
 Vault 是 source of truth；`sync.sh` 預設以 symlink 裝進 `~/.claude/`，
 編輯這裡立即生效。sync 時遇到同名 skill / agent / command / hook /
-audio / statusline 會以這個 repo 的版本覆蓋掉。
+audio / statusline 會直接 skip；如果本來就已經 link 到這個 repo，則當成
+no-op。
 
 This is **not** an agent-facing skill pack like [[../../habit-game/INDEX]].
 It is Claude Code configuration carried across machines.
@@ -81,12 +82,15 @@ unreliable for hook commands). Command shape:
 `sync.sh` / `sync.ps1` do three things:
 
 1. Install hook scripts to `~/.claude/hooks/` and audio files to
-   `~/.claude/audio/` (force-replacing existing real files — these are
-   tool-owned).
-2. Merge the `hooks` block from this repo's `settings.json` into
+   `~/.claude/hooks/` / `~/.claude/audio/`，若同名檔已存在則 skip；
+   若已經是指向本 repo 的 symlink，則視為 no-op。
+2. Detect a usable `node` binary during install and record it in
+   `~/.claude/ai-harness-node-path.txt` so hook execution does not depend only
+   on the runtime PATH.
+3. Merge the `hooks` block from this repo's `settings.json` into
    `~/.claude/settings.json`, preserving every other key like `model`,
    `statusLine`, `enabledPlugins`.
-3. `--uninstall` / `-Uninstall` reverses 1 (symlinks only, to avoid
+4. `--uninstall` / `-Uninstall` reverses 1 (symlinks only, to avoid
    clobbering hand edits) and drops the `hooks` key from user settings.
 
 Bash needs `jq` for the settings merge; PowerShell uses native

@@ -12,9 +12,8 @@
 #   ./sync.sh -h | --help  # show this help
 #
 # Conflict handling:
-#   - Existing symlinks are replaced silently.
-#   - Existing real directories or files with the same managed name are
-#     replaced. This repo is the source of truth for installed items.
+#   - If the same name already exists, leave it alone and skip installation.
+#   - If the existing entry is already linked to this repo, skip as a no-op.
 
 set -euo pipefail
 
@@ -41,10 +40,13 @@ while [ $# -gt 0 ]; do
 done
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 SKILLS_SRC="$SCRIPT_DIR/skills"
 AGENTS_SRC="$SCRIPT_DIR/agents"
 SKILLS_DEST="$HOME/.codex/skills"
 AGENTS_DEST="$HOME/.codex/agents"
+CODEX_LOCAL_DEST="$REPO_ROOT/.codex"
+NODE_PATH_DEST="$CODEX_LOCAL_DEST/ai-harness-node-path.txt"
 
 skills=()
 if [ -d "$SKILLS_SRC" ]; then
@@ -82,6 +84,64 @@ ensure_dir() {
   fi
 }
 
+detect_node_bin() {
+  if [ -n "${AI_HARNESS_NODE_BIN:-}" ] && [ -x "${AI_HARNESS_NODE_BIN}" ]; then
+    printf '%s\n' "${AI_HARNESS_NODE_BIN}"
+    return 0
+  fi
+
+  if command -v node >/dev/null 2>&1; then
+    command -v node
+    return 0
+  fi
+
+  for candidate in \
+    "$HOME/.volta/bin/node" \
+    /opt/homebrew/bin/node \
+    /usr/local/bin/node \
+    /opt/local/bin/node
+  do
+    if [ -x "$candidate" ]; then
+      printf '%s\n' "$candidate"
+      return 0
+    fi
+  done
+
+  local found=""
+  for candidate in "$HOME"/.nvm/versions/node/*/bin/node; do
+    [ -x "$candidate" ] || continue
+    found="$candidate"
+  done
+  if [ -n "$found" ]; then
+    printf '%s\n' "$found"
+    return 0
+  fi
+
+  return 1
+}
+
+write_node_path_file() {
+  local node_bin="$1"
+
+  if [ -z "$node_bin" ]; then
+    echo "warning: node not found during sync; repo-local Codex hooks will still depend on runtime PATH"
+    return 0
+  fi
+
+  ensure_dir "$CODEX_LOCAL_DEST"
+  if [ -f "$NODE_PATH_DEST" ] && [ "$(cat "$NODE_PATH_DEST" 2>/dev/null)" = "$node_bin" ]; then
+    echo "node path unchanged: $NODE_PATH_DEST"
+    return 0
+  fi
+
+  if [ "$DRY_RUN" -eq 1 ]; then
+    echo "DRY: write node path $node_bin -> $NODE_PATH_DEST"
+  else
+    printf '%s\n' "$node_bin" > "$NODE_PATH_DEST"
+  fi
+  echo "node path: $node_bin"
+}
+
 uninstall_one() {
   local target="$1"
   if [ -L "$target" ]; then
@@ -97,7 +157,12 @@ install_one() {
   local target="$2"
 
   if [ -L "$target" ] || [ -e "$target" ]; then
-    run "rm -rf \"$target\""
+    if [ -L "$target" ] && [ "$src" -ef "$target" ]; then
+      echo "skip (already linked): $target"
+    else
+      echo "skip (name exists, leaving alone): $target"
+    fi
+    return 0
   fi
 
   if [ "$MODE" = "symlink" ]; then
@@ -118,6 +183,9 @@ if [ "$UNINSTALL" -eq 1 ]; then
   done
   exit 0
 fi
+
+NODE_BIN="$(detect_node_bin || true)"
+write_node_path_file "$NODE_BIN"
 
 echo "mode: $MODE"
 echo
@@ -141,7 +209,7 @@ if [ ${#agents[@]} -gt 0 ]; then
 fi
 
 total=$(( ${#skills[@]} + ${#agents[@]} ))
-echo "done. installed $total item(s):"
+echo "done. processed $total item(s):"
 for name in "${skills[@]}"; do
   echo "  skill: $name"
 done

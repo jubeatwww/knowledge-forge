@@ -13,13 +13,15 @@ Portable Codex harness bits — skills + agent prompts — mirroring
 with [[../claude/INDEX|the claude side]].
 
 Vault 是 source of truth；`sync.sh` 預設以 symlink 裝進 `~/.codex/`，
-編輯這裡立即生效。sync 時遇到同名 skill / agent 會以這個 repo 的版本
-覆蓋掉。
+編輯這裡立即生效。sync 時遇到同名 skill / agent 會直接 skip；如果本來
+就已經 link 到這個 repo，則當成 no-op。
 
 這個 repo 也提供 repo-local Codex 音效設定：
 `.codex/config.toml` 開 `notify` + `codex_hooks`，`.codex/hooks.json`
 直接重用 `../claude/hooks/play-sound.mjs`，只是在 Codex 端用
 `AI_HARNESS_AUDIO_DIR` 指回 repo 內 audio。
+`sync.sh` 也會順手把偵測到的 node 路徑寫進 repo-local
+`.codex/ai-harness-node-path.txt`，讓 notify / hooks 不只依賴 PATH。
 
 ## Layout
 

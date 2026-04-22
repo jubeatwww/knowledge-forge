@@ -4,6 +4,9 @@ Use the following shape for the final report. Do **not** wrap the entire report
 in a fenced `markdown` block, and do **not** wrap the final recommendation in a
 generic `text` block.
 
+For Mermaid sections, use `flowchart` only. Do **not** emit `sequenceDiagram`
+unless the user explicitly asks for that format.
+
 # `<TABLE_NAME>` 依賴路徑報告
 
 ## 背景
@@ -11,7 +14,9 @@ generic `text` block.
 - Table: `<TABLE_NAME>`
 - Jira: `<JIRA_URL or none>`
 - Database: `<DB_NAME>`
+- Proposed archive condition: `<predicate or working assumption>`
 - Existing archive rule: `<N days or unknown>`
+- Confidence: `<preliminary / review-ready>`
 
 ## 表結構 (DDL)
 
@@ -25,6 +30,12 @@ generic `text` block.
 - write-once: `yes / no`
 - direct mapper count: `<N>`
 - total path count: `<N>`
+
+## 風險摘要
+
+- blockers: `<count + key paths>`
+- conditional paths: `<count + why>`
+- assumption checks: `<items still waiting for confirmation>`
 
 ## Mermaid 總覽圖
 
@@ -47,23 +58,33 @@ generic `text` block.
 路徑摘要:
 - `<entry> -> <service> -> <mapper>`
 - `SQL: <type> <key fields / WHERE conditions>`
+- `Lookback / archive dimension: <latest-only | 7d | unbounded> / <create_time | other | none>`
 
 回傳用途:
 - `<why this path exists>`
 
 ## 欄位存取矩陣
 
-| 路徑 | 方向   | 觸碰欄位 | WHERE 條件欄位 |
-|----|------|------|------------|
-| A  | read |      |            |
+| 路徑 | 方向   | 觸碰欄位 | WHERE 條件欄位 | Lookback / 維度 |
+|----|------|------|------------|---------------|
+| A  | read |      |            |               |
 
 ## Archive Rule 評估
 
 ### Q1 to Q4 決策矩陣
 
+Q1 to Q3 are path-level. Q4 is a table-level stability judgment and may repeat
+across rows.
+
 <evaluation table>
 
 ### 最終建議
+
+Confidence:
+- `preliminary` or `review-ready`
+
+Assumptions:
+- `<archive predicate / inferred archive column / retention assumption>`
 
 Archive Rule: `[x] Required / [ ] Not Required`
 
@@ -95,3 +116,4 @@ Action items before DBA review:
 | dashed side-effect arrow | `-.->`                      |
 | read path direction      | `flowchart LR`              |
 | write path direction     | `flowchart TD`              |
+| forbidden format         | `sequenceDiagram`           |

@@ -15,8 +15,9 @@ Claude Code + Codex 的 harness 檔案，跟
 `~/.codex/`。
 
 Vault 是 source of truth；symlink 模式下編輯這裡立即生效。
-`sync.sh` / child sync scripts 會以這個 repo 為主，覆蓋 `~/.claude/` /
-`~/.codex/` 裡同名項目。
+`sync.sh` / child sync scripts 遇到 `~/.claude/` / `~/.codex/` 裡同名項目
+時會直接 skip，不覆蓋既有檔案；如果本來就已經連到這個 repo，則視為
+no-op。
 
 另外，repo root 的 `.codex/` 會放專案級 Codex 設定，例如 status line、
 `notify` 與 experimental hooks。這些不是 sync 到 `~/.codex/` 的全域檔，

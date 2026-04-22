@@ -33,8 +33,8 @@ const SOUND_DIR =
 const SOUND_MAP = {
   permission:        'megumin_explosion.mp3',
   stop:              'pain_itami_o_kanjiro.mp3',
-  subagent_start:    'nico_nico_nii.mp3',
-  subagent_stop:     'za_warudo.mp3',
+  subagent_start:    'za_warudo.mp3',
+  subagent_stop:     'road_roller_da.mp3',
   session_end:       'to_be_continued.mp3',
   post_tool_failure: 'sukuna_domain.mp3',
   stop_failure:      'saber_excalibur.mp3',
