@@ -5,7 +5,10 @@
 //   ~/.claude/hooks/play-sound.mjs   (this file)
 //   ~/.claude/hooks/play-sound.ps1   (Windows helper)
 //   ~/.claude/audio/*.mp3            (sound files)
-// Codex repo-local mode:
+// Codex install mode:
+//   ~/.codex/hooks/play-sound.mjs   (this file)
+//   ~/.codex/audio/*.mp3            (sound files)
+// Dev fallback mode:
 //   <repo>/06_skills/ai-harness/claude/hooks/play-sound.mjs
 //   AI_HARNESS_AUDIO_DIR=<repo>/06_skills/ai-harness/audio
 //
@@ -26,9 +29,14 @@ import { existsSync } from 'node:fs';
 const EVENT = process.argv[2];
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const CLAUDE_SOUND_DIR = join(homedir(), '.claude', 'audio');
+const CODEX_SOUND_DIR = join(homedir(), '.codex', 'audio');
 const SOUND_DIR =
   process.env.AI_HARNESS_AUDIO_DIR ||
-  (existsSync(CLAUDE_SOUND_DIR) ? CLAUDE_SOUND_DIR : join(__dirname, '..', '..', 'audio'));
+  (existsSync(CLAUDE_SOUND_DIR)
+    ? CLAUDE_SOUND_DIR
+    : existsSync(CODEX_SOUND_DIR)
+      ? CODEX_SOUND_DIR
+      : join(__dirname, '..', '..', 'audio'));
 
 const SOUND_MAP = {
   permission:        'megumin_explosion.mp3',

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #
-# Install / update justin_lin's Codex skills and agent prompts into ~/.codex/.
+# Install / update justin_lin's Codex harness into ~/.codex/.
 #
 # Default mode is symlink, so edits in this repo take effect immediately.
 #
 # Usage:
-#   ./sync.sh              # symlink skills + agents (default, idempotent)
+#   ./sync.sh              # symlink skills + agents + hooks + audio (default, idempotent)
 #   ./sync.sh --copy       # snapshot copy with cp -rf instead
 #   ./sync.sh --dry-run    # print what would happen, change nothing
 #   ./sync.sh --uninstall  # remove only the items this script installed
@@ -40,13 +40,19 @@ while [ $# -gt 0 ]; do
 done
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 SKILLS_SRC="$SCRIPT_DIR/skills"
 AGENTS_SRC="$SCRIPT_DIR/agents"
+HOOKS_SRC="$SCRIPT_DIR/../claude/hooks"
+AUDIO_SRC="$SCRIPT_DIR/../audio"
+CONFIG_MERGE_SCRIPT="$SCRIPT_DIR/scripts/merge-config.mjs"
+HOOKS_MERGE_SCRIPT="$SCRIPT_DIR/scripts/merge-hooks.mjs"
 SKILLS_DEST="$HOME/.codex/skills"
 AGENTS_DEST="$HOME/.codex/agents"
-CODEX_LOCAL_DEST="$REPO_ROOT/.codex"
-NODE_PATH_DEST="$CODEX_LOCAL_DEST/ai-harness-node-path.txt"
+HOOKS_DEST="$HOME/.codex/hooks"
+AUDIO_DEST="$HOME/.codex/audio"
+CONFIG_DEST="$HOME/.codex/config.toml"
+HOOKS_JSON_DEST="$HOME/.codex/hooks.json"
+NODE_PATH_DEST="$HOME/.codex/ai-harness-node-path.txt"
 
 skills=()
 if [ -d "$SKILLS_SRC" ]; then
@@ -65,8 +71,26 @@ if [ -d "$AGENTS_SRC" ]; then
   done
 fi
 
-if [ ${#skills[@]} -eq 0 ] && [ ${#agents[@]} -eq 0 ]; then
-  echo "nothing to install - no skills or agents found" >&2
+hook_files=()
+if [ -d "$HOOKS_SRC" ]; then
+  for path in "$HOOKS_SRC"/*.mjs "$HOOKS_SRC"/*.ps1; do
+    [ -f "$path" ] || continue
+    hook_files+=("$(basename "$path")")
+  done
+fi
+
+audio_files=()
+if [ -d "$AUDIO_SRC" ]; then
+  for path in "$AUDIO_SRC"/*.mp3; do
+    [ -f "$path" ] || continue
+    audio_files+=("$(basename "$path")")
+  done
+fi
+
+if [ ${#skills[@]} -eq 0 ] && [ ${#agents[@]} -eq 0 ] \
+   && [ ${#hook_files[@]} -eq 0 ] && [ ${#audio_files[@]} -eq 0 ] \
+   && [ ! -f "$CONFIG_MERGE_SCRIPT" ] && [ ! -f "$HOOKS_MERGE_SCRIPT" ]; then
+  echo "nothing to install - no skills, agents, hooks, audio, or codex config helpers found" >&2
   exit 1
 fi
 
@@ -124,11 +148,11 @@ write_node_path_file() {
   local node_bin="$1"
 
   if [ -z "$node_bin" ]; then
-    echo "warning: node not found during sync; repo-local Codex hooks will still depend on runtime PATH"
+    echo "warning: node not found during sync; Codex hooks will still depend on runtime PATH"
     return 0
   fi
 
-  ensure_dir "$CODEX_LOCAL_DEST"
+  ensure_dir "$(dirname "$NODE_PATH_DEST")"
   if [ -f "$NODE_PATH_DEST" ] && [ "$(cat "$NODE_PATH_DEST" 2>/dev/null)" = "$node_bin" ]; then
     echo "node path unchanged: $NODE_PATH_DEST"
     return 0
@@ -142,6 +166,28 @@ write_node_path_file() {
   echo "node path: $node_bin"
 }
 
+run_node_script() {
+  local script="$1"
+  local action="$2"
+  local target="$3"
+
+  if [ ! -f "$script" ]; then
+    echo "skip $action ($script not found)"
+    return 0
+  fi
+
+  if [ -z "${NODE_BIN:-}" ]; then
+    echo "skip $action (node not found)"
+    return 0
+  fi
+
+  if [ "$DRY_RUN" -eq 1 ]; then
+    "$NODE_BIN" "$script" --dry-run "$target"
+  else
+    "$NODE_BIN" "$script" "$target"
+  fi
+}
+
 uninstall_one() {
   local target="$1"
   if [ -L "$target" ]; then
@@ -150,6 +196,19 @@ uninstall_one() {
   elif [ -d "$target" ] || [ -f "$target" ]; then
     echo "skip (not a symlink, leaving alone): $target"
   fi
+}
+
+remove_managed_file() {
+  local target="$1"
+  if [ ! -f "$target" ]; then
+    return 0
+  fi
+  if [ "$DRY_RUN" -eq 1 ]; then
+    echo "DRY: rm \"$target\""
+  else
+    rm "$target"
+  fi
+  echo "removed file: $target"
 }
 
 install_one() {
@@ -175,12 +234,22 @@ install_one() {
 }
 
 if [ "$UNINSTALL" -eq 1 ]; then
+  NODE_BIN="$(detect_node_bin || true)"
   for name in "${skills[@]}"; do
     uninstall_one "$SKILLS_DEST/$name"
   done
   for name in "${agents[@]}"; do
     uninstall_one "$AGENTS_DEST/$name"
   done
+  for name in "${hook_files[@]}"; do
+    uninstall_one "$HOOKS_DEST/$name"
+  done
+  for name in "${audio_files[@]}"; do
+    uninstall_one "$AUDIO_DEST/$name"
+  done
+  run_node_script "$CONFIG_MERGE_SCRIPT" "Codex config cleanup" "--remove:$CONFIG_DEST"
+  run_node_script "$HOOKS_MERGE_SCRIPT" "Codex hooks cleanup" "--remove:$HOOKS_JSON_DEST"
+  remove_managed_file "$NODE_PATH_DEST"
   exit 0
 fi
 
@@ -208,7 +277,43 @@ if [ ${#agents[@]} -gt 0 ]; then
   echo
 fi
 
-total=$(( ${#skills[@]} + ${#agents[@]} ))
+if [ ${#hook_files[@]} -gt 0 ]; then
+  ensure_dir "$HOOKS_DEST"
+  echo "hooks: $HOOKS_SRC -> $HOOKS_DEST"
+  for name in "${hook_files[@]}"; do
+    install_one "$HOOKS_SRC/$name" "$HOOKS_DEST/$name"
+  done
+  echo
+fi
+
+if [ ${#audio_files[@]} -gt 0 ]; then
+  ensure_dir "$AUDIO_DEST"
+  echo "audio: $AUDIO_SRC -> $AUDIO_DEST"
+  for name in "${audio_files[@]}"; do
+    install_one "$AUDIO_SRC/$name" "$AUDIO_DEST/$name"
+  done
+  echo
+fi
+
+config_merged=0
+if [ -f "$CONFIG_MERGE_SCRIPT" ]; then
+  ensure_dir "$HOME/.codex"
+  echo "config: merge ai-harness settings into $CONFIG_DEST"
+  run_node_script "$CONFIG_MERGE_SCRIPT" "Codex config merge" "$CONFIG_DEST"
+  config_merged=1
+  echo
+fi
+
+hooks_merged=0
+if [ -f "$HOOKS_MERGE_SCRIPT" ]; then
+  ensure_dir "$HOME/.codex"
+  echo "hooks.json: merge ai-harness hooks into $HOOKS_JSON_DEST"
+  run_node_script "$HOOKS_MERGE_SCRIPT" "Codex hooks merge" "$HOOKS_JSON_DEST"
+  hooks_merged=1
+  echo
+fi
+
+total=$(( ${#skills[@]} + ${#agents[@]} + ${#hook_files[@]} + ${#audio_files[@]} + config_merged + hooks_merged ))
 echo "done. processed $total item(s):"
 for name in "${skills[@]}"; do
   echo "  skill: $name"
@@ -216,3 +321,15 @@ done
 for name in "${agents[@]}"; do
   echo "  agent: $name"
 done
+for name in "${hook_files[@]}"; do
+  echo "  hook: $name"
+done
+for name in "${audio_files[@]}"; do
+  echo "  audio: $name"
+done
+if [ "$config_merged" -eq 1 ]; then
+  echo "  config: $CONFIG_DEST"
+fi
+if [ "$hooks_merged" -eq 1 ]; then
+  echo "  hooks.json: $HOOKS_JSON_DEST"
+fi

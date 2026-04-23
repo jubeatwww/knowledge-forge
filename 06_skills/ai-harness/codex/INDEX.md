@@ -16,12 +16,12 @@ Vault 是 source of truth；`sync.sh` 預設以 symlink 裝進 `~/.codex/`，
 編輯這裡立即生效。sync 時遇到同名 skill / agent 會直接 skip；如果本來
 就已經 link 到這個 repo，則當成 no-op。
 
-這個 repo 也提供 repo-local Codex 音效設定：
-`.codex/config.toml` 開 `notify` + `codex_hooks`，`.codex/hooks.json`
-直接重用 `../claude/hooks/play-sound.mjs`，只是在 Codex 端用
-`AI_HARNESS_AUDIO_DIR` 指回 repo 內 audio。
-`sync.sh` 也會順手把偵測到的 node 路徑寫進 repo-local
-`.codex/ai-harness-node-path.txt`，讓 notify / hooks 不只依賴 PATH。
+Codex harness 現在也走 user-scope：
+- hooks 腳本裝到 `~/.codex/hooks/`
+- audio 裝到 `~/.codex/audio/`
+- `notify` / `codex_hooks` / `status_line` 合併進 `~/.codex/config.toml`
+- `SessionStart` / `PostToolUse` hooks 合併進 `~/.codex/hooks.json`
+- 偵測到的 node 路徑寫進 `~/.codex/ai-harness-node-path.txt`
 
 ## Layout
 
@@ -40,14 +40,10 @@ ai-harness/codex/
 ├── agents/
 │   ├── code-review.agent.md
 │   └── code-review-*.agent.md -> ../../shared/code-review/agents/...
-└── sync.sh                  # skills + agents → ~/.codex/
-```
-
-Repo root 另外有：
-
-```text
-.codex/config.toml           # status line + notify + codex_hooks
-.codex/hooks.json            # SessionStart / PostToolUse(Bash) hooks
+├── scripts/
+│   ├── merge-config.mjs     # merge ai-harness settings into ~/.codex/config.toml
+│   └── merge-hooks.mjs      # merge ai-harness hooks into ~/.codex/hooks.json
+└── sync.sh                  # skills + agents + hooks + audio + config → ~/.codex/
 ```
 
 ## Usage
@@ -75,8 +71,12 @@ cd /path/to/knowledge-forge/06_skills/ai-harness/codex
 - experimental hooks 目前只接 `SessionStart` 和 `PostToolUse(Bash)`；
   `PostToolUse` 只在 shell payload 看起來是 failure 時才播音，避免每個
   Bash tool call 都吵一次。
-- 實作上直接共用 `claude/hooks/play-sound.mjs`；Codex 只是在 command
-  裡多塞 `AI_HARNESS_AUDIO_DIR`，讓同一支腳本改讀 repo 內 audio。
+- 實作上直接共用 `../claude/hooks/play-sound.mjs`，但 sync 會把 hooks /
+  audio 安裝到 `~/.codex/`，所以這些音效設定會跟著 user-scope 走，
+  不是只在單一 repo 生效。
+- `sync.sh` 會把 ai-harness 需要的 `notify` / `features.codex_hooks` /
+  `tui.status_line` 合併進 `~/.codex/config.toml`。如果你已經有自己的
+  unmanaged `notify` 或 `tui.status_line`，sync 會保留原設定並印出 warning。
 - 這不是 Claude hooks 的 1:1 對應。官方目前沒有對等的
   `PermissionRequest` / `SubagentStart` / `SubagentStop` / `TaskCompleted`
   事件。

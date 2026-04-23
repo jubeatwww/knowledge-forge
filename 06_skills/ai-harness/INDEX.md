@@ -19,9 +19,10 @@ Vault 是 source of truth；symlink 模式下編輯這裡立即生效。
 時會直接 skip，不覆蓋既有檔案；如果本來就已經連到這個 repo，則視為
 no-op。
 
-另外，repo root 的 `.codex/` 會放專案級 Codex 設定，例如 status line、
-`notify` 與 experimental hooks。這些不是 sync 到 `~/.codex/` 的全域檔，
-而是進到這個 repo 就會生效的 local harness。
+Codex 現在也跟 Claude 一樣走 user-scope 安裝：skills / agents 裝到
+`~/.codex/`，`notify` / hooks / status line 也由 `codex/sync.sh`
+合併進 `~/.codex/config.toml` 和 `~/.codex/hooks.json`，不再依賴 repo
+root 的 tracked `.codex/` 設定檔。
 
 ## Layout
 
