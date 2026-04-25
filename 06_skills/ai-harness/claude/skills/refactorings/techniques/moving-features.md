@@ -19,6 +19,46 @@ own.
 
 **Resolves**: Feature Envy, Shotgun Surgery, Inappropriate Intimacy.
 
+### Example (Java)
+
+**Before:**
+
+```java
+class Account {
+    AccountType type;
+    int daysOverdrawn;
+
+    double overdraftCharge() {
+        if (type.isPremium()) {
+            return type.getPremiumRate() * daysOverdrawn;
+        }
+        return daysOverdrawn * 1.75;
+    }
+}
+```
+
+**After:**
+
+```java
+class AccountType {
+    double overdraftCharge(int daysOverdrawn) {
+        if (isPremium()) {
+            return getPremiumRate() * daysOverdrawn;
+        }
+        return daysOverdrawn * 1.75;
+    }
+}
+
+class Account {
+    AccountType type;
+    int daysOverdrawn;
+
+    double overdraftCharge() {
+        return type.overdraftCharge(daysOverdrawn);
+    }
+}
+```
+
 ---
 
 ## Move Field
@@ -31,6 +71,38 @@ own.
 3. Remove the field from the original class.
 
 **Resolves**: Feature Envy, Shotgun Surgery.
+
+### Example (Java)
+
+**Before:**
+
+```java
+class Account {
+    double interestRate;
+    AccountType type;
+
+    double interestFor(double amount, int days) {
+        return interestRate * amount * days / 365;
+    }
+}
+```
+
+**After:**
+
+```java
+class AccountType {
+    double interestRate;
+    double getInterestRate() { return interestRate; }
+}
+
+class Account {
+    AccountType type;
+
+    double interestFor(double amount, int days) {
+        return type.getInterestRate() * amount * days / 365;
+    }
+}
+```
 
 ---
 
@@ -47,6 +119,38 @@ own.
 **Resolves**: Large Class, Divergent Change, Data Clumps, Inappropriate
 Intimacy.
 
+### Example (Java)
+
+**Before:**
+
+```java
+class Person {
+    String name;
+    String areaCode;
+    String number;
+
+    String getPhone() { return areaCode + "-" + number; }
+}
+```
+
+**After:**
+
+```java
+class Person {
+    String name;
+    TelephoneNumber phone;
+
+    String getPhone() { return phone.toString(); }
+}
+
+class TelephoneNumber {
+    String areaCode;
+    String number;
+
+    public String toString() { return areaCode + "-" + number; }
+}
+```
+
 ---
 
 ## Inline Class
@@ -59,6 +163,31 @@ Intimacy.
 3. Delete the empty class.
 
 **Resolves**: Lazy Class, Shotgun Surgery.
+
+### Example (Java)
+
+**Before:**
+
+```java
+class Person {
+    TelephoneNumber phone;
+    String getPhone() { return phone.getNumber(); }
+}
+
+class TelephoneNumber {
+    String number;
+    String getNumber() { return number; }
+}
+```
+
+**After:**
+
+```java
+class Person {
+    String phoneNumber;
+    String getPhone() { return phoneNumber; }
+}
+```
 
 ---
 
@@ -75,6 +204,30 @@ Intimacy.
 
 **Resolves**: Message Chains, Inappropriate Intimacy.
 
+### Example (Java)
+
+**Before:**
+
+```java
+// Client navigates through a chain
+String managerName = person.getDepartment().getManager().getName();
+```
+
+**After:**
+
+```java
+class Person {
+    Department department;
+
+    String getManagerName() {
+        return department.getManager().getName();
+    }
+}
+
+// Client uses the wrapper
+String managerName = person.getManagerName();
+```
+
 ---
 
 ## Remove Middle Man
@@ -88,6 +241,31 @@ Intimacy.
 3. Delete the delegating methods.
 
 **Resolves**: Middle Man.
+
+### Example (Java)
+
+**Before:**
+
+```java
+class Person {
+    Department department;
+    String getManagerName() { return department.getManager().getName(); }
+    String getDeptName()    { return department.getName(); }
+    int    getDeptCode()    { return department.getCode(); }
+}
+```
+
+**After:**
+
+```java
+class Person {
+    Department department;
+    Department getDepartment() { return department; }
+}
+
+// Client calls directly
+String name = person.getDepartment().getManager().getName();
+```
 
 ---
 
@@ -103,6 +281,26 @@ library.
 
 **Resolves**: Incomplete Library Class.
 
+### Example (Java)
+
+**Before:**
+
+```java
+// Inline date arithmetic scattered in client code
+Date nextDay = new Date(date.getYear(), date.getMonth(), date.getDate() + 1);
+```
+
+**After:**
+
+```java
+// Foreign method — ideally belongs in Date
+static Date nextDay(Date date) {
+    return new Date(date.getYear(), date.getMonth(), date.getDate() + 1);
+}
+
+Date nextDay = nextDay(date);
+```
+
 ---
 
 ## Introduce Local Extension
@@ -112,6 +310,32 @@ library.
 **Procedure**:
 1. Create a new class — either a subclass or a wrapper of the library class.
 2. Add the needed methods.
-3. Replace usage of the library class with the extension.
-
 **Resolves**: Incomplete Library Class.
+
+### Example (Java)
+
+**Before:**
+
+```java
+// Utility methods scattered across clients
+Date nextDay = DateUtil.nextDay(date);
+Date endOfMonth = DateUtil.endOfMonth(date);
+```
+
+**After:**
+
+```java
+class EnhancedDate {
+    private final Date date;
+    EnhancedDate(Date date) { this.date = date; }
+
+    Date nextDay() {
+        return new Date(date.getYear(), date.getMonth(), date.getDate() + 1);
+    }
+
+    Date endOfMonth() { /* calendar logic */ return null; }
+}
+
+EnhancedDate d = new EnhancedDate(date);
+Date tomorrow = d.nextDay();
+```

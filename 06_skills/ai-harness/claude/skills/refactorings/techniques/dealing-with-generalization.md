@@ -18,6 +18,21 @@ Reference: https://refactoring.guru/refactoring/techniques/dealing-with-generali
 
 **Resolves**: Duplicate Code.
 
+### Example (Java)
+
+**Before:**
+```java
+class Salesman extends Employee { private String name; }
+class Engineer extends Employee { private String name; }
+```
+
+**After:**
+```java
+class Employee { protected String name; }
+class Salesman extends Employee {}
+class Engineer extends Employee {}
+```
+
 ---
 
 ## Pull Up Method
@@ -31,6 +46,27 @@ Reference: https://refactoring.guru/refactoring/techniques/dealing-with-generali
 
 **Resolves**: Duplicate Code.
 
+### Example (Java)
+
+**Before:**
+```java
+class Salesman extends Employee {
+    double getAnnualCost() { return monthlySalary * 12; }
+}
+class Engineer extends Employee {
+    double getAnnualCost() { return monthlySalary * 12; }
+}
+```
+
+**After:**
+```java
+class Employee {
+    double getAnnualCost() { return monthlySalary * 12; }
+}
+class Salesman extends Employee {}
+class Engineer extends Employee {}
+```
+
 ---
 
 ## Pull Up Constructor Body
@@ -42,6 +78,29 @@ Reference: https://refactoring.guru/refactoring/techniques/dealing-with-generali
 2. Call the parent constructor from each subclass constructor.
 
 **Resolves**: Duplicate Code.
+
+### Example (Java)
+
+**Before:**
+```java
+class Manager extends Employee {
+    Manager(String name, String id, int grade) {
+        this.name = name;
+        this.id = id;
+        this.grade = grade;
+    }
+}
+```
+
+**After:**
+```java
+class Manager extends Employee {
+    Manager(String name, String id, int grade) {
+        super(name, id);
+        this.grade = grade;
+    }
+}
+```
 
 ---
 
@@ -55,6 +114,26 @@ Reference: https://refactoring.guru/refactoring/techniques/dealing-with-generali
 
 **Resolves**: Refused Bequest.
 
+### Example (Java)
+
+**Before:**
+```java
+class Employee {
+    double getQuota() { /* only relevant to Salesman */ }
+}
+class Engineer extends Employee {}
+class Salesman extends Employee {}
+```
+
+**After:**
+```java
+class Employee {}
+class Engineer extends Employee {}
+class Salesman extends Employee {
+    double getQuota() { /* moved here */ }
+}
+```
+
 ---
 
 ## Push Down Field
@@ -66,6 +145,24 @@ Reference: https://refactoring.guru/refactoring/techniques/dealing-with-generali
 2. Remove it from the parent class.
 
 **Resolves**: Refused Bequest.
+
+### Example (Java)
+
+**Before:**
+```java
+class Employee {
+    protected double quota; // only Salesman uses this
+}
+class Salesman extends Employee {}
+```
+
+**After:**
+```java
+class Employee {}
+class Salesman extends Employee {
+    private double quota;
+}
+```
 
 ---
 
@@ -80,6 +177,27 @@ Reference: https://refactoring.guru/refactoring/techniques/dealing-with-generali
 
 **Resolves**: Large Class, Switch Statements.
 
+### Example (Java)
+
+**Before:**
+```java
+class Job {
+    private double unitPrice;
+    private double totalCut; // only used for labor jobs
+    boolean isLabor() { return totalCut > 0; }
+}
+```
+
+**After:**
+```java
+class Job {
+    private double unitPrice;
+}
+class LaborJob extends Job {
+    private double totalCut;
+}
+```
+
 ---
 
 ## Extract Superclass
@@ -92,6 +210,21 @@ Reference: https://refactoring.guru/refactoring/techniques/dealing-with-generali
 3. Have both classes inherit from the new superclass.
 
 **Resolves**: Duplicate Code, Alternative Classes with Different Interfaces.
+
+### Example (Java)
+
+**Before:**
+```java
+class Department { String getName() {...} int getHeadCount() {...} }
+class Project   { String getName() {...} int getHeadCount() {...} }
+```
+
+**After:**
+```java
+class Party { String getName() {...} int getHeadCount() {...} }
+class Department extends Party {}
+class Project extends Party {}
+```
 
 ---
 
@@ -107,6 +240,21 @@ classes share part of their interface.
 
 **Resolves**: Alternative Classes with Different Interfaces, Refused Bequest.
 
+### Example (Java)
+
+**Before:**
+```java
+class EmailSender { void send(String to, String body) {...} }
+class SmsSender   { void send(String to, String body) {...} }
+```
+
+**After:**
+```java
+interface MessageSender { void send(String to, String body); }
+class EmailSender implements MessageSender { ... }
+class SmsSender implements MessageSender { ... }
+```
+
 ---
 
 ## Collapse Hierarchy
@@ -118,6 +266,24 @@ classes share part of their interface.
 2. Remove the empty class.
 
 **Resolves**: Lazy Class, Speculative Generality.
+
+### Example (Java)
+
+**Before:**
+```java
+class Employee { String getName() {...} }
+class Salesman extends Employee {
+    // adds nothing beyond Employee
+}
+```
+
+**After:**
+```java
+class Employee {
+    String getName() {...}
+}
+// Salesman removed — all references now use Employee
+```
 
 ---
 
@@ -132,9 +298,29 @@ classes share part of their interface.
 
 **Resolves**: Duplicate Code.
 
----
+### Example (Java)
 
-## Replace Inheritance with Delegation
+**Before:**
+```java
+class CsvReport extends Report {
+    void generate() { prepare(); writeCsv(); cleanup(); }
+}
+class HtmlReport extends Report {
+    void generate() { prepare(); writeHtml(); cleanup(); }
+}
+```
+
+**After:**
+```java
+abstract class Report {
+    final void generate() { prepare(); writeBody(); cleanup(); }
+    abstract void writeBody();
+}
+class CsvReport extends Report  { void writeBody() { writeCsv(); } }
+class HtmlReport extends Report { void writeBody() { writeHtml(); } }
+```
+
+---
 
 **When**: A subclass uses only a fraction of the parent's interface, or the
 "is-a" relationship is semantically wrong.
@@ -145,6 +331,25 @@ classes share part of their interface.
 3. Remove the inheritance relationship.
 
 **Resolves**: Refused Bequest, Inappropriate Intimacy.
+
+### Example (Java)
+
+**Before:**
+```java
+class MyStack extends ArrayList<Object> {
+    public void push(Object o) { add(o); }
+    public Object pop() { return remove(size() - 1); }
+}
+```
+
+**After:**
+```java
+class MyStack {
+    private final ArrayList<Object> list = new ArrayList<>();
+    public void push(Object o) { list.add(o); }
+    public Object pop() { return list.remove(list.size() - 1); }
+}
+```
 
 ---
 
@@ -158,3 +363,23 @@ relationship makes sense.
 2. Remove the delegation field and forwarding methods.
 
 > Use sparingly — only when the "is-a" relationship is semantically correct.
+
+### Example (Java)
+
+**Before:**
+```java
+class Engine { void start() {...} void stop() {...} }
+class Car {
+    private Engine engine;
+    void start() { engine.start(); }
+    void stop()  { engine.stop(); }
+}
+```
+
+**After:**
+```java
+class Engine { void start() {...} void stop() {...} }
+class Car extends Engine {
+    // inherits start() and stop() directly
+}
+```

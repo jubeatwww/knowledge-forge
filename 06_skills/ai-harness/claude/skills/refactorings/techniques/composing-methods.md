@@ -20,6 +20,40 @@ Reference: https://refactoring.guru/refactoring/techniques/composing-methods
 
 **Resolves**: Long Method, Duplicate Code, Comments.
 
+### Example (Java)
+
+**Before:**
+
+```java
+void printOwing(double amount) {
+    System.out.println("*****");
+    System.out.println("** Banner **");
+    System.out.println("*****");
+    System.out.println("name: " + name);
+    System.out.println("amount: " + amount);
+}
+```
+
+**After:**
+
+```java
+void printOwing(double amount) {
+    printBanner();
+    printDetails(amount);
+}
+
+void printBanner() {
+    System.out.println("*****");
+    System.out.println("** Banner **");
+    System.out.println("*****");
+}
+
+void printDetails(double amount) {
+    System.out.println("name: " + name);
+    System.out.println("amount: " + amount);
+}
+```
+
 ---
 
 ## Inline Method
@@ -34,6 +68,28 @@ trivial delegation.
 
 **Resolves**: Speculative Generality, Middle Man.
 
+### Example (Java)
+
+**Before:**
+
+```java
+int getRating() {
+    return moreThanFiveLateDeliveries() ? 2 : 1;
+}
+
+boolean moreThanFiveLateDeliveries() {
+    return numberOfLateDeliveries > 5;
+}
+```
+
+**After:**
+
+```java
+int getRating() {
+    return numberOfLateDeliveries > 5 ? 2 : 1;
+}
+```
+
 ---
 
 ## Extract Variable
@@ -46,6 +102,30 @@ trivial delegation.
 3. Replace the expression with the variable reference.
 
 **Resolves**: Comments, readability.
+
+### Example (Java)
+
+**Before:**
+
+```java
+if (platform.toUpperCase().contains("MAC")
+        && browser.toUpperCase().contains("IE")
+        && wasInitialized() && resize > 0) {
+    // perform action
+}
+```
+
+**After:**
+
+```java
+boolean isMacIE = platform.toUpperCase().contains("MAC")
+        && browser.toUpperCase().contains("IE");
+boolean isReady = wasInitialized() && resize > 0;
+
+if (isMacIE && isReady) {
+    // perform action
+}
+```
 
 ---
 
@@ -61,6 +141,21 @@ clarity.
 
 **Resolves**: intermediate step for other refactorings.
 
+### Example (Java)
+
+**Before:**
+
+```java
+double basePrice = order.basePrice();
+return basePrice > 1000;
+```
+
+**After:**
+
+```java
+return order.basePrice() > 1000;
+```
+
 ---
 
 ## Replace Temp with Query
@@ -74,6 +169,35 @@ a method.
 3. The new method can now be reused by other methods.
 
 **Resolves**: Long Method (enables further extraction).
+
+### Example (Java)
+
+**Before:**
+
+```java
+double getPrice() {
+    double basePrice = quantity * itemPrice;
+    if (basePrice > 1000) {
+        return basePrice * 0.95;
+    }
+    return basePrice * 0.98;
+}
+```
+
+**After:**
+
+```java
+double getPrice() {
+    if (basePrice() > 1000) {
+        return basePrice() * 0.95;
+    }
+    return basePrice() * 0.98;
+}
+
+double basePrice() {
+    return quantity * itemPrice;
+}
+```
 
 ---
 
@@ -89,6 +213,26 @@ or accumulator) for different purposes.
 
 **Resolves**: readability, makes Extract Method easier.
 
+### Example (Java)
+
+**Before:**
+
+```java
+double temp = 2 * (height + width);
+System.out.println("Perimeter: " + temp);
+temp = height * width;
+System.out.println("Area: " + temp);
+```
+
+**After:**
+
+```java
+double perimeter = 2 * (height + width);
+System.out.println("Perimeter: " + perimeter);
+double area = height * width;
+System.out.println("Area: " + area);
+```
+
 ---
 
 ## Remove Assignments to Parameters
@@ -100,6 +244,29 @@ or accumulator) for different purposes.
 2. Replace all subsequent references to the parameter with the local variable.
 
 **Resolves**: confusing side effects, enables clearer parameter contracts.
+
+### Example (Java)
+
+**Before:**
+
+```java
+int discount(int inputVal, int quantity) {
+    if (quantity > 50) inputVal -= 2;
+    if (quantity > 100) inputVal -= 1;
+    return inputVal;
+}
+```
+
+**After:**
+
+```java
+int discount(int inputVal, int quantity) {
+    int result = inputVal;
+    if (quantity > 50) result -= 2;
+    if (quantity > 100) result -= 1;
+    return result;
+}
+```
 
 ---
 
@@ -117,6 +284,46 @@ impossible.
 
 **Resolves**: Long Method when other techniques fail.
 
+### Example (Java)
+
+**Before:**
+
+```java
+class Order {
+    double price() {
+        double primaryBase = quantity * itemPrice;
+        double secondaryBase = primaryBase * 0.1;
+        double tertiaryBase = secondaryBase * 1.05;
+        // long computation using all locals ...
+        return primaryBase - secondaryBase + tertiaryBase;
+    }
+}
+```
+
+**After:**
+
+```java
+class Order {
+    double price() {
+        return new PriceCalculator(this).compute();
+    }
+}
+
+class PriceCalculator {
+    private double primaryBase, secondaryBase, tertiaryBase;
+
+    PriceCalculator(Order order) {
+        primaryBase = order.quantity * order.itemPrice;
+        secondaryBase = primaryBase * 0.1;
+        tertiaryBase = secondaryBase * 1.05;
+    }
+
+    double compute() {
+        return primaryBase - secondaryBase + tertiaryBase;
+    }
+}
+```
+
 ---
 
 ## Substitute Algorithm
@@ -131,3 +338,30 @@ one.
 4. Replace the old algorithm with the new one.
 
 **Resolves**: Duplicate Code, Long Method, performance.
+
+### Example (Java)
+
+**Before:**
+
+```java
+String foundPerson(String[] people) {
+    for (int i = 0; i < people.length; i++) {
+        if (people[i].equals("Don")) return "Don";
+        if (people[i].equals("John")) return "John";
+        if (people[i].equals("Kent")) return "Kent";
+    }
+    return "";
+}
+```
+
+**After:**
+
+```java
+String foundPerson(String[] people) {
+    Set<String> candidates = Set.of("Don", "John", "Kent");
+    return Arrays.stream(people)
+            .filter(candidates::contains)
+            .findFirst()
+            .orElse("");
+}
+```

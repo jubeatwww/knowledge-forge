@@ -15,6 +15,28 @@ Reference: https://refactoring.guru/refactoring/techniques/simplifying-method-ca
 1. Choose a name that describes what the method does.
 2. Rename the method and update all callers.
 
+### Example (Java)
+
+**Before:**
+```java
+public List<int[]> getThem() {
+    List<int[]> list1 = new ArrayList<>();
+    for (int[] x : theList)
+        if (x[0] == 4) list1.add(x);
+    return list1;
+}
+```
+
+**After:**
+```java
+public List<Cell> getFlaggedCells() {
+    List<Cell> flaggedCells = new ArrayList<>();
+    for (Cell cell : gameBoard)
+        if (cell.isFlagged()) flaggedCells.add(cell);
+    return flaggedCells;
+}
+```
+
 ---
 
 ## Add Parameter
@@ -27,6 +49,22 @@ Reference: https://refactoring.guru/refactoring/techniques/simplifying-method-ca
 
 > Consider if **Introduce Parameter Object** or **Preserve Whole Object** is
 > a better alternative.
+
+### Example (Java)
+
+**Before:**
+```java
+public Contact getContact(Customer customer) {
+    return customer.getPrimaryContact();
+}
+```
+
+**After:**
+```java
+public Contact getContact(Customer customer, Date date) {
+    return customer.getContactAt(date);
+}
+```
 
 ---
 
@@ -41,6 +79,22 @@ Reference: https://refactoring.guru/refactoring/techniques/simplifying-method-ca
 
 **Resolves**: Dead Code, Speculative Generality.
 
+### Example (Java)
+
+**Before:**
+```java
+public double getPrice(int quantity, String format) {
+    return basePrice * quantity;
+}
+```
+
+**After:**
+```java
+public double getPrice(int quantity) {
+    return basePrice * quantity;
+}
+```
+
 ---
 
 ## Separate Query from Modifier
@@ -53,6 +107,28 @@ Reference: https://refactoring.guru/refactoring/techniques/simplifying-method-ca
 2. Replace all calls with the appropriate method.
 
 **Resolves**: side effects, testability.
+
+### Example (Java)
+
+**Before:**
+```java
+public String getAndRemoveNext() {
+    String next = queue.peek();
+    queue.poll();
+    return next;
+}
+```
+
+**After:**
+```java
+public String getNext() {
+    return queue.peek();
+}
+
+public void removeNext() {
+    queue.poll();
+}
+```
 
 ---
 
@@ -67,6 +143,26 @@ values.
 
 **Resolves**: Duplicate Code.
 
+### Example (Java)
+
+**Before:**
+```java
+public void tenPercentRaise() {
+    salary *= 1.10;
+}
+
+public void fivePercentRaise() {
+    salary *= 1.05;
+}
+```
+
+**After:**
+```java
+public void raise(double factor) {
+    salary *= (1 + factor);
+}
+```
+
 ---
 
 ## Replace Parameter with Explicit Methods
@@ -78,6 +174,27 @@ values.
 2. Replace calls that pass a constant with calls to the explicit method.
 
 **Resolves**: Switch Statements (inside the method).
+
+### Example (Java)
+
+**Before:**
+```java
+public void setValue(String name, int value) {
+    if (name.equals("height")) height = value;
+    else if (name.equals("width")) width = value;
+}
+```
+
+**After:**
+```java
+public void setHeight(int value) {
+    height = value;
+}
+
+public void setWidth(int value) {
+    width = value;
+}
+```
 
 ---
 
@@ -92,6 +209,26 @@ parameters.
 
 **Resolves**: Long Parameter List, Data Clumps.
 
+### Example (Java)
+
+**Before:**
+```java
+public boolean isWithin(int low, int high) {
+    return value >= low && value <= high;
+}
+// caller
+plan.isWithin(range.getLow(), range.getHigh());
+```
+
+**After:**
+```java
+public boolean isWithin(Range range) {
+    return value >= range.getLow() && value <= range.getHigh();
+}
+// caller
+plan.isWithin(range);
+```
+
 ---
 
 ## Replace Parameter with Method Call
@@ -104,6 +241,26 @@ could compute it itself.
 2. Remove the parameter.
 
 **Resolves**: Long Parameter List.
+
+### Example (Java)
+
+**Before:**
+```java
+double basePrice = quantity * itemPrice;
+double discount = getDiscount(basePrice);
+// caller
+double finalPrice = discountedPrice(basePrice, discount);
+```
+
+**After:**
+```java
+// callee computes discount itself
+double discountedPrice() {
+    double basePrice = quantity * itemPrice;
+    double discount = getDiscount(basePrice);
+    return basePrice - discount;
+}
+```
 
 ---
 
@@ -119,6 +276,26 @@ across methods.
 
 **Resolves**: Long Parameter List, Data Clumps, Primitive Obsession.
 
+### Example (Java)
+
+**Before:**
+```java
+public List<Entry> getEntries(int startDate, int endDate) {
+    return entries.stream()
+        .filter(e -> e.getDate() >= startDate && e.getDate() <= endDate)
+        .collect(Collectors.toList());
+}
+```
+
+**After:**
+```java
+public List<Entry> getEntries(DateRange range) {
+    return entries.stream()
+        .filter(e -> range.contains(e.getDate()))
+        .collect(Collectors.toList());
+}
+```
+
 ---
 
 ## Remove Setting Method
@@ -131,6 +308,25 @@ across methods.
 
 **Resolves**: Data Class, encapsulation.
 
+### Example (Java)
+
+**Before:**
+```java
+public class Account {
+    private String id;
+    public Account() {}
+    public void setId(String id) { this.id = id; }
+}
+```
+
+**After:**
+```java
+public class Account {
+    private final String id;
+    public Account(String id) { this.id = id; }
+}
+```
+
 ---
 
 ## Hide Method
@@ -141,6 +337,26 @@ across methods.
 1. Make the method private (or the most restrictive visibility possible).
 
 **Resolves**: unnecessary public surface area.
+
+### Example (Java)
+
+**Before:**
+```java
+public class Order {
+    public double calculateDiscount() {
+        return total > 100 ? total * 0.1 : 0;
+    }
+}
+```
+
+**After:**
+```java
+public class Order {
+    private double calculateDiscount() {
+        return total > 100 ? total * 0.1 : 0;
+    }
+}
+```
 
 ---
 
@@ -154,6 +370,31 @@ based on parameters.
 2. Move constructor logic into the factory method.
 3. Make the constructor private.
 
+### Example (Java)
+
+**Before:**
+```java
+public class Employee {
+    public Employee(int type) {
+        this.type = type;
+    }
+}
+// caller
+Employee eng = new Employee(ENGINEER);
+```
+
+**After:**
+```java
+public class Employee {
+    private Employee(int type) { this.type = type; }
+    public static Employee createEngineer() {
+        return new Employee(ENGINEER);
+    }
+}
+// caller
+Employee eng = Employee.createEngineer();
+```
+
 ---
 
 ## Replace Error Code with Exception
@@ -164,6 +405,26 @@ error.
 **Procedure**:
 1. Throw an exception for the error case.
 2. Update callers to catch the exception.
+
+### Example (Java)
+
+**Before:**
+```java
+public int withdraw(int amount) {
+    if (amount > balance) return -1;
+    balance -= amount;
+    return 0;
+}
+```
+
+**After:**
+```java
+public void withdraw(int amount) {
+    if (amount > balance)
+        throw new InsufficientFundsException(amount, balance);
+    balance -= amount;
+}
+```
 
 ---
 
@@ -177,3 +438,23 @@ beforehand.
 2. Move the exception handler's logic into the else branch or remove it.
 
 **Resolves**: performance, clarity.
+
+### Example (Java)
+
+**Before:**
+```java
+try {
+    value = stack.pop();
+} catch (EmptyStackException e) {
+    value = defaultValue;
+}
+```
+
+**After:**
+```java
+if (!stack.isEmpty()) {
+    value = stack.pop();
+} else {
+    value = defaultValue;
+}
+```
