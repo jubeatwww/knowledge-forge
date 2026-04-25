@@ -1,0 +1,1 @@
+../../shared/code-quality/agents/code-quality-oo-abusers.agent.md

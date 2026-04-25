@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 //
-// Cross-platform sound player shared by Claude and Codex hooks.
+// Cross-platform sound player shared by Claude, Codex, and Copilot CLI hooks.
 // Claude install mode:
 //   ~/.claude/hooks/play-sound.mjs   (this file)
 //   ~/.claude/hooks/play-sound.ps1   (Windows helper)
@@ -8,6 +8,10 @@
 // Codex install mode:
 //   ~/.codex/hooks/play-sound.mjs   (this file)
 //   ~/.codex/audio/*.mp3            (sound files)
+// Copilot CLI install mode:
+//   ~/.copilot/hooks/play-sound.mjs  (this file)
+//   ~/.copilot/hooks/play-sound.ps1  (Windows helper)
+//   ~/.copilot/audio/*.mp3           (sound files)
 // Dev fallback mode:
 //   <repo>/06_skills/ai-harness/claude/hooks/play-sound.mjs
 //   AI_HARNESS_AUDIO_DIR=<repo>/06_skills/ai-harness/audio
@@ -17,7 +21,7 @@
 //           post_tool_failure | stop_failure | task_completed |
 //           notify | session_start | post_tool_use
 //
-// `post_tool_use` is the Codex alias for Bash post-hook payloads; it only
+// `post_tool_use` is the Codex/Copilot alias for post-hook payloads; it only
 // plays on failure-like payloads.
 
 import { spawn } from 'node:child_process';
@@ -30,13 +34,16 @@ const EVENT = process.argv[2];
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const CLAUDE_SOUND_DIR = join(homedir(), '.claude', 'audio');
 const CODEX_SOUND_DIR = join(homedir(), '.codex', 'audio');
+const COPILOT_SOUND_DIR = join(homedir(), '.copilot', 'audio');
 const SOUND_DIR =
   process.env.AI_HARNESS_AUDIO_DIR ||
   (existsSync(CLAUDE_SOUND_DIR)
     ? CLAUDE_SOUND_DIR
     : existsSync(CODEX_SOUND_DIR)
       ? CODEX_SOUND_DIR
-      : join(__dirname, '..', '..', 'audio'));
+      : existsSync(COPILOT_SOUND_DIR)
+        ? COPILOT_SOUND_DIR
+        : join(__dirname, '..', '..', 'audio'));
 
 const SOUND_MAP = {
   permission:        'megumin_explosion.mp3',

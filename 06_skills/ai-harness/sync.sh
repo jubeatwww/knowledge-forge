@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 #
-# Sync Claude and Codex harnesses in one shot, treating this repo as the
+# Sync Claude, Codex, and Copilot harnesses in one shot, treating this repo as the
 # source of truth and replacing same-name installed items.
 #
 # Usage:
-#   ./sync.sh                 # sync both Claude and Codex
-#   ./sync.sh --dry-run       # pass through to both child scripts
+#   ./sync.sh                 # sync Claude, Codex, and Copilot
+#   ./sync.sh --dry-run       # pass through to all child scripts
 #   ./sync.sh --copy
 #   ./sync.sh --uninstall
 #   ./sync.sh --claude-only   # sync only Claude
 #   ./sync.sh --codex-only    # sync only Codex
+#   ./sync.sh --copilot-only  # sync only Copilot
 #   ./sync.sh -h | --help
 
 set -euo pipefail
@@ -24,18 +25,25 @@ show_help() {
 while [ $# -gt 0 ]; do
   case "$1" in
     --claude-only)
-      if [ "$TARGET_MODE" = "codex" ]; then
-        echo "cannot combine --claude-only with --codex-only" >&2
+      if [ "$TARGET_MODE" != "all" ]; then
+        echo "cannot combine --claude-only with other --*-only flags" >&2
         exit 2
       fi
       TARGET_MODE="claude"
       ;;
     --codex-only)
-      if [ "$TARGET_MODE" = "claude" ]; then
-        echo "cannot combine --claude-only with --codex-only" >&2
+      if [ "$TARGET_MODE" != "all" ]; then
+        echo "cannot combine --codex-only with other --*-only flags" >&2
         exit 2
       fi
       TARGET_MODE="codex"
+      ;;
+    --copilot-only)
+      if [ "$TARGET_MODE" != "all" ]; then
+        echo "cannot combine --copilot-only with other --*-only flags" >&2
+        exit 2
+      fi
+      TARGET_MODE="copilot"
       ;;
     -h|--help)
       show_help
@@ -68,11 +76,15 @@ case "$TARGET_MODE" in
   all)
     run_target "claude"
     run_target "codex"
+    run_target "copilot"
     ;;
   claude)
     run_target "claude"
     ;;
   codex)
     run_target "codex"
+    ;;
+  copilot)
+    run_target "copilot"
     ;;
 esac

@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "bash": "node $HOME/.copilot/hooks/play-sound.mjs session_start",
+        "powershell": "node $HOME/.copilot/hooks/play-sound.mjs session_start",
+        "timeoutSec": 10
+      }
+    ],
+    "sessionEnd": [
+      {
+        "type": "command",
+        "bash": "node $HOME/.copilot/hooks/play-sound.mjs session_end",
+        "powershell": "node $HOME/.copilot/hooks/play-sound.mjs session_end",
+        "timeoutSec": 10
+      }
+    ],
+    "postToolUse": [
+      {
+        "type": "command",
+        "bash": "node $HOME/.copilot/hooks/play-sound.mjs post_tool_use",
+        "powershell": "node $HOME/.copilot/hooks/play-sound.mjs post_tool_use",
+        "timeoutSec": 10
+      }
+    ],
+    "errorOccurred": [
+      {
+        "type": "command",
+        "bash": "node $HOME/.copilot/hooks/play-sound.mjs post_tool_failure",
+        "powershell": "node $HOME/.copilot/hooks/play-sound.mjs post_tool_failure",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+../../../../shared/code-quality/refactorings/dealing-with-generalization.md

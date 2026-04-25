@@ -1,0 +1,1 @@
+../../../../shared/code-quality/smells/bloaters.md
