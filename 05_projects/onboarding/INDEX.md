@@ -39,6 +39,8 @@ tags:
 
 ## Active Investigations
 - [[2fa-device-swap-investigation]] — 兩位 user 的 app 登入失敗追查；含 SPLT-648 (Nigeria app access) 與另一位疑似換裝置 + 2FA 阻擋的 case
+- [[SPLT-697-device-id-investigation/SPLT-697-device-id-investigation|SPLT-697 device_id investigation]] — device_id 產生邏輯與格式差異追查（Fraud tracking 用），含 `deviceIdSc` / fingerprint 寫入路徑
+- [[archiving-rules-4-tables-in-afbet-patron/INDEX|SPLT-679 archive rule review]] — 4 個 `afbet_patron` 表格的 archive rule 可行性評估（DBA review 證據包）
 
 ## Promotion Rule
 符合以下條件時，從 project 升級出去：

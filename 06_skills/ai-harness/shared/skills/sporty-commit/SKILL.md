@@ -116,14 +116,14 @@ git rev-list --count HEAD ^origin/master
   ```
   Example: `[SPRTPLTFRM-14009] Fix login retry` → `Fix login retry`.
 
-### 4. Show what will be staged and confirm２１１２
+### 4. Show what will be staged and confirm
 
 Survey the working tree:
 
 ```bash
 git status --short
 git diff --stat
-git diff --stat --cached２１１２
+git diff --stat --cached
 ```
 
 Print a single combined list of files that would be included in the commit

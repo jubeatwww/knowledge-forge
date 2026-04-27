@@ -22,29 +22,29 @@ Notion (source of truth)
 
 ## Folder Guide
 
-| Folder | 可編輯 | 說明 |
-|--------|--------|------|
-| `00_inbox/` | ✓ | 尚未分類的內容 |
-| `01_hubs/` | ✓ | 每個 domain 的入口頁 |
-| `02_sources/` | ✓ | Notion 來源索引 stub（frontmatter 含 `notion_id`）|
-| `03_notes/` | ✓ | 提煉後的 evergreen notes |
-| `04_playbooks/` | ✓ | 可執行手冊 |
-| `05_projects/` | ✓ | 專案型資料 |
-| `06_skills/` | ✓ | 給 AI/agent 的主題包 |
-| `07_context-packs/` | ✓ | 預組裝的上下文包 |
-| `90_cache/` | ✗ | forge-sync 產生的快照，不手動修改 |
-| `91_exports/` | ✗ | 匯出用 |
-| `99_templates/` | ✓ | 模板 |
+| Folder              | 可編輯 | 說明                                          |
+|---------------------|-----|---------------------------------------------|
+| `00_inbox/`         | ✓   | 尚未分類的內容                                     |
+| `01_hubs/`          | ✓   | 每個 domain 的入口頁                              |
+| `02_sources/`       | ✓   | Notion 來源索引 stub（frontmatter 含 `notion_id`） |
+| `03_notes/`         | ✓   | 提煉後的 evergreen notes                        |
+| `04_playbooks/`     | ✓   | 可執行手冊                                       |
+| `05_projects/`      | ✓   | 專案型資料                                       |
+| `06_skills/`        | ✓   | 給 AI/agent 的主題包                             |
+| `07_context-packs/` | ✓   | 預組裝的上下文包                                    |
+| `90_cache/`         | ✗   | forge-sync 產生的快照，不手動修改                      |
+| `91_exports/`       | ✗   | 匯出用                                         |
+| `99_templates/`     | ✓   | 模板                                          |
 
 ## Domains
 
-| Domain | Hub | 主要 Sources |
-|--------|-----|-------------|
+| Domain        | Hub                        | 主要 Sources                      |
+|---------------|----------------------------|---------------------------------|
 | system-design | `01_hubs/system-design.md` | Reading Tracker, 後端面試題庫, 設計文件中心 |
-| frontend | `01_hubs/frontend.md` | 前端面試題庫 |
-| trading | `01_hubs/trading.md` | 交易日誌, Aetherium Trader |
-| english | `01_hubs/english.md` | （無獨立來源，整合在 MVA 中）|
-| life | `01_hubs/life.md` | 個人任務中心, Habit Tracker, 零散資料紀錄 |
+| frontend      | `01_hubs/frontend.md`      | 前端面試題庫                          |
+| trading       | `01_hubs/trading.md`       | 交易日誌, Aetherium Trader          |
+| english       | `01_hubs/english.md`       | （無獨立來源，整合在 MVA 中）               |
+| life          | `01_hubs/life.md`          | 個人任務中心, Habit Tracker, 零散資料紀錄   |
 
 ## Source Stubs
 
