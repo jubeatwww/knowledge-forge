@@ -5,11 +5,11 @@ description: >-
   `opennetltd.atlassian.net`, `mvn clean test-compile`, and the
   `pre-release-tw` base branch. Do NOT trigger outside Sporty work repos.
   Verifies build, branches off if needed, stages every change, generates a
-  `[ISSUE_ID] ISSUE_SUMMARY` + Conventional Commits message, and commits.
-  Every commit must carry a Jira ticket. Skips the per-file confirmation
-  prompt — use only when you trust every dirty file in the working tree.
-  Trigger only when working in a Sporty repo and the user says "quick
-  commit", "qc", "一鍵 commit", or similar. For the safer interactive
+  Conventional Commits subject with `Jira: ISSUE_ID` as the first body line,
+  and commits. Every commit must carry a Jira ticket. Skips the per-file
+  confirmation prompt — use only when you trust every dirty file in the
+  working tree. Trigger only when working in a Sporty repo and the user says
+  "quick commit", "qc", "一鍵 commit", or similar. For the safer interactive
   variant, use `sporty-commit`.
 allowed-tools: Bash(git *), Bash(mvn *)
 ---
@@ -66,18 +66,7 @@ Supported prefixes: `feature` / `bug` / `fix` / `hotfix` / `chore`.
 
 Ask the user for `ISSUE_ID` directly. Do **not** commit without one.
 
-### 3. Resolve `ISSUE_SUMMARY`
-
-```bash
-git rev-list --count HEAD ^origin/master
-```
-
-- **count == 0** → fetch from Jira
-  `https://opennetltd.atlassian.net/browse/<ISSUE_ID>` via Atlassian MCP
-  `getJiraIssue`. If unavailable, ask the user.
-- **count > 0** → take `git log -1 --format=%s` and strip the `[ISSUE_ID]` prefix.
-
-### 4. Stage everything
+### 3. Stage everything
 
 Show the user what is about to be staged so they can sanity-check, **then**
 stage it without a separate prompt:
@@ -93,54 +82,54 @@ If there are no changes after staging, report `Nothing to commit` and stop.
 > user is in the habit of leaving `.env`, log files, or scratch notes in the
 > tree, recommend `sporty-commit` instead.
 
-### 5. Read the staged diff
+### 4. Read the staged diff
 
 ```bash
 git diff --cached --stat
 git diff --cached
 ```
 
-### 6. Generate the commit message
+### 5. Generate the commit message
 
 Same format as `sporty-commit`:
 
 ```
-[<ISSUE_ID>] <ISSUE_SUMMARY>
-
 <type>(<scope>): <short description>
 
+Jira: <ISSUE_ID>
 - <bullet 1>
 - <bullet 2>
 ```
 
 Rules:
-- Subject line is **always** `[<ISSUE_ID>] <ISSUE_SUMMARY>`. No exceptions.
-- Conventional Commits types: `feat` / `fix` / `refactor` / `chore` / `docs`
-  / `test` / `style` / `perf`, lowercase, imperative.
-- Skip the bullet body for trivial one-line fixes.
+- Subject line is `<type>(<scope>): <short description>`, imperative mood,
+  under 72 chars.
+- `Jira: <ISSUE_ID>` is **always** the first body line.
+- Types: `feat` / `fix` / `refactor` / `chore` / `docs` / `test` / `style` /
+  `perf`, lowercase, imperative.
+- Skip bullets for trivial one-line fixes (but always keep `Jira:` line).
 - English only. No `Co-Authored-By` trailers.
 
-### 7. Confirm and commit
+### 6. Confirm and commit
 
 Print the message and ask once: **"Commit with this message? (yes / edit / abort)"**
 
 ```bash
 git commit -m "$(cat <<'EOF'
-[<ISSUE_ID>] <ISSUE_SUMMARY>
-
 <type>(<scope>): <short description>
 
+Jira: <ISSUE_ID>
 - <bullet 1>
 - <bullet 2>
 EOF
 )"
 ```
 
-### 8. Report
+### 7. Report
 
 ```
 Committed <short-sha> on <branch>
-  [<ISSUE_ID>] <ISSUE_SUMMARY>
+  <type>(<scope>): <short description>
 ```
 
 If a new branch was created in Step 2, mention it on the first line:
@@ -148,7 +137,7 @@ If a new branch was created in Step 2, mention it on the first line:
 ```
 Created branch feature/<TICKET> (off <base-branch>)
 Committed <short-sha> on feature/<TICKET>
-  [<ISSUE_ID>] <ISSUE_SUMMARY>
+  <type>(<scope>): <short description>
 ```
 
 ## Constraints
@@ -168,6 +157,5 @@ Committed <short-sha> on feature/<TICKET>
 | `mvn clean test-compile` fails   | Stop, report errors verbatim, do not stage anything.            |
 | User refuses to provide a ticket | Stop. This skill will not produce a ticket-less commit.         |
 | `git checkout -b` fails          | Report stderr verbatim. Do not try to commit.                   |
-| Jira lookup fails (first commit) | Ask user for `ISSUE_SUMMARY` manually.                          |
 | No changes in working tree       | Report `Nothing to commit` and stop.                            |
 | `git commit` fails               | Report stderr verbatim and stop.                                |

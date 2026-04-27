@@ -93,15 +93,6 @@ Resolve `ISSUE_ID` and enforce a working branch:
   ```
 - On any other branch, ask the user for `ISSUE_ID`.
 
-Resolve `ISSUE_SUMMARY`:
-
-```bash
-git rev-list --count HEAD ^origin/master
-```
-
-- `count == 0` → fetch from Jira if available; otherwise ask the user
-- `count > 0` → reuse the last commit subject after stripping `[ISSUE_ID]`
-
 #### Generic mode
 
 - Do **not** ask for a ticket.
@@ -147,19 +138,18 @@ Use the staged diff as the source of truth for the message.
 Format:
 
 ```text
-[<ISSUE_ID>] <ISSUE_SUMMARY>
-
 <type>(<scope>): <short description>
 
+Jira: <ISSUE_ID>
 - <bullet 1: what changed and why>
 - <bullet 2: ...>
 ```
 
 Rules:
-- Subject line is always `[<ISSUE_ID>] <ISSUE_SUMMARY>`
-- Keep subject under 72 chars
+- Subject line is `<type>(<scope>): <short description>`, imperative mood, under 72 chars
+- `Jira: <ISSUE_ID>` is always the first body line
 - Types: `feat` / `fix` / `refactor` / `chore` / `docs` / `test` / `style` / `perf`
-- Skip the body for trivial one-line fixes
+- Skip bullets for trivial one-line fixes (but always keep `Jira:` line)
 
 #### Generic mode
 

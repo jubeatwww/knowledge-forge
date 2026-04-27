@@ -5,8 +5,8 @@ description: >-
   `opennetltd.atlassian.net`, `mvn clean test-compile`, and the
   `pre-release-tw` base branch. Do NOT trigger outside Sporty work repos;
   for other repos use a generic commit flow. Every commit must carry a Jira
-  ticket. Subject line uses `[ISSUE_ID] ISSUE_SUMMARY`, body follows
-  Conventional Commits. If the user is still on a base branch
+  ticket. Subject line uses Conventional Commits format; `Jira: ISSUE_ID`
+  appears as the first body line. If the user is still on a base branch
   (master / main / etc.), the skill creates a feature branch first. Trigger
   only when working in a Sporty repo and the user asks to "commit",
   "幫我 commit", or similar. For a no-questions-asked Sporty variant, use
@@ -97,26 +97,7 @@ issue_id=$(echo "$current" | sed -E 's#^(feature|bug|fix|hotfix|chore)/##; s/-[0
 
 Ask the user for `ISSUE_ID` directly. Do **not** commit without one.
 
-### 3. Resolve `ISSUE_SUMMARY`
-
-Decide where to pull the summary from:
-
-```bash
-git rev-list --count HEAD ^origin/master
-```
-
-- **count == 0** (first commit on the branch, including the just-created branch
-  from Case A) → fetch from Jira
-  `https://opennetltd.atlassian.net/browse/<ISSUE_ID>` via Atlassian MCP
-  `getJiraIssue`. If MCP is unavailable, ask the user.
-- **count > 0** → reuse the last commit's summary by stripping the
-  `[ISSUE_ID]` prefix:
-  ```bash
-  git log -1 --format=%s
-  ```
-  Example: `[SPRTPLTFRM-14009] Fix login retry` → `Fix login retry`.
-
-### 4. Show what will be staged and confirm
+### 3. Show what will be staged and confirm
 
 Survey the working tree:
 
@@ -138,7 +119,7 @@ Print a single combined list of files that would be included in the commit
 
 If there are no changed files, report `Nothing to commit` and stop.
 
-### 5. Read the staged diff
+### 4. Read the staged diff
 
 ```bash
 git diff --cached --stat
@@ -147,67 +128,65 @@ git diff --cached
 
 Use this — not the unstaged diff — as the source of truth for the message.
 
-### 6. Generate the commit message
+### 5. Generate the commit message
 
 Format:
 
 ```
-[<ISSUE_ID>] <ISSUE_SUMMARY>
-
 <type>(<scope>): <short description>
 
+Jira: <ISSUE_ID>
 - <bullet 1: what changed and why>
 - <bullet 2: ...>
 ```
 
 Rules:
-- Subject line is **always** `[<ISSUE_ID>] <ISSUE_SUMMARY>`. No exceptions.
-  Keep it under 72 chars.
-- Conventional Commits line uses `feat` / `fix` / `refactor` / `chore` /
-  `docs` / `test` / `style` / `perf`, lowercase, imperative mood.
+- Subject line is `<type>(<scope>): <short description>`, imperative mood,
+  under 72 chars.
+- `Jira: <ISSUE_ID>` is **always** the first body line. No exceptions.
+- Types: `feat` / `fix` / `refactor` / `chore` / `docs` / `test` / `style` /
+  `perf`, lowercase.
 - Body bullets only when the change is non-trivial — one bullet per logical
-  change. Skip the body for one-line fixes.
+  change. Skip bullets for one-line fixes (but always keep `Jira:` line).
 - English only. Do **not** add `Co-Authored-By` lines.
 
 Example:
 
 ```
-[SPRTPLTFRM-14009] Fix user login bug
-
 fix(auth): resolve session timeout issue
 
+Jira: SPRTPLTFRM-14009
 - Update session expiration logic
 - Add retry mechanism for auth tokens
 ```
 
-### 7. Show the draft and confirm
+### 6. Show the draft and confirm
 
 Print the full commit message and ask:
 **"Commit with this message? (yes / edit / abort)"**
 
-### 8. Commit (only after confirmation)
+### 7. Commit (only after confirmation)
 
 Use a heredoc so newlines survive:
 
 ```bash
 git commit -m "$(cat <<'EOF'
-[<ISSUE_ID>] <ISSUE_SUMMARY>
-
 <type>(<scope>): <short description>
 
+Jira: <ISSUE_ID>
 - <bullet 1>
 - <bullet 2>
 EOF
 )"
 ```
 
-### 9. Report
+### 8. Report
 
 Output exactly:
 
 ```
 Committed <short-sha> on <branch>
-  [<ISSUE_ID>] <ISSUE_SUMMARY>
+  <type>(<scope>): <short description>
 ```
 
 If a new branch was created in Step 2, mention it on the first line:
@@ -215,7 +194,7 @@ If a new branch was created in Step 2, mention it on the first line:
 ```
 Created branch feature/<TICKET> (off <base-branch>)
 Committed <short-sha> on feature/<TICKET>
-  [<ISSUE_ID>] <ISSUE_SUMMARY>
+  <type>(<scope>): <short description>
 ```
 
 ## Constraints
@@ -235,6 +214,5 @@ Committed <short-sha> on feature/<TICKET>
 | `mvn clean test-compile` fails   | Stop, report errors verbatim, do not stage anything.            |
 | User refuses to provide a ticket | Stop. This skill will not produce a ticket-less commit.         |
 | `git checkout -b` fails          | Report stderr verbatim. Do not try to commit.                   |
-| Jira lookup fails (first commit) | Ask user for `ISSUE_SUMMARY` manually.                          |
 | No files changed                 | Report `Nothing to commit` and stop.                            |
 | `git commit` fails               | Report stderr verbatim and stop. Do not retry blindly.          |
