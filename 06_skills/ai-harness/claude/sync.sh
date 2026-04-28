@@ -49,6 +49,7 @@ HOOKS_SRC="$SCRIPT_DIR/hooks"
 AUDIO_SRC="$SCRIPT_DIR/../audio"
 STATUSLINE_SRC="$SCRIPT_DIR/statusline/statusline-command.sh"
 SETTINGS_SRC="$SCRIPT_DIR/settings.json"
+INSTRUCTIONS_SRC="$SCRIPT_DIR/../shared/instructions/global-knowledge-capture.instructions.md"
 SKILLS_DEST="$HOME/.claude/skills"
 AGENTS_DEST="$HOME/.claude/agents"
 COMMANDS_DEST="$HOME/.claude/commands"
@@ -56,6 +57,7 @@ HOOKS_DEST="$HOME/.claude/hooks"
 AUDIO_DEST="$HOME/.claude/audio"
 STATUSLINE_DEST="$HOME/.claude/statusline-command.sh"
 SETTINGS_DEST="$HOME/.claude/settings.json"
+INSTRUCTIONS_DEST="$HOME/.claude/CLAUDE.md"
 NODE_PATH_DEST="$HOME/.claude/ai-harness-node-path.txt"
 
 # Collect skill names (any directory under skills/ that contains SKILL.md).
@@ -106,8 +108,8 @@ fi
 
 if [ ${#skills[@]} -eq 0 ] && [ ${#agents[@]} -eq 0 ] && [ ${#commands[@]} -eq 0 ] \
    && [ ${#hook_files[@]} -eq 0 ] && [ ${#audio_files[@]} -eq 0 ] \
-   && [ ! -f "$STATUSLINE_SRC" ] && [ ! -f "$SETTINGS_SRC" ]; then
-  echo "nothing to install — no skills, agents, commands, hooks, audio, statusline, or settings found" >&2
+   && [ ! -f "$STATUSLINE_SRC" ] && [ ! -f "$SETTINGS_SRC" ] && [ ! -f "$INSTRUCTIONS_SRC" ]; then
+  echo "nothing to install — no skills, agents, commands, hooks, audio, statusline, settings, or instructions found" >&2
   exit 1
 fi
 
@@ -311,6 +313,7 @@ if [ "$UNINSTALL" -eq 1 ]; then
     uninstall_one "$AUDIO_DEST/$name"
   done
   uninstall_one "$STATUSLINE_DEST"
+  uninstall_one "$INSTRUCTIONS_DEST"
   uninstall_settings
   exit 0
 fi
@@ -396,7 +399,17 @@ if [ -f "$SETTINGS_SRC" ]; then
   echo
 fi
 
-total=$(( ${#skills[@]} + ${#agents[@]} + ${#commands[@]} + ${#hook_files[@]} + ${#audio_files[@]} + statusline_installed + settings_installed ))
+# Copilot instructions (user-scoped, cross-project)
+instructions_installed=0
+if [ -f "$INSTRUCTIONS_SRC" ]; then
+  ensure_dir "$(dirname "$INSTRUCTIONS_DEST")"
+  echo "instructions: $INSTRUCTIONS_SRC -> $INSTRUCTIONS_DEST"
+  install_one "$INSTRUCTIONS_SRC" "$INSTRUCTIONS_DEST"
+  instructions_installed=1
+  echo
+fi
+
+total=$(( ${#skills[@]} + ${#agents[@]} + ${#commands[@]} + ${#hook_files[@]} + ${#audio_files[@]} + statusline_installed + settings_installed + instructions_installed ))
 echo "done. processed $total item(s):"
 for name in "${skills[@]}"; do
   echo "  skill:   $name"
@@ -418,4 +431,7 @@ if [ "$statusline_installed" -eq 1 ]; then
 fi
 if [ "$settings_installed" -eq 1 ]; then
   echo "  settings:   $SETTINGS_DEST (hooks merged)"
+fi
+if [ "$instructions_installed" -eq 1 ]; then
+  echo "  instructions: $INSTRUCTIONS_DEST"
 fi

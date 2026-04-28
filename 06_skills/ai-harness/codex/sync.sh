@@ -46,12 +46,14 @@ HOOKS_SRC="$SCRIPT_DIR/../claude/hooks"
 AUDIO_SRC="$SCRIPT_DIR/../audio"
 CONFIG_MERGE_SCRIPT="$SCRIPT_DIR/scripts/merge-config.mjs"
 HOOKS_MERGE_SCRIPT="$SCRIPT_DIR/scripts/merge-hooks.mjs"
+INSTRUCTIONS_SRC="$SCRIPT_DIR/../shared/instructions/global-knowledge-capture.instructions.md"
 SKILLS_DEST="$HOME/.codex/skills"
 AGENTS_DEST="$HOME/.codex/agents"
 HOOKS_DEST="$HOME/.codex/hooks"
 AUDIO_DEST="$HOME/.codex/audio"
 CONFIG_DEST="$HOME/.codex/config.toml"
 HOOKS_JSON_DEST="$HOME/.codex/hooks.json"
+INSTRUCTIONS_DEST="$HOME/.codex/AGENTS.md"
 NODE_PATH_DEST="$HOME/.codex/ai-harness-node-path.txt"
 
 skills=()
@@ -89,8 +91,8 @@ fi
 
 if [ ${#skills[@]} -eq 0 ] && [ ${#agents[@]} -eq 0 ] \
    && [ ${#hook_files[@]} -eq 0 ] && [ ${#audio_files[@]} -eq 0 ] \
-   && [ ! -f "$CONFIG_MERGE_SCRIPT" ] && [ ! -f "$HOOKS_MERGE_SCRIPT" ]; then
-  echo "nothing to install - no skills, agents, hooks, audio, or codex config helpers found" >&2
+   && [ ! -f "$CONFIG_MERGE_SCRIPT" ] && [ ! -f "$HOOKS_MERGE_SCRIPT" ] && [ ! -f "$INSTRUCTIONS_SRC" ]; then
+  echo "nothing to install - no skills, agents, hooks, audio, instructions, or codex config helpers found" >&2
   exit 1
 fi
 
@@ -249,6 +251,7 @@ if [ "$UNINSTALL" -eq 1 ]; then
   done
   run_node_script "$CONFIG_MERGE_SCRIPT" "Codex config cleanup" "--remove:$CONFIG_DEST"
   run_node_script "$HOOKS_MERGE_SCRIPT" "Codex hooks cleanup" "--remove:$HOOKS_JSON_DEST"
+  uninstall_one "$INSTRUCTIONS_DEST"
   remove_managed_file "$NODE_PATH_DEST"
   exit 0
 fi
@@ -313,7 +316,16 @@ if [ -f "$HOOKS_MERGE_SCRIPT" ]; then
   echo
 fi
 
-total=$(( ${#skills[@]} + ${#agents[@]} + ${#hook_files[@]} + ${#audio_files[@]} + config_merged + hooks_merged ))
+instructions_installed=0
+if [ -f "$INSTRUCTIONS_SRC" ]; then
+  ensure_dir "$(dirname "$INSTRUCTIONS_DEST")"
+  echo "instructions: $INSTRUCTIONS_SRC -> $INSTRUCTIONS_DEST"
+  install_one "$INSTRUCTIONS_SRC" "$INSTRUCTIONS_DEST"
+  instructions_installed=1
+  echo
+fi
+
+total=$(( ${#skills[@]} + ${#agents[@]} + ${#hook_files[@]} + ${#audio_files[@]} + config_merged + hooks_merged + instructions_installed ))
 echo "done. processed $total item(s):"
 for name in "${skills[@]}"; do
   echo "  skill: $name"
@@ -332,4 +344,7 @@ if [ "$config_merged" -eq 1 ]; then
 fi
 if [ "$hooks_merged" -eq 1 ]; then
   echo "  hooks.json: $HOOKS_JSON_DEST"
+fi
+if [ "$instructions_installed" -eq 1 ]; then
+  echo "  instructions: $INSTRUCTIONS_DEST"
 fi
