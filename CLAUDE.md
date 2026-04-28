@@ -3,8 +3,9 @@
 This is **Knowledge Forge** — an Obsidian vault over Notion. Notion 是 source of truth，這裡存提煉後的可重用知識。
 
 ## Before Acting
-1. 讀 `AGENTS.md` 取得完整 reading priority 與 writing rules（此檔是濃縮版）。
-2. 讀 `01_hubs/_now.md` 了解 current focus（階段目標會隨時間變動）。
+1. 用 `mcp__qmd__query` 搜尋與任務相關的關鍵字，取得 vault 中已有的 context（skills、playbooks、notes、projects）。
+2. 讀 `AGENTS.md` 取得完整 reading priority 與 writing rules（此檔是濃縮版）。
+3. 讀 `01_hubs/_now.md` 了解 current focus（階段目標會隨時間變動）。
 
 ## Reading Priority（摘自 AGENTS.md）
 `06_skills/` → `07_context-packs/` → `04_playbooks/` → `03_notes/` → `01_hubs/` → `02_sources/` → `90_cache/`

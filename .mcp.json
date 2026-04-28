@@ -2,7 +2,10 @@
   "mcpServers": {
     "qmd": {
       "command": "qmd",
-      "args": ["mcp", "--index", "knowledge-forge"]
+      "args": ["mcp"],
+      "env": {
+        "INDEX_PATH": "${HOME}/.cache/qmd/knowledge-forge.sqlite"
+      }
     }
   }
 }
